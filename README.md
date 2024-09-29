@@ -1,0 +1,1 @@
+# notatki_na_zajecia
