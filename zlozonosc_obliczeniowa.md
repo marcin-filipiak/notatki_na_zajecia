@@ -245,4 +245,4 @@ int main() {
 }
 ```
 
-W powyższym przykładzie, mamy macierz o wymiarach \(m \times n\). Każdy wiersz zawiera \(n\) elementów, a wierszy jest \(m\), więc liczba operacji to \(m \times n\). Złożoność czasowa algorytmu wynosi **O(m \* n)**, ponieważ każda iteracja przez komórki macierzy wymaga wykonania \(m \times n\) operacji.
+W powyższym przykładzie, mamy macierz o wymiarach \(m na n\). Każdy wiersz zawiera \(n\) elementów, a wierszy jest \(m\), więc liczba operacji to \(m razy n\). Złożoność czasowa algorytmu wynosi **O(m \* n)**, ponieważ każda iteracja przez komórki macierzy wymaga wykonania \(m razy n\) operacji.
