@@ -12,7 +12,7 @@ Złożoność obliczeniową można podzielić na:
 
 ## 2. Czasowa złożoność obliczeniowa
 
-### 2.1. Jak ocenia się złożoność obliczeniową czasową?
+### 2.1. Jak ocenia się czasową złożoność obliczeniową?
 
 Złożoność algorytmu wyrażana jest zazwyczaj za pomocą notacji **O-wielkie** (ang. Big-O), która opisuje najgorszy możliwy scenariusz (worst-case). Mówi nam, jak szybko rośnie liczba operacji w algorytmie, gdy rośnie liczba danych wejściowych \(n\).
 
@@ -24,7 +24,7 @@ Złożoność algorytmu wyrażana jest zazwyczaj za pomocą notacji **O-wielkie*
 - **O(n²)** – złożoność kwadratowa: liczba operacji rośnie jak kwadrat wielkości danych. Przykład: sortowanie bąbelkowe.
 - **O(2^n)** – złożoność wykładnicza: liczba operacji rośnie bardzo szybko, np. w algorytmach z przeszukiwaniem wyczerpującym (brute force).
   
-### 2.2. Jak oblicza się złożoność obliczeniową?
+### 2.2. Jak oblicza się czasową złożoność obliczeniową?
 
 Aby oszacować złożoność czasową algorytmu, wykonujemy następujące kroki:
 1. **Zidentyfikowanie najczęściej powtarzającej się operacji**: Skupiamy się na operacji, która ma największy wpływ na czas działania algorytmu.
@@ -40,7 +40,7 @@ for(int i = 0; i < n; i++) {
 ```
 W tym przypadku liczba operacji to \(n\), więc złożoność czasowa algorytmu wynosi **O(n)**.
 
-### 2.3. Dlaczego złożoność obliczeniowa jest ważna?
+### 2.3. Dlaczego czasowa złożoność obliczeniowa jest ważna?
 
 Zrozumienie złożoności obliczeniowej jest kluczowe, ponieważ pozwala ocenić, czy dany algorytm będzie efektywny dla dużych zestawów danych. Algorytmy o mniejszej złożoności są szybsze i mniej wymagające w użyciu, co ma znaczenie w praktycznych aplikacjach, takich jak przetwarzanie dużych zbiorów danych czy analiza w czasie rzeczywistym.
 
@@ -48,7 +48,7 @@ Zrozumienie złożoności obliczeniowej jest kluczowe, ponieważ pozwala ocenić
 
 Oto przykłady kodu w C++ dla poszczególnych poziomów złożoności czasowej algorytmów:
 
-### 2.4.1. **Złożoność stała: O(1)**
+### 2.4.1. **Złożoność czasowa stała: O(1)**
 Algorytm wykonuje zawsze tę samą liczbę operacji, niezależnie od rozmiaru danych wejściowych.
 
 Przykład: dostęp do elementu tablicy
@@ -64,7 +64,7 @@ int main() {
 }
 ```
 
-###  2.4.2. **Złożoność logarytmiczna: O(log n)**
+###  2.4.2. **Złożoność czasowa logarytmiczna: O(log n)**
 Liczba operacji rośnie logarytmicznie w zależności od danych wejściowych.
 
 Przykład: wyszukiwanie binarne w posortowanej tablicy
@@ -93,7 +93,7 @@ int main() {
 }
 ```
 
-###  2.4.3. **Złożoność liniowa: O(n)**
+###  2.4.3. **Złożoność czasowa liniowa: O(n)**
 Liczba operacji rośnie liniowo wraz z rozmiarem danych wejściowych.
 
 Przykład: liniowe przeszukiwanie tablicy
@@ -118,7 +118,7 @@ int main() {
 }
 ```
 
-###  2.4.4. **Złożoność liniowo-logarytmiczna: O(n log n)**
+###  2.4.4. **Złożoność czasowa liniowo-logarytmiczna: O(n log n)**
 Liczba operacji rośnie w tempie \(n \log n\). Taki czas osiągają optymalne algorytmy sortujące.
 
 Przykład: sortowanie przy użyciu `std::sort` (które implementuje introsort, mające złożoność O(n log n))
@@ -138,7 +138,7 @@ int main() {
 }
 ```
 
-###  2.4.5. **Złożoność kwadratowa: O(n²)**
+###  2.4.5. **Złożoność czasowa kwadratowa: O(n²)**
 Liczba operacji rośnie jak kwadrat rozmiaru danych wejściowych.
 
 Przykład: sortowanie bąbelkowe (bubble sort)
@@ -167,7 +167,7 @@ int main() {
 }
 ```
 
-###  2.4.6. **Złożoność wykładnicza: O(2ⁿ)**
+###  2.4.6. **Złożoność czasowa wykładnicza: O(2ⁿ)**
 Liczba operacji rośnie bardzo szybko, wykładniczo wraz z wielkością danych wejściowych.
 
 Przykład: rozwiązanie problemu n-tych liczb Fibonacciego metodą rekurencyjną
@@ -187,7 +187,7 @@ int main() {
 }
 ```
 
-###  2.4.7. **Złożoność silni: O(n!)**
+###  2.4.7. **Złożoność czasowa silni: O(n!)**
 Liczba operacji rośnie jak silnia \(n!\), np. dla problemów permutacji.
 
 Przykład: generowanie permutacji zbioru
@@ -217,7 +217,7 @@ int main() {
 }
 ```
 
-###  2.4.8. **Złożoność obliczeniowa O(m \* n)**
+###  2.4.8. **Złożoność czasowa O(m \* n)**
 
 Złożoność **O(m \* n)** oznacza, że algorytm wykonuje liczbę operacji proporcjonalną do iloczynu dwóch parametrów, czyli \(m\) i \(n\). Najczęściej spotyka się to w algorytmach, które muszą przetwarzać dwie niezależne struktury danych lub iterować po macierzy (tablicy dwuwymiarowej), gdzie \(m\) to liczba wierszy, a \(n\) to liczba kolumn.
 
@@ -302,7 +302,7 @@ Zrozumienie złożoności pamięciowej jest kluczowe, ponieważ pozwala ocenić,
 
 ### 3.4. Przykłady poziomów złożoności pamięciowej algorytmów
 
-#### 3.4.1. **Złożoność stała: O(1)**
+#### 3.4.1. **Złożoność pamięciowa stała: O(1)**
 Algorytm wykorzystuje stałą ilość pamięci, niezależnie od rozmiaru danych wejściowych.
 
 Przykład: prosta funkcja, która zwraca wartość:
@@ -322,7 +322,7 @@ int main() {
 }
 ```
 
-#### 3.4.2. **Złożoność liniowa: O(n)**
+#### 3.4.2. **Złożoność pamięciowa liniowa: O(n)**
 Algorytm wykorzystuje pamięć proporcjonalną do rozmiaru danych wejściowych.
 
 Przykład: funkcja tworząca tablicę:
@@ -344,7 +344,7 @@ int main() {
 }
 ```
 
-#### 3.4.3. **Złożoność kwadratowa: O(n²)**
+#### 3.4.3. **Złożoność pamięciowa kwadratowa: O(n²)**
 Algorytm wykorzystuje pamięć proporcjonalną do kwadratu rozmiaru danych wejściowych.
 
 Przykład: funkcja tworząca macierz \(n \times n\):
