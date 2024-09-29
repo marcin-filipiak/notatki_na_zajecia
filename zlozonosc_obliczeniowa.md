@@ -1,4 +1,4 @@
-# Notatka: Czasowa złożoność obliczeniowa algorytmów
+# Notatka: Złożoność obliczeniowa algorytmów (czasowa i pamięciowa)
 
 ## 1. Co to jest złożoność obliczeniowa?
 
