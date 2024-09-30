@@ -85,59 +85,68 @@ Nazwa pliku: save.php
 
 ```php
 <?php
-// Dane do połączenia z bazą
-$servername = "localhost";
-$username = "root";
-$password = "";  // Puste hasło
-$dbname = "baza_testowa";
+// Dane do połączenia z bazą danych
+$servername = "localhost";  // Nazwa hosta (zwykle localhost dla lokalnej bazy danych)
+$username = "root";  // Użytkownik bazy danych (root dla lokalnych serwerów MySQL)
+$password = "";  // Hasło użytkownika (puste w tym przypadku)
+$dbname = "baza_testowa";  // Nazwa bazy danych
 
 // Połączenie z bazą danych
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Sprawdzanie połączenia
+// Sprawdzenie połączenia z bazą danych
 if ($conn->connect_error) {
-    die("Połączenie nieudane: " . $conn->connect_error);
+    die("Połączenie nieudane: " . $conn->connect_error);  // Jeśli połączenie się nie uda, zakończ i wyświetl błąd
 }
 
-// Sprawdzanie czy formularz został przesłany
+// Sprawdzanie, czy formularz został wysłany metodą POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Pobieranie danych z formularza
+    // Pobieranie danych z formularza (pole 'imie' i 'kolor_wlosow')
     $imie = $_POST['imie'];
     $kolor = $_POST['kolor_wlosow'];
 
-    // Obsługa pliku
+    // Sprawdzenie, czy plik został przesłany bez błędów
     if (isset($_FILES['plik']) && $_FILES['plik']['error'] == 0) {
-        // Pobranie informacji o pliku
-        $plik_nazwa = $_FILES['plik']['name'];
-        $plik_tmp = $_FILES['plik']['tmp_name'];
+        // Pobranie nazwy pliku i jego ścieżki tymczasowej
+        $plik_nazwa = $_FILES['plik']['name'];  // Nazwa pliku
+        $plik_tmp = $_FILES['plik']['tmp_name'];  // Tymczasowa lokalizacja pliku
 
-        // Przeniesienie pliku do katalogu "pliki"
+        // Definiowanie folderu, do którego plik ma być przeniesiony
         $folder = 'pliki/';
         if (!is_dir($folder)) {
-            mkdir($folder, 0777, true); // Tworzenie folderu jeśli nie istnieje
+            // Tworzenie folderu "pliki", jeśli jeszcze nie istnieje
+            mkdir($folder, 0777, true);
         }
+        // Definiowanie pełnej ścieżki, gdzie plik zostanie zapisany
         $plik_sciezka = $folder . basename($plik_nazwa);
 
+        // Przeniesienie pliku z folderu tymczasowego do docelowego folderu "pliki"
         if (move_uploaded_file($plik_tmp, $plik_sciezka)) {
-            echo "Plik został przesłany pomyślnie.";
+            echo "Plik został przesłany pomyślnie.";  // Komunikat o sukcesie
 
-            // SQL - Wstawienie danych do tabeli (bez zawartości pliku)
+            // SQL - wstawienie danych do tabeli w bazie danych
+            // Wstawiane są: imię, kolor, nazwa pliku oraz jego ścieżka
             $sql = "INSERT INTO tabela_testowa (imie, kolor, plik_nazwa, plik_sciezka)
                     VALUES ('$imie', '$kolor', '$plik_nazwa', '$plik_sciezka')";
 
+            // Wykonanie zapytania SQL i sprawdzenie, czy się udało
             if ($conn->query($sql) === TRUE) {
-                echo "Dane zostały zapisane w bazie danych.";
+                echo "Dane zostały zapisane w bazie danych.";  // Sukces przy zapisie do bazy
             } else {
+                // Wyświetlenie błędu w przypadku problemów z zapisem
                 echo "Błąd: " . $sql . "<br>" . $conn->error;
             }
         } else {
+            // Komunikat, jeśli wystąpił problem podczas przenoszenia pliku
             echo "Wystąpił problem z przesyłaniem pliku.";
         }
     } else {
+        // Komunikat o błędzie, jeśli plik nie został przesłany poprawnie
         echo "Błąd podczas przesyłania pliku.";
     }
 }
 
+// Zamknięcie połączenia z bazą danych
 $conn->close();
 ?>
 ```
