@@ -1,4 +1,13 @@
-Oto przykład formularza HTML wysyłającego dane metodą POST, zawierającego wymagane pola:
+# Formularz w HTML i zapis do bazy
+
+* form.html - formularz z danymi
+* save.php - odbiór danych z formularza i zapis do bazy
+* pliki - folder 
+
+## HTML
+
+Przykład formularza HTML wysyłającego dane metodą POST, zawierającego wymagane pola.  
+Nazwa pliku form.html
 
 ```html
 <!DOCTYPE html>
@@ -10,7 +19,7 @@ Oto przykład formularza HTML wysyłającego dane metodą POST, zawierającego w
 </head>
 <body>
     <h2>Formularz Rejestracyjny</h2>
-    <form action="/submit" method="POST" enctype="multipart/form-data">
+    <form action="save.php" method="POST" enctype="multipart/form-data">
         <!-- Imię -->
         <label for="imie">Imię:</label>
         <input type="text" id="imie" name="imie" required><br><br>
@@ -54,3 +63,81 @@ Oto przykład formularza HTML wysyłającego dane metodą POST, zawierającego w
 2. `method="POST"` - metoda wysyłania danych (POST).
 3. `enctype="multipart/form-data"` - wymagane do przesyłania plików.
 4. Każde pole jest opisane etykietą `label`, a odpowiednie pola formularza są oznaczone typami (np. `text`, `number`, `date`, `email`, `password`, `file`).
+
+
+
+## Baza danych
+
+```sql
+CREATE TABLE tabela_testowa (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    imie VARCHAR(100) NOT NULL,
+    kolor VARCHAR(7) NOT NULL,
+    plik_nazwa VARCHAR(255) NOT NULL,
+    plik_sciezka VARCHAR(255) NOT NULL
+);
+```
+
+## PHP
+
+Odbiór danych w PHP oraz zapis do bazy danych i zapis na dysku.  
+Nazwa pliku: save.php
+
+```php
+<?php
+// Dane do połączenia z bazą
+$servername = "localhost";
+$username = "root";
+$password = "";  // Puste hasło
+$dbname = "baza_testowa";
+
+// Połączenie z bazą danych
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Sprawdzanie połączenia
+if ($conn->connect_error) {
+    die("Połączenie nieudane: " . $conn->connect_error);
+}
+
+// Sprawdzanie czy formularz został przesłany
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Pobieranie danych z formularza
+    $imie = $_POST['imie'];
+    $kolor = $_POST['kolor_wlosow'];
+
+    // Obsługa pliku
+    if (isset($_FILES['plik']) && $_FILES['plik']['error'] == 0) {
+        // Pobranie informacji o pliku
+        $plik_nazwa = $_FILES['plik']['name'];
+        $plik_tmp = $_FILES['plik']['tmp_name'];
+
+        // Przeniesienie pliku do katalogu "pliki"
+        $folder = 'pliki/';
+        if (!is_dir($folder)) {
+            mkdir($folder, 0777, true); // Tworzenie folderu jeśli nie istnieje
+        }
+        $plik_sciezka = $folder . basename($plik_nazwa);
+
+        if (move_uploaded_file($plik_tmp, $plik_sciezka)) {
+            echo "Plik został przesłany pomyślnie.";
+
+            // SQL - Wstawienie danych do tabeli (bez zawartości pliku)
+            $sql = "INSERT INTO tabela_testowa (imie, kolor, plik_nazwa, plik_sciezka)
+                    VALUES ('$imie', '$kolor', '$plik_nazwa', '$plik_sciezka')";
+
+            if ($conn->query($sql) === TRUE) {
+                echo "Dane zostały zapisane w bazie danych.";
+            } else {
+                echo "Błąd: " . $sql . "<br>" . $conn->error;
+            }
+        } else {
+            echo "Wystąpił problem z przesyłaniem pliku.";
+        }
+    } else {
+        echo "Błąd podczas przesyłania pliku.";
+    }
+}
+
+$conn->close();
+?>
+```
