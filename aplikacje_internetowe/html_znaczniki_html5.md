@@ -164,3 +164,84 @@ HTML5 rozszerza możliwości interakcji z przeglądarką i urządzeniami użytko
 ---
 
 HTML5 wprowadza wiele udoskonaleń i nowych funkcji, które ułatwiają tworzenie nowoczesnych, dynamicznych i semantycznych stron internetowych, a jednocześnie zwiększają ich dostępność i użyteczność.
+
+___________
+
+Oto przykładowy kod strony HTML5:
+
+```html
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przykładowa Strona HTML5</title>
+</head>
+<body>
+
+    <!-- Nagłówek strony -->
+    <header>
+        <h1>Witaj na mojej stronie</h1>
+        <nav>
+            <a href="#home">Strona Główna</a>
+            <a href="#about">O mnie</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+    </header>
+
+    <!-- Główna sekcja -->
+    <section>
+        <h2>O stronie</h2>
+        <p>Ta strona prezentuje przykłady znaczników HTML5 i jak można ich używać do budowania struktury strony internetowej.</p>
+        
+        <!-- Wyróżniony fragment tekstu -->
+        <p>Oto <mark>ważna</mark> informacja na temat HTML5!</p>
+        
+        <!-- Wideo osadzone na stronie -->
+        <h3>Przykład wideo</h3>
+        <video controls width="400">
+            <source src="example.mp4" type="video/mp4">
+            Twoja przeglądarka nie obsługuje wideo.
+        </video>
+        
+        <!-- Rysowanie na elemencie canvas -->
+        <h3>Przykład rysunku na canvas</h3>
+        <canvas id="myCanvas" width="200" height="100"></canvas>
+        <script>
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(10, 10, 150, 80);
+        </script>
+
+        <!-- Osadzony dźwięk -->
+        <h3>Przykład audio</h3>
+        <audio controls>
+            <source src="audio.mp3" type="audio/mpeg">
+            Twoja przeglądarka nie obsługuje audio.
+        </audio>
+        
+        <!-- Niezależna sekcja z artykułem -->
+        <article>
+            <h2>Wpis na blogu</h2>
+            <p>To jest przykładowy artykuł na moim blogu. HTML5 to bardzo wszechstronny język znaczników!</p>
+        </article>
+
+        <!-- Dodatkowa informacja w sekcji bocznej -->
+        <aside>
+            <h3>Informacja dodatkowa</h3>
+            <p>To jest informacja umieszczona z boku treści głównej. Może zawierać linki, reklamy lub inne dodatkowe treści.</p>
+        </aside>
+    </section>
+
+    <!-- Stopka strony -->
+    <footer>
+        <p>&copy; 2024 Moja Strona | Wszystkie prawa zastrzeżone</p>
+        <p>Data ostatniej aktualizacji: <time datetime="2024-10-17">17 października 2024</time></p>
+    </footer>
+
+</body>
+</html>
+```
+
+W tej wersji nie ma żadnych stylów CSS, więc wszystkie elementy strony są wyświetlane w domyślnej formie przeglądarki.
