@@ -56,16 +56,13 @@ Użytkownik chce zalogować się do systemu, aby uzyskać dostęp do swojego kon
 3. Użytkownik klika przycisk "Nie pamiętam hasła".
 4. System przekierowuje użytkownika do formularza resetu hasła.
 5. Użytkownik podaje adres e-mail powiązany z kontem.
-6. System wysyła link do resetu hasła na podany e-mail.
-7. Użytkownik klika link w e-mailu i tworzy nowe hasło.
-8. Użytkownik wraca do ekranu logowania, wprowadza nowo utworzone hasło i loguje się.
+6. System wysyła nowe hasło na e-mail.
 
 #### 5. Przebieg wyjątkowy:
 1. Użytkownik otwiera aplikację.
 2. Aplikacja wyświetla ekran logowania.
 3. Użytkownik wprowadza nieprawidłową nazwę użytkownika lub hasło.
 4. System wyświetla komunikat "Nieprawidłowe dane logowania" i prosi o ponowne wprowadzenie danych.
-5. Użytkownik może spróbować zalogować się ponownie lub skorzystać z opcji resetu hasła.
 
 #### Wyjaśnienie
 W tym scenariuszu użytkowania aktorem jest **użytkownik**, a jego **celem** jest zalogowanie się do systemu. **Przebieg podstawowy** opisuje standardową, prawidłową ścieżkę, gdy dane są poprawne. **Przebieg alternatywny** przedstawia sytuację, w której użytkownik musi zresetować hasło, ponieważ go zapomniał. Natomiast **przebieg wyjątkowy** wskazuje, co się dzieje, gdy użytkownik poda błędne dane logowania.
