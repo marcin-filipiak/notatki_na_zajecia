@@ -13,12 +13,12 @@ W programowaniu istnieje wiele konwencji nazewnictwa, które mają swoje specyfi
    - **Zastosowanie**: Zwykle stosowana do nazw klas, obiektów i typów w językach takich jak C#, Java, oraz w niektórych frameworkach.
 
 #### 3. **snake_case**
-   - **Opis**: Wszystkie litery są pisane małymi literami, a poszczególne słowa oddzielone są znakiem podkreślenia (_).
+   - **Opis**: Wszystkie wyrazt są pisane małymi literami, a poszczególne słowa oddzielone są znakiem podkreślenia (_).
    - **Przykłady**: `my_variable`, `calculate_sum`, `is_finished`.
    - **Zastosowanie**: Powszechnie używana w Pythonie, a także w nazwach plików lub zmiennych globalnych w C.
 
 #### 4. **SCREAMING_SNAKE_CASE**
-   - **Opis**: Wersja snake_case, gdzie wszystkie litery są pisane wielkimi literami.
+   - **Opis**: Wersja snake_case, gdzie wszystkie wyrazt są pisane wielkimi literami.
    - **Przykłady**: `MAX_SIZE`, `DEFAULT_VALUE`, `TOTAL_SUM`.
    - **Zastosowanie**: Często stosowana dla stałych (constant) lub makr w C/C++.
 
