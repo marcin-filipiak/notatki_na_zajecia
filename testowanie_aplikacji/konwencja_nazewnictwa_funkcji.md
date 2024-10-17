@@ -18,7 +18,7 @@ W programowaniu istnieje wiele konwencji nazewnictwa, które mają swoje specyfi
    - **Zastosowanie**: Powszechnie używana w Pythonie, a także w nazwach plików lub zmiennych globalnych w C.
 
 #### 4. **SCREAMING_SNAKE_CASE**
-   - **Opis**: Wersja snake_case, gdzie wszystkie wyrazt są pisane wielkimi literami.
+   - **Opis**: Wersja snake_case, gdzie wszystkie wyrazy są pisane wielkimi literami.
    - **Przykłady**: `MAX_SIZE`, `DEFAULT_VALUE`, `TOTAL_SUM`.
    - **Zastosowanie**: Często stosowana dla stałych (constant) lub makr w C/C++.
 
