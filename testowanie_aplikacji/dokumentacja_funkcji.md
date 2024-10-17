@@ -1,4 +1,13 @@
+# Dokumentacja funkcji
+
 Tworzenie dokumentacji do kodu, funkcji i metod klas według podanego wzoru to dobry sposób na zachowanie spójności i czytelności. Oto szczegółowe wyjaśnienia i przykłady dla różnych przypadków.
+
+### Zasady ogólne:
+1. **Nazwa funkcji**: Powinna jasno sugerować, co robi funkcja.
+2. **Opis funkcji**: Krótkie i zwięzłe wyjaśnienie, co funkcja robi. Ważne, aby opisać cel funkcji, a nie implementację.
+3. **Parametry**: Każdy parametr należy opisać, wskazując jego typ oraz rolę, jaką pełni w funkcji.
+4. **Zwracany typ i opis**: Wyjaśnienie, co funkcja zwraca, jakiego typu jest wynik, oraz w jakim celu jest zwracany.
+5. **Autor**: Można tu umieścić numer autora, ale w praktyce może być to również nazwa zespołu lub autora funkcji.
 
 ### 1. Funkcja bez parametrów i bez zwracanego wyniku
 ```cpp
@@ -96,11 +105,5 @@ T maxOfTwo(T a, T b) {
 }
 ```
 
-### Zasady ogólne:
-1. **Nazwa funkcji**: Powinna jasno sugerować, co robi funkcja.
-2. **Opis funkcji**: Krótkie i zwięzłe wyjaśnienie, co funkcja robi. Ważne, aby opisać cel funkcji, a nie implementację.
-3. **Parametry**: Każdy parametr należy opisać, wskazując jego typ oraz rolę, jaką pełni w funkcji.
-4. **Zwracany typ i opis**: Wyjaśnienie, co funkcja zwraca, jakiego typu jest wynik, oraz w jakim celu jest zwracany.
-5. **Autor**: Można tu umieścić numer autora, ale w praktyce może być to również nazwa zespołu lub autora funkcji.
 
 Dzięki takiemu formatowi łatwo będzie Ci utrzymać porządek w dokumentacji i ułatwić innym użytkownikom zrozumienie Twojego kodu.
