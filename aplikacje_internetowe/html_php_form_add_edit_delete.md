@@ -109,6 +109,7 @@ CREATE TABLE users (
 );
 
 ```
+___
 
 ###  Wyjaśnienie kodu PHP - obsługa operacji CRUD
 
