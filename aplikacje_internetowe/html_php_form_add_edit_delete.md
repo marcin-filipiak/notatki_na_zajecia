@@ -28,9 +28,6 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
-// Pobieranie wszystkich danych
-$result = $conn->query("SELECT * FROM users");
-
 // Funkcja pobierająca dane użytkownika do edycji
 function getUser($conn, $id) {
     $result = $conn->query("SELECT * FROM users WHERE id = $id");
@@ -53,6 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header("Location: index.php");
     exit;
 }
+
+
+// Pobieranie wszystkich danych po wykonaniu: edycji, kasowania i dodawania
+$result = $conn->query("SELECT * FROM users");
+
 ?>
 
 <!DOCTYPE html>
