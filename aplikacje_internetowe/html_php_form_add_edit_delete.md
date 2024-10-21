@@ -24,8 +24,6 @@ if ($conn->connect_error) {
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
     $conn->query("DELETE FROM users WHERE id = $id");
-    header("Location: index.php"); // Przekierowanie po usunięciu
-    exit;
 }
 
 // Funkcja pobierająca dane użytkownika do edycji
@@ -47,8 +45,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Dodanie nowego rekordu
         $conn->query("INSERT INTO users (imie, kolor) VALUES ('$imie', '$kolor')");
     }
-    header("Location: index.php");
-    exit;
 }
 
 
