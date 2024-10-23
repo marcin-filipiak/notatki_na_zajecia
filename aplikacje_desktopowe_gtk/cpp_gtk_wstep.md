@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
     // Funkcja gtk_window_new() tworzy nowe okno typu TOPLEVEL,
     // co oznacza, że będzie to główne okno aplikacji.
     
-    gtk_window_set_title(GTK_WINDOW(window), "Prosta etykieta GTK+");
+    gtk_window_set_title(GTK_WINDOW(window), "etykieta GTK+");
     // Ustawia tytuł okna, który pojawi się w jego pasku tytułowym.
 
     gtk_container_set_border_width(GTK_CONTAINER(window), 10);
@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
     // Ustawia minimalny rozmiar okna na 400 pikseli szerokości i 200 pikseli wysokości.
 
     // Tworzenie etykiety
-    GtkWidget *label = gtk_label_new("To jest prosty program z etykietą.");
+    GtkWidget *label = gtk_label_new("To jest program z etykietą.");
     // Tworzy nową etykietę z podanym tekstem. Etykieta to widżet wyświetlający statyczny tekst.
 
     // Podłączenie funkcji destroy() do sygnału destroy okna
