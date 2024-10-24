@@ -68,7 +68,7 @@ int main(int argc, char *argv[]) {
 4. **Zwracanie FALSE w callbacku**:
    - `return FALSE` pozwala GTK+ kontynuować zmianę stanu przełącznika, czyli faktycznie go przełączyć. Gdybyśmy zwrócili TRUE, przełącznik nie zmieniłby swojego stanu.
 
-### Funkcje przydatne dla `GtkSwitch`
+### Przydatne funkcje
 
 - **`gtk_switch_get_active(GtkSwitch *switch)`**: Zwraca, czy przełącznik jest włączony (TRUE) czy wyłączony (FALSE).
 - **`gtk_switch_set_active(GtkSwitch *switch, gboolean is_active)`**: Ustawia stan przełącznika ręcznie.
