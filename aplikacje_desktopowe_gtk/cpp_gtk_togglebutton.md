@@ -3,13 +3,13 @@
 Oto przykład użycia przycisku dwustanowego w GTK+. Taki przycisk może być używany do przełączania między dwoma stanami (np. włączony/wyłączony), 
 a użytkownik może zobaczyć, jaki stan jest aktywny.
 
-### Kluczowe elementy:
+### Kluczowe elementy
 
 - **Tworzenie przełącznika**: Używamy `gtk_toggle_button_new_with_label()` do stworzenia przełącznika.
 - **Reagowanie na zmianę stanu**: Sygnał `toggled` jest wywoływany, gdy stan przycisku się zmieni.
 - **Sprawdzenie stanu**: Za pomocą `gtk_toggle_button_get_active()` możemy sprawdzić, czy przycisk jest włączony (TRUE) lub wyłączony (FALSE).
 
-### Przykład:
+### Przykład
 
 ```c
 #include <gtk/gtk.h>
@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 3. **Uruchomienie**:
    - Aplikacja tworzy okno z przyciskiem dwustanowym, a kliknięcia użytkownika zmieniają tekst przycisku i stan.
 
-### Funkcje przydatne przy przyciskach dwustanowych:
+### Przydatne funkcje
 
 - **`gtk_toggle_button_get_active(GtkToggleButton *toggle_button)`**: Sprawdza, czy przycisk jest aktywny (TRUE) czy nieaktywny (FALSE).
 - **`gtk_button_set_label(GtkButton *button, const gchar *label)`**: Zmienia etykietę przycisku.
