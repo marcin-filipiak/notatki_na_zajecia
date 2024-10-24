@@ -1,4 +1,4 @@
-#GTK+ Switch
+# GTK+ Switch
 
 W GTK+ możesz używać widżetu **GtkSwitch**, który reprezentuje typowy przełącznik dwustanowy, podobny do tych stosowanych w interfejsach mobilnych, np. włączanie/wyłączanie ustawienia.
 
