@@ -8,4 +8,5 @@ Wstęp do programowania aplikacji desktopowych z graficznym interfejsem w oparci
 
 Widżety:
 * ![Label](cpp_gtk_label.md)
+* ![Button](cpp_gtk_button.md)
 * ![ProgressBar](cpp_gtk_progressbar.md)
