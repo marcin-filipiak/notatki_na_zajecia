@@ -98,6 +98,8 @@ int main(int argc, char *argv[]) {
 17. **`return 0;`**
     - Zwraca 0, co oznacza, że program zakończył się pomyślnie.
 
+___
+
 ### Możliwości widżetu ProgressBar
 
 1. **Ustawianie postępu**
