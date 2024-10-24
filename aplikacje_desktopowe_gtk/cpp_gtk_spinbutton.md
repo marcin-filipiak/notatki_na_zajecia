@@ -2,12 +2,12 @@
 
 **GtkSpinButton** w GTK+ to widżet, który umożliwia użytkownikowi wybór wartości liczbowej z określonego zakresu poprzez klikanie strzałek w górę i w dół lub ręczne wpisanie wartości.
 
-### Kluczowe właściwości **GtkSpinButton**:
+### Kluczowe właściwości **GtkSpinButton**
 - **Zakres wartości**: Określasz minimalną i maksymalną wartość.
 - **Krok**: Ustawiasz, o ile ma się zwiększać lub zmniejszać wartość przy użyciu strzałek.
 - **Liczby zmiennoprzecinkowe**: Możesz ustawić dokładność (liczbę cyfr po przecinku).
 
-### Kluczowe funkcje:
+### Kluczowe funkcje
 - `gtk_spin_button_new_with_range()`: Tworzy nowy `GtkSpinButton` z zakresem wartości.
 - `gtk_spin_button_get_value()`: Pobiera bieżącą wartość spinbuttona.
 - `gtk_spin_button_set_value()`: Ustawia wartość spinbuttona.
