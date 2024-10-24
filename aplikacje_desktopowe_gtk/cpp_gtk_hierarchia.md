@@ -58,6 +58,37 @@ gtk_box_pack_start(GTK_BOX(box), button2, TRUE, TRUE, 0);
 - **GtkOrientation.VERTICAL**: Widżety są rozmieszczone pionowo.
 - **GtkOrientation.HORIZONTAL**: Widżety są rozmieszczone poziomo.
 
+Funkcja `gtk_box_pack_start()` służy do umieszczania widżetów w kontenerze typu **GtkBox**, który układa widżety w linii (pionowej lub poziomej) w zależności od orientacji kontenera. Argumenty tej funkcji określają, w jaki sposób widżet zostanie dodany do kontenera i jak ma się zachowywać w trakcie zmiany rozmiaru okna.
+
+W wywołaniu:
+
+```cpp
+gtk_box_pack_start(GTK_BOX(box), button1, TRUE, TRUE, 0);
+```
+
+Argumenty mają następujące znaczenie:
+
+1. **`GTK_BOX(box)`** – Pierwszy argument to kontener typu **GtkBox**, do którego chcemy dodać widżet. W tym przypadku jest to wskaźnik do kontenera `box`.
+
+2. **`button1`** – Drugi argument to widżet, który chcemy dodać do kontenera. Tutaj dodajemy przycisk o nazwie `button1`.
+
+3. **`TRUE` (expand)** – Ten argument kontroluje, czy widżet może "rozszerzać się", aby zająć dodatkowe miejsce w kontenerze, jeśli takie się pojawi (np. gdy okno zostanie powiększone). 
+   - Jeśli wartość wynosi **`TRUE`**, widżet będzie rozszerzał się, aby zająć dostępne miejsce.
+   - Jeśli wynosi **`FALSE`**, widżet nie będzie zajmował dodatkowej przestrzeni, pozostając w swoim naturalnym rozmiarze.
+
+4. **`TRUE` (fill)** – Ten argument kontroluje, czy widżet będzie wypełniał dostępne miejsce w kontenerze (w jego osi głównej, tj. poziomo dla `GtkBox` poziomego i pionowo dla `GtkBox` pionowego). 
+   - Jeśli wartość wynosi **`TRUE`**, widżet zostanie rozciągnięty, aby wypełnić przestrzeń.
+   - Jeśli wynosi **`FALSE`**, widżet zachowa swój naturalny rozmiar, nawet jeśli ma przydzielone dodatkowe miejsce.
+
+5. **`0` (padding)** – Ostatni argument określa liczbę pikseli odstępu (paddingu) między tym widżetem a sąsiadującymi widżetami w kontenerze. W tym przypadku wartość **`0`** oznacza brak dodatkowego odstępu.
+
+Wyrażenie `gtk_box_pack_start(GTK_BOX(box), button1, TRUE, TRUE, 0);` oznacza, że:
+
+- **button1** zostanie dodany na początku kontenera `box` (dlatego "start" w nazwie funkcji).
+- **button1** będzie mógł się rozszerzać, aby zająć dostępne miejsce w kontenerze (dzięki `TRUE` dla parametru `expand`).
+- **button1** będzie wypełniał dostępną przestrzeń (dzięki `TRUE` dla parametru `fill`).
+- Nie będzie dodatkowego odstępu między `button1` a sąsiadującymi widżetami (bo padding wynosi `0`).
+
 ### Użycie GtkGrid (Układ siatki)
 
 **GtkGrid** to bardziej elastyczny kontener, który pozwala rozmieszczać widżety w formie tabeli. Każdy widżet można umieścić w określonej pozycji siatki, podając współrzędne wiersza i kolumny.
@@ -101,7 +132,7 @@ Wyrażenie `gtk_grid_attach(GTK_GRID(grid), entry, 1, 0, 1, 1);` oznacza, że wi
 Jeśli wartość szerokości lub wysokości wynosi więcej niż 1, widżet będzie "rozciągnięty" na sąsiadujące kolumny lub wiersze. Na przykład, gdybyśmy ustawili wartość szerokości na 2, widżet zająłby dwie kolumny.
 
 
-### Proces Umieszczania Widżetów
+## Proces Umieszczania Widżetów
 
 Podstawowy proces umieszczania widżetów w GTK+ wygląda następująco:
 
