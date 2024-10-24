@@ -4,4 +4,8 @@ Wstęp do programowania aplikacji desktopowych z graficznym interfejsem w oparci
 
 * ![Wstęp](cpp_gtk_wstep.md)
 * ![Obiektowość](cpp_gtk_obiektowosc.md)
-* ![Hierarchia](cpp_gtk_hierarchia.md)
+* ![Hierarchia](cpp_gtk_hierarchia.md)  
+
+Widżety:
+* ![Label](cpp_gtk_label.md)
+* ![ProgressBar](cpp_gtk_progressbar.md)
