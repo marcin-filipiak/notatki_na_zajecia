@@ -1,145 +1,81 @@
 # GTK+ ProgressBar
 
-**ProgressBar** w GTK+ to widżet służący do wizualizacji postępu operacji, takich jak kopiowanie plików, ładowanie danych lub wykonywanie długotrwałych zadań. Umożliwia użytkownikowi śledzenie, jak daleko proces przeszedł w odniesieniu do całości. Widżet ten może być używany zarówno w trybie deterministycznym, gdzie wartości są znane, jak i w trybie nieokreślonym, gdzie postęp jest nieprzewidywalny. ProgressBar można łatwo dostosować do różnych zastosowań, zmieniając jego styl i zachowanie.
+**GtkProgressBar** w GTK+ to widżet używany do przedstawienia postępu trwającej operacji. Może działać w trybie determistycznym, gdzie wartość postępu jest znana, lub w trybie nieokreślonym (indeterminate), gdzie pokazuje, że operacja trwa, ale nie wiadomo, jak długo to potrwa.
 
-## Kod aplikacji GTK+, który wyświetla ProgressBar
+### Kluczowe właściwości **GtkProgressBar**:
+- **Wartość postępu**: Można ustawić i aktualizować wartość postępu w zakresie od 0 do 1.
+- **Orientacja**: Progress bar może być poziomy lub pionowy.
+- **Nieokreślony postęp**: Wyświetla animowany pasek, gdy dokładny postęp nie jest znany.
+
+### Kluczowe funkcje:
+- `gtk_progress_bar_new()`: Tworzy nowy widżet `GtkProgressBar`.
+- `gtk_progress_bar_set_fraction()`: Ustawia aktualną wartość postępu (od 0 do 1).
+- `gtk_progress_bar_set_pulse_step()`: Ustawia krok postępu w trybie nieokreślonym.
+- `gtk_progress_bar_pulse()`: Aktualizuje pasek w trybie nieokreślonym.
+
+### Przykład
 
 ```c
 #include <gtk/gtk.h>
 
-// Funkcja wywoływana przy zamknięciu okna
-static void on_destroy(GtkWidget *widget, gpointer data) {
-    gtk_main_quit(); // Kończy pętlę główną GTK+
+// Funkcja aktualizująca wartość postępu
+gboolean update_progress(GtkProgressBar *progress_bar) {
+    gdouble fraction = gtk_progress_bar_get_fraction(progress_bar);
+    fraction += 0.1; // Zwiększenie postępu o 10%
+    
+    if (fraction > 1.0)
+        fraction = 0.0; // Zresetowanie postępu po osiągnięciu 100%
+
+    gtk_progress_bar_set_fraction(progress_bar, fraction); // Ustawienie nowej wartości
+    return TRUE; // Kontynuacja aktualizacji
 }
 
 int main(int argc, char *argv[]) {
-    // Inicjalizacja GTK+
     gtk_init(&argc, &argv);
 
-    // Tworzenie głównego okna
+    // Tworzenie okna
     GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-    gtk_window_set_title(GTK_WINDOW(window), "Prosty ProgressBar GTK+");
-    gtk_container_set_border_width(GTK_CONTAINER(window), 10);
+    gtk_window_set_title(GTK_WINDOW(window), "ProgressBar Example");
+    gtk_window_set_default_size(GTK_WINDOW(window), 300, 100);
 
-    // Tworzenie kontenera box
-    GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
-    gtk_container_add(GTK_CONTAINER(window), box);
+    // Tworzenie progressbara
+    GtkWidget *progress_bar = gtk_progress_bar_new();
+    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(progress_bar), 0.0); // Ustawienie początkowej wartości postępu
 
-    // Tworzenie ProgressBar
-    GtkWidget *progressbar = gtk_progress_bar_new();
-    gtk_box_pack_start(GTK_BOX(box), progressbar, TRUE, TRUE, 0);
+    // Dodanie progressbara do okna
+    gtk_container_add(GTK_CONTAINER(window), progress_bar);
 
-    // Ustawienie wartości ProgressBar
-    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(progressbar), 0.0);
-    
-    // Podłączenie sygnału z zamknięciem okna do funkcji on_destroy
-    g_signal_connect(window, "destroy", G_CALLBACK(on_destroy), NULL);
+    // Wywoływanie funkcji aktualizującej co 500 ms
+    g_timeout_add(500, (GSourceFunc)update_progress, progress_bar);
 
-    // Wyświetlenie wszystkich widżetów
+    // Wyświetlanie widżetów
     gtk_widget_show_all(window);
 
-    // Rozpoczęcie pętli głównej GTK+
-    gtk_main();
+    // Podłączenie sygnału do zamknięcia okna
+    g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
+    gtk_main();
     return 0;
 }
 ```
 
 ### Omówienie kodu
 
-1. **`#include <gtk/gtk.h>`**
-   - Dołącza nagłówek biblioteki GTK+. Umożliwia korzystanie z funkcji, typów i makr zdefiniowanych w GTK+.
+1. **Tworzenie ProgressBar**:
+   - `gtk_progress_bar_new()` tworzy nowy pasek postępu, którego wartość początkowa wynosi 0.
 
-2. **`static void on_destroy(GtkWidget *widget, gpointer data)`**
-   - Definiuje funkcję `on_destroy`, która będzie wywoływana przy zamknięciu okna. Używa `static`, aby funkcja była widoczna tylko w tym pliku źródłowym.
+2. **Ustawienie wartości postępu**:
+   - `gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(progress_bar), fraction)` ustawia bieżącą wartość postępu. Wartość musi być liczbą zmiennoprzecinkową w zakresie od 0 do 1, gdzie 0 oznacza brak postępu, a 1 oznacza 100%.
 
-3. **`gtk_main_quit();`**
-   - Kończy pętlę główną GTK+. Wywołana, gdy użytkownik zamknie okno.
+3. **Aktualizacja postępu**:
+   - Funkcja `update_progress()` jest wywoływana co 500 ms, zwiększając wartość postępu o 0.1 (10%). Po osiągnięciu wartości 1 (100%) postęp jest resetowany do 0.
 
-4. **`int main(int argc, char *argv[])`**
-   - Główna funkcja programu. `argc` to liczba argumentów wiersza poleceń, a `argv` to tablica tych argumentów.
+### Dodatkowe funkcje dla **GtkProgressBar**
 
-5. **`gtk_init(&argc, &argv);`**
-   - Inicjalizuje bibliotekę GTK+. Niezbędne przed wywołaniem jakichkolwiek funkcji GTK. Argumenty są przekazywane, aby GTK mogło obsługiwać argumenty wiersza poleceń.
+- **`gtk_progress_bar_set_fraction(GtkProgressBar *pbar, gdouble fraction)`**: Ustawia bieżącą wartość postępu (0-1).
+- **`gtk_progress_bar_get_fraction(GtkProgressBar *pbar)`**: Pobiera bieżącą wartość postępu.
+- **`gtk_progress_bar_pulse(GtkProgressBar *pbar)`**: Animuje pasek w trybie nieokreślonym.
+- **`gtk_progress_bar_set_pulse_step(GtkProgressBar *pbar, gdouble step)`**: Ustawia krok dla trybu nieokreślonego (określa, o ile ma przesuwać się pasek po każdym wywołaniu `pulse`).
+- **`gtk_progress_bar_set_orientation(GtkProgressBar *pbar, GtkOrientation orientation)`**: Ustawia orientację paska (pionową lub poziomą).
 
-6. **`GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);`**
-   - Tworzy nowe okno główne aplikacji. `GTK_WINDOW_TOPLEVEL` oznacza, że jest to okno główne, które będzie miało ramki i przyciski systemowe.
-
-7. **`gtk_window_set_title(GTK_WINDOW(window), "Prosty ProgressBar GTK+");`**
-   - Ustawia tytuł okna.
-
-8. **`gtk_container_set_border_width(GTK_CONTAINER(window), 10);`**
-   - Ustawia szerokość marginesu wokół zawartości okna na 10 pikseli.
-
-9. **`GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);`**
-   - Tworzy kontener typu `box`, który organizuje zawartość w pionie. Wartość `5` oznacza odstęp między widżetami w boxie.
-
-10. **`gtk_container_add(GTK_CONTAINER(window), box);`**
-    - Dodaje kontener box do okna, aby zorganizować inne widżety.
-
-11. **`GtkWidget *progressbar = gtk_progress_bar_new();`**
-    - Tworzy nowy widżet ProgressBar.
-
-12. **`gtk_box_pack_start(GTK_BOX(box), progressbar, TRUE, TRUE, 0);`**
-    - Dodaje ProgressBar do kontenera box. Umożliwia to dostosowanie, jak będzie się rozciągał w pionie i poziomie, a ostatni argument `0` oznacza, że nie ma dodatkowego marginesu.
-
-13. **`gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(progressbar), 0.0);`**
-    - Ustawia wartość początkową ProgressBar na 0.0 (brak postępu).
-
-14. **`g_signal_connect(window, "destroy", G_CALLBACK(on_destroy), NULL);`**
-    - Łączy sygnał "destroy" z funkcją `on_destroy`. Wywołana, gdy użytkownik zamknie okno.
-
-15. **`gtk_widget_show_all(window);`**
-    - Wyświetla wszystkie widżety w oknie.
-
-16. **`gtk_main();`**
-    - Rozpoczyna pętlę główną GTK, która obsługuje zdarzenia, takie jak kliknięcia myszą.
-
-17. **`return 0;`**
-    - Zwraca 0, co oznacza, że program zakończył się pomyślnie.
-
-___
-
-### Możliwości widżetu ProgressBar
-
-1. **Ustawianie postępu**
-   - **`gtk_progress_bar_set_fraction(GtkProgressBar *progressbar, gdouble fraction)`**
-     - Umożliwia ustawienie postępu w skali od 0.0 do 1.0.
-     - Przykład:
-       ```c
-       gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(progressbar), 0.5); // 50% postępu
-       ```
-
-2. **Zmienianie stylu**
-   - **`gtk_progress_bar_set_pulse_step(GtkProgressBar *progressbar, gdouble step)`**
-     - Umożliwia ustawienie kroku dla pulsacji, co jest użyteczne w trybie nieokreślonym.
-     - Przykład:
-       ```c
-       gtk_progress_bar_set_pulse_step(GTK_PROGRESS_BAR(progressbar), 0.1);
-       ```
-
-3. **Pulsowanie postępu**
-   - **`gtk_progress_bar_pulse(GtkProgressBar *progressbar)`**
-     - Umożliwia animowanie postępu w trybie nieokreślonym. Przydaje się, gdy postęp nie jest znany.
-     - Przykład:
-       ```c
-       gtk_progress_bar_pulse(GTK_PROGRESS_BAR(progressbar));
-       ```
-
-4. **Zmienianie orientacji**
-   - **`gtk_progress_bar_set_orientation(GtkProgressBar *progressbar, GtkProgressBarOrientation orientation)`**
-     - Umożliwia zmianę orientacji ProgressBar na poziomą lub pionową.
-     - Przykład:
-       ```c
-       gtk_progress_bar_set_orientation(GTK_PROGRESS_BAR(progressbar), GTK_PROGRESS_BAR_ORIENTATION_VERTICAL);
-       ```
-
-5. **Dodawanie tekstu**
-   - **`gtk_progress_bar_set_text(GTKProgressBar *progressbar, const gchar *text)`**
-     - Umożliwia wyświetlenie tekstu na ProgressBarze, informując użytkownika o aktualnym stanie.
-     - Przykład:
-       ```c
-       gtk_progress_bar_set_text(GTK_PROGRESS_BAR(progressbar), "Ładowanie...");
-       ```
-
-Dzięki tym funkcjom i możliwościom, ProgressBar w GTK+ jest elastycznym narzędziem do wizualizacji postępu operacji w aplikacjach.
+Pasek postępu to powszechnie używany widżet w aplikacjach, które wymagają informowania użytkownika o postępie wykonywanych operacji, takich jak ładowanie plików, przetwarzanie danych czy instalacja oprogramowania.
