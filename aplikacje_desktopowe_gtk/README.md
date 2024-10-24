@@ -12,4 +12,5 @@ Widżety:
 * ![Button](cpp_gtk_button.md) - przycisk
 * ![ToggleButton](cpp_gtk_togglebutton.md) - przycisk dwustanowy
 * ![Switch](cpp_gtk_switch.md) - suwak dwustanowy
+* ![ToggleButton](cpp_gtk_entry.md) - pole do wprowadzania danych
 * ![ProgressBar](cpp_gtk_progressbar.md) - pasek postępu
