@@ -1,6 +1,6 @@
-W GTK+ widżety są podstawowymi elementami interfejsu użytkownika, takimi jak przyciski, etykiety, pola tekstowe i inne. Aby stworzyć aplikację, która ma okno z widżetami, musimy umieszczać je w odpowiednich kontenerach i hierarchii, co pozwala na organizację elementów wizualnych na ekranie.
-
 # Hierarchia widżetów w GTK+
+
+W GTK+ widżety są podstawowymi elementami interfejsu użytkownika, takimi jak przyciski, etykiety, pola tekstowe i inne. Aby stworzyć aplikację, która ma okno z widżetami, musimy umieszczać je w odpowiednich kontenerach i hierarchii, co pozwala na organizację elementów wizualnych na ekranie.
 
 Każda aplikacja w GTK+ opiera się na hierarchii widżetów. **GtkWindow** jest na szczycie tej hierarchii – jest to główne okno aplikacji. Wewnątrz okna umieszcza się **kontenery**, które służą do organizacji widżetów. Kontenery mogą zawierać inne widżety, takie jak przyciski, pola tekstowe, etykiety lub nawet inne kontenery. 
 
