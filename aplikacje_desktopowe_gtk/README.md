@@ -8,6 +8,7 @@ Wstęp do programowania aplikacji desktopowych z graficznym interfejsem w oparci
 
 Widżety:
 * ![Label](cpp_gtk_label.md) - etykieta
+* ![SpinButton](cpp_gtk_spinbutton.md) - przyciski z polem wartości liczbowej
 * ![Button](cpp_gtk_button.md) - przycisk
 * ![ToggleButton](cpp_gtk_togglebutton.md) - przycisk dwustanowy
 * ![Switch](cpp_gtk_switch.md) - suwak dwustanowy
