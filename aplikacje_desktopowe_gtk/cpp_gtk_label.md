@@ -1,5 +1,7 @@
 # GTK+ Label
 
+Etykieta (label) w GTK+ to podstawowy widżet służący do wyświetlania tekstu lub obrazów w interfejsie użytkownika. Jest używana głównie do informowania użytkownika o funkcjach innych widżetów (np. pól tekstowych) lub do prezentacji prostych komunikatów. Etykiety mogą być dostosowywane pod względem stylu, wyrównania, a także mogą obsługiwać Pango Markup, co pozwala na formatowanie tekstu (np. pogrubienie, kursywa). W GTK+ etykiety są zazwyczaj statyczne, ale mogą również być aktualizowane w czasie działania aplikacji, co czyni je elastycznym narzędziem w tworzeniu interfejsów użytkownika.
+
 Kod aplikacji GTK+, który wyświetla tylko etykietę (label).
 
 ```c
@@ -81,6 +83,118 @@ int main(int argc, char *argv[]) {
 
 14. **`return 0;`**
     - Zwraca 0, co oznacza, że program zakończył się pomyślnie.
+   
+___
 
-### Podsumowanie
-Ten minimalistyczny kod tworzy prostą aplikację GTK+, która wyświetla okno z etykietą. Każda linia ma swoje znaczenie i przyczynia się do funkcjonalności aplikacji. Dzięki temu kodowi można zobaczyć, jak w prosty sposób można stworzyć graficzny interfejs użytkownika w GTK+.
+W GTK+ etykiety (labels) są podstawowymi widżetami, które służą do wyświetlania tekstu. Oto kilka funkcji i możliwości, które można wykorzystać do pracy z etykietami w GTK+:
+
+### 1. Tworzenie etykiety
+
+- **`gtk_label_new(const gchar *str)`**
+  - Tworzy nową etykietę z podanym tekstem.
+  - Przykład:
+    ```c
+    GtkWidget *label = gtk_label_new("Tekst początkowy");
+    ```
+
+### 2. Podmiana tekstu etykiety
+
+- **`gtk_label_set_text(GtkLabel *label, const gchar *str)`**
+  - Umożliwia zmianę tekstu etykiety na nowy.
+  - Przykład:
+    ```c
+    gtk_label_set_text(GTK_LABEL(label), "Nowy tekst");
+    ```
+
+### 3. Uzyskiwanie tekstu z etykiety
+
+- **`const gchar *gtk_label_get_text(GtkLabel *label)`**
+  - Zwraca tekst aktualnie wyświetlany w etykiecie.
+  - Przykład:
+    ```c
+    const gchar *text = gtk_label_get_text(GTK_LABEL(label));
+    ```
+
+### 4. Ustawianie i zmiana wyrównania tekstu
+
+- **`gtk_label_set_justify(GtkLabel *label, GtkJustification j)`**
+  - Umożliwia ustawienie wyrównania tekstu w etykiecie (np. `GTK_JUSTIFY_LEFT`, `GTK_JUSTIFY_CENTER`, `GTK_JUSTIFY_RIGHT`).
+  - Przykład:
+    ```c
+    gtk_label_set_justify(GTK_LABEL(label), GTK_JUSTIFY_CENTER);
+    ```
+
+### 5. Ustawianie stylu etykiety
+
+- **`gtk_label_set_use_markup(GtkLabel *label, gboolean use_markup)`**
+  - Umożliwia włączenie obsługi Pango Markup do formatowania tekstu (np. pogrubienie, kursywa).
+  - Przykład:
+    ```c
+    gtk_label_set_use_markup(GTK_LABEL(label), TRUE);
+    gtk_label_set_text(GTK_LABEL(label), "<b>Pogrubiony tekst</b>");
+    ```
+
+### 6. Dodawanie linków
+
+- **`gtk_label_set_use_underline(GtkLabel *label, gboolean use_underline)`**
+  - Umożliwia dodanie podkreślenia do tekstu, co może być użyteczne w przypadku linków.
+  - Przykład:
+    ```c
+    gtk_label_set_use_underline(GTK_LABEL(label), TRUE);
+    ```
+
+### 7. Wyświetlanie obrazów
+
+- **`gtk_label_set_image(GtkLabel *label, GdkPixbuf *pixbuf)`**
+  - Umożliwia dodanie obrazu obok tekstu w etykiecie.
+  - Przykład:
+    ```c
+    GdkPixbuf *image = gdk_pixbuf_new_from_file("path/to/image.png", NULL);
+    gtk_label_set_image(GTK_LABEL(label), image);
+    ```
+
+### 8. Ustawianie tekstu z interfejsem graficznym
+
+- **`gtk_label_set_selectable(GtkLabel *label, gboolean selectable)`**
+  - Umożliwia użytkownikowi zaznaczanie tekstu etykiety.
+  - Przykład:
+    ```c
+    gtk_label_set_selectable(GTK_LABEL(label), TRUE);
+    ```
+
+### Przykład użycia etykiety z podmianą tekstu
+
+Przykładowy kod, który ilustruje niektóre z funkcji związanych z label, w tym podmianę tekstu:
+
+```c
+#include <gtk/gtk.h>
+
+// Funkcja do zmiany tekstu etykiety
+static void change_label_text(GtkWidget *widget, gpointer label) {
+    gtk_label_set_text(GTK_LABEL(label), "Tekst został zmieniony!");
+}
+
+int main(int argc, char *argv[]) {
+    gtk_init(&argc, &argv);
+
+    GtkWidget *window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
+    gtk_window_set_title(GTK_WINDOW(window), "Przykład etykiety GTK+");
+    gtk_container_set_border_width(GTK_CONTAINER(window), 10);
+
+    GtkWidget *box = gtk_box_new(GTK_ORIENTATION_VERTICAL, 5);
+    GtkWidget *label = gtk_label_new("Kliknij przycisk, aby zmienić ten tekst.");
+    GtkWidget *button = gtk_button_new_with_label("Zmień tekst");
+
+    g_signal_connect(button, "clicked", G_CALLBACK(change_label_text), label);
+    g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+
+    gtk_box_pack_start(GTK_BOX(box), label, TRUE, TRUE, 0);
+    gtk_box_pack_start(GTK_BOX(box), button, TRUE, TRUE, 0);
+    gtk_container_add(GTK_CONTAINER(window), box);
+
+    gtk_widget_show_all(window);
+    gtk_main();
+
+    return 0;
+}
+```
