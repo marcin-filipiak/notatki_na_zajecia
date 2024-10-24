@@ -1,6 +1,6 @@
-# GTK+ Switch (toggle button)
+# GTK+ ToggleButton
 
-Oto przykład użycia przycisku dwustanowego (tzw. switch lub toggle button) w GTK+. Taki przycisk może być używany do przełączania między dwoma stanami (np. włączony/wyłączony), 
+Oto przykład użycia przycisku dwustanowego w GTK+. Taki przycisk może być używany do przełączania między dwoma stanami (np. włączony/wyłączony), 
 a użytkownik może zobaczyć, jaki stan jest aktywny.
 
 ### Kluczowe elementy:
