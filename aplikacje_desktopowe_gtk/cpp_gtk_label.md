@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
    
 ___
 
-W GTK+ etykiety (labels) są podstawowymi widżetami, które służą do wyświetlania tekstu. Oto kilka funkcji i możliwości, które można wykorzystać do pracy z etykietami w GTK+:
+Oto kilka funkcji i możliwości, które można wykorzystać do pracy z etykietami w GTK+:
 
 ### 1. Tworzenie etykiety
 
