@@ -1,6 +1,4 @@
-Notatka o cookies w PHP:
-
-**Cookies w PHP**
+# Cookies w PHP
 
 Cookies to niewielkie pliki przechowywane po stronie użytkownika, które mogą służyć do przechowywania danych takich jak ustawienia użytkownika czy informacje o sesji. W PHP możemy ustawiać cookies za pomocą funkcji `setcookie()`.
 
