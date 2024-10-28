@@ -6,7 +6,7 @@ Przykład zapisu imienia i nazwiska do bazy danych w PHP, używając klasy `mysq
 CREATE DATABASE test_db;
 USE test_db;
 CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_users INT AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR(50),
     lastname VARCHAR(50)
 );
