@@ -73,3 +73,44 @@ Ciasteczko `licznik` zostanie zapisane w przeglądarce użytkownika i będzie do
 - Należy być ostrożnym przy przechowywaniu wrażliwych danych w ciasteczkach. Zazwyczaj do przechowywania informacji wymagających bezpieczeństwa, np. o sesji użytkownika, preferowane są ![sesje](php_session.md) serwerowe zamiast ciasteczek.
   
 Dzięki ciasteczkom możemy więc przechowywać proste dane użytkownika pomiędzy wizytami na stronie, co pozwala na bardziej spersonalizowane i interaktywne doświadczenia.
+
+___
+# Funkcja time()
+
+Linijka `time() + (30 * 24 * 60 * 60)` jest kluczowa dla określenia czasu wygaśnięcia ciasteczka. Rozłóżmy ją na części i omówmy szczegółowo:
+
+```php
+setcookie('licznik', $licznik, time() + (30 * 24 * 60 * 60));
+```
+
+#### Składniki wyrażenia `time() + (30 * 24 * 60 * 60)`
+
+1. **`time()`**:
+   - Funkcja `time()` zwraca aktualny czas jako liczbę sekund, które upłynęły od tzw. *epoki UNIX-a*, czyli od północy 1 stycznia 1970 roku (UTC).
+   - Jest to powszechnie stosowany sposób reprezentacji daty i czasu w postaci liczby całkowitej, co pozwala na łatwe obliczenia, np. dodawanie określonej liczby sekund w przyszłości.
+
+2. **`30 * 24 * 60 * 60`**:
+   - Wyrażenie to oblicza liczbę sekund odpowiadającą 30 dniom.
+   - Rozkładając to na czynniki:
+     - `24` to liczba godzin w dobie.
+     - `60` to liczba minut w godzinie.
+     - `60` to liczba sekund w minucie.
+   - Przemnażając: 
+     - `24 * 60 * 60 = 86400` sekund w jednym dniu.
+     - `30 * 86400 = 2592000` sekund w 30 dniach.
+
+3. **`time() + 2592000`**:
+   - Dodajemy liczbę sekund odpowiadającą 30 dniom (`2592000 sekund`) do aktualnego czasu (`time()`), aby uzyskać czas wygaśnięcia ciasteczka 30 dni w przyszłości.
+   - Wynik tego działania jest przekazywany jako trzeci parametr funkcji `setcookie()` i reprezentuje datę oraz godzinę wygaśnięcia ciasteczka w formie „czas UNIX”.
+
+#### Jak działa ta wartość w funkcji `setcookie`?
+
+W funkcji `setcookie()`, trzeci parametr określa, jak długo ciasteczko powinno być ważne. Dzięki dodaniu `time() + (30 * 24 * 60 * 60)` ustawiamy ciasteczko na dokładnie 30 dni od momentu ustawienia. Przeglądarka przechowuje ciasteczko aż do tego momentu, a po upłynięciu czasu wygaśnięcia automatycznie usuwa ciasteczko.
+
+#### Przykładowa modyfikacja czasu wygaśnięcia
+
+Jeśli chcielibyśmy, aby ciasteczko wygasało np. po jednym dniu, moglibyśmy użyć `time() + (24 * 60 * 60)`. Zmienienie wartości na `time() + (7 * 24 * 60 * 60)` ustawiłoby ciasteczko na tydzień.
+
+#### Praktyczne zastosowanie
+
+Dzięki temu wyrażeniu możemy kontrolować, jak długo ciasteczko będzie dostępne w przeglądarce użytkownika. Jest to przydatne np. w przypadkach, gdy chcemy, aby użytkownik pozostawał zalogowany przez określony czas
