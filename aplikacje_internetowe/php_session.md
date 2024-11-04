@@ -50,7 +50,7 @@ echo "Liczba odświeżeń strony: " . $_SESSION['licznik'];
 
 #### Przeładowanie strony
 
-Po każdym odświeżeniu strony wartość zmiennej `$_SESSION['licznik']` jest zwiększana. Gdy użytkownik zamyka przeglądarkę i otwiera ją ponownie, sesja może być kontynuowana (jeśli ciasteczko sesji jest jeszcze ważne) lub może zostać od nowa utworzona.
+Po każdym odświeżeniu strony wartość zmiennej `$_SESSION['licznik']` jest zwiększana. Gdy użytkownik zamyka przeglądarkę i otwiera ją ponownie, sesja może być kontynuowana (jeśli ![ciasteczko](php_cookies.md) sesji jest jeszcze ważne) lub może zostać od nowa utworzona.
 
 #### Działanie skryptu
 
@@ -66,6 +66,6 @@ Po każdym odświeżeniu strony wartość zmiennej `$_SESSION['licznik']` jest z
 
 ### Uwagi
 - Sesje są przechowywane na serwerze, co oznacza, że dane te nie są widoczne dla użytkownika.
-- Warto pamiętać, że sesje PHP wygasają po określonym czasie, lub po zamknięciu przeglądarki (chyba że sesja jest przedłużona przez ciasteczka).
+- Warto pamiętać, że sesje PHP wygasają po określonym czasie, lub po zamknięciu przeglądarki (chyba że sesja jest przedłużona przez ![ciasteczka](php_cookies.md) ).
 
-Dzięki sesjom możemy więc w prosty sposób zachować dane dla użytkownika pomiędzy przeładowaniami strony bez konieczności przechowywania ich w ciasteczkach po stronie klienta.
+Dzięki sesjom możemy więc w prosty sposób zachować dane dla użytkownika pomiędzy przeładowaniami strony bez konieczności przechowywania ich w ![ciasteczkach](php_cookies.ms) po stronie klienta.
