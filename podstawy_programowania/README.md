@@ -18,7 +18,8 @@ Wybrane notatki z przedmiotu "Podstawy Programowania" (C / C++)
 * ![Wskaźniki](wskazniki.md) 
 
 ### Warunki 
-* ![Instrukcja warunkowa if](if.md) 
+* ![Instrukcja warunkowa if](if.md)
+* ![Algebra Boolea w kontekście instrukcji warunkowych](algebra_boolea.md) 
 
 ### Pętle
 * ![Pętla for](for.md)
