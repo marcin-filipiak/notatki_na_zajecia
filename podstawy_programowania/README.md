@@ -33,8 +33,8 @@ Wybrane notatki z przedmiotu "Podstawy Programowania" (C / C++)
 
 ## Programowanie obiektowe
 
-* ![Obiekt](obiekt.md)
-* ![Dziedziczenie](obiekt_dziedziczenie.md)
+* ![Obiekt](obiekt.md) - klasa, obiekt, metoda i pole
+* ![Dziedziczenie](obiekt_dziedziczenie.md) - dziedziczenie klasy po innej klasie
 
 ## Bardziej zaawansowane tematy ;-)
 
