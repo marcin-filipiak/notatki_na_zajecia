@@ -14,7 +14,8 @@ Wybrane notatki z przedmiotu "Podstawy Programowania" (C / C++)
 * ![Czym jest namespace std](std.md) - przestrzenie nazw
 
 ### Zmienne 
-* ![Zmienna i typy zmiennych](zmienna.md) 
+* ![Zmienna i typy zmiennych](zmienna.md)
+* ![Wskaźniki](wskazniki.md) 
 
 ### Warunki 
 * ![Instrukcja warunkowa if](if.md) 
@@ -24,8 +25,9 @@ Wybrane notatki z przedmiotu "Podstawy Programowania" (C / C++)
 * ![Pętla while](while.md) 
 * ![Pętla do while](dowhile.md)
 
-### Bardziej zaawansowane struktury  
+### Więcej niż zmienna  
 * ![Tablice i macierze](tablice.md) - tworzenie, przeglądanie i przekazywanie do funkcji
+* ![Struktura](struktura.md) 
 
 
 ## Programowanie obiektowe
