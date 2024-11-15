@@ -1,4 +1,4 @@
-#Praca z tekstami
+# Praca z tekstami
 
 W PHP praca z tekstem jest prosta dzięki wielu funkcjom wbudowanym w język, które umożliwiają manipulację ciągami znaków (stringami). Poniżej znajdziesz podstawowe informacje i najważniejsze funkcje do pracy z tekstami.
 
