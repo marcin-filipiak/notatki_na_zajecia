@@ -8,16 +8,24 @@ Wybrane notatki z przedmiotu "Podstawy Programowania" (C / C++)
 
 ## Podstawy
 
+### Słów kilka nim powstanie program 
 * ![Dyrektywa include](include.md) - podłączanie bibliotek i własnych plików nagłówkowych
-* ![Czym jest std](std.md) - przestrzenie nazw
- 
+* ![Dyrektywa define](define.md)
+* ![Czym jest namespace std](std.md) - przestrzenie nazw
+
+### Zmienne 
 * ![Zmienna i typy zmiennych](zmienna.md) 
 
+### Warunki 
 * ![Instrukcja warunkowa if](if.md) 
 
-* ![Pętla for](for.md) 
+### Pętle
+* ![Pętla for](for.md)
+* ![Pętla while](while.md) 
+* ![Pętla do while](dowhile.md)
 
-* ![Tablice](tablice.md) 
+### Bardziej zaawansowane struktury  
+* ![Tablice i macierze](tablice.md) - tworzenie, przeglądanie i przekazywanie do funkcji
 
 
 ## Programowanie obiektowe
