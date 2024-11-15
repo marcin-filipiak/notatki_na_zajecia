@@ -1,3 +1,6 @@
+# Aplikacje internetowe
+
+Repozytorium zawiera wybrane notatki z zajęć "Aplikacje Internetowe".
 
 ## Konfiguracja serwera stron internetowych
 
@@ -8,6 +11,10 @@
 * ![HTML pierwsza strona](html_pierwsza_strona.md)
 * ![HTML znaczniki v.5](html_znaczniki_html5.md)
 * ![HTML Formularz](html_form.md)
+
+## Style CSS w HTML
+
+ * ![CSS podstawy](css_podstawy.md) - podstawy styli CSS w dokumencie HTML
 
 ## PHP podstawy
 
