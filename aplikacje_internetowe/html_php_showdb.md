@@ -24,7 +24,6 @@ if ($conn->connect_error) {
 // Pobieranie danych z tabeli 'products'
 $result = $conn->query("SELECT * FROM products");
 ?>
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
