@@ -27,7 +27,8 @@ Repozytorium zawiera wybrane notatki z zajęć "Aplikacje Internetowe".
 * ![PHP praca z ciągami znaków](php_tekst.md) - operacje na tekście
 
 ## HTML z PHP i praca z bazą danych oraz plikami
-* ![HTML PHP formularz dodający rekord do bazy danych](html_php_form_add.md) - podstawowy przykład, dodawanie rekordu do bazy danych za pomocą PHP i formularza HTML
+* ![HTML PHP formularz dodający rekord do bazy danych](html_php_add.md) - podstawowy przykład, dodawanie rekordu do bazy danych za pomocą PHP i formularza HTML
+* ![HTML PHP wyświetlanie danych z bazy danych](html_php_showdb.md) - wyświetlenie na stronie danych pobranych poleceniem SELECT
 * ![HTML PHP operacje CRUD](html_php_form_add_edit_delete.md) - dodanie, wyświetlenie, edycja i usuwanie z bazy danych za pomocą PHP i formularza HTML
 * ![HTML PHP przesyłanie pliku](html_php_form_file.md) - przesłanie formularzem pliku na serwer
 
