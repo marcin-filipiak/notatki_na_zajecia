@@ -30,6 +30,10 @@ Wybrane notatki z przedmiotu "Podstawy Programowania" (C / C++)
 * ![Tablice i macierze](tablice.md) - tworzenie, przeglądanie i przekazywanie do funkcji
 * ![Struktura](struktura.md) 
 
+### Inne
+* ![Pobieranie czasu Unix](unix_time.md) - pobranie epoch time
+* ![Liczby pseudolosowe](liczby_pseudolosowe.md) - jak uzyskać liczby pseudolosowe
+
 
 ## Programowanie obiektowe
 
