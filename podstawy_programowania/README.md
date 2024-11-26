@@ -31,7 +31,7 @@ Wybrane notatki z przedmiotu "Podstawy Programowania" (C / C++)
 * ![Struktura](struktura.md) 
 
 ### Inne
-* ![Pobieranie czasu Unix](unix_time.md) - pobranie epoch time
+* ![Pobieranie czasu Unix](epoch_time.md) - pobranie epoch time
 * ![Liczby pseudolosowe](liczby_pseudolosowe.md) - jak uzyskać liczby pseudolosowe
 
 
