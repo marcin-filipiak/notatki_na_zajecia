@@ -1,4 +1,4 @@
-### Losowaniw liczb w C++  
+### Losowanie liczb w C++  
 
 W C++ możemy losować liczby za pomocą funkcji z biblioteki `<cstdlib>` oraz `<ctime>`. Aby uzyskać różne liczby losowe przy każdym uruchomieniu programu, konieczne jest zainicjowanie generatora losowego za pomocą bieżącego czasu, korzystając z funkcji `time()` z biblioteki `<ctime>`.
 
