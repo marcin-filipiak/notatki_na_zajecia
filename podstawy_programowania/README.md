@@ -32,6 +32,7 @@ Wybrane notatki z przedmiotu "Podstawy Programowania" (C / C++)
 
 ### Inne
 * ![Pobieranie czasu Unix](epoch_time.md) - pobranie epoch time
+* ![Reszta z dzielenia](reszta_dzielenia.md)
 * ![Liczby pseudolosowe](liczby_pseudolosowe.md) - jak uzyskać liczby pseudolosowe
 
 
