@@ -147,3 +147,64 @@ int main() {
 #### Podsumowanie
 
 Wskaźniki to potężne narzędzie w C++, umożliwiające efektywne zarządzanie pamięcią, manipulację danymi oraz przekazywanie danych do funkcji bez ich kopiowania. Zrozumienie i poprawne używanie wskaźników jest kluczowe dla zaawansowanego programowania w C++.
+
+
+---
+
+#### Przykłady
+
+##### Zmienna do funkcji
+
+```cpp
+#include <iostream>
+
+void modifyValue(int* ptr) {
+    *ptr += 10; // Zwiększamy wartość zmiennej, na którą wskazuje wskaźnik, o 10
+}
+
+int main() {
+    int number = 5; // Deklarujemy zmienną
+    std::cout << "Przed wywołaniem funkcji: " << number << std::endl;
+
+    modifyValue(&number); // Przekazujemy adres zmiennej `number` do funkcji
+
+    std::cout << "Po wywołaniu funkcji: " << number << std::endl;
+
+    return 0;
+}
+```
+
+##### Tablica do funkcji
+
+```cpp
+#include <iostream>
+
+void modifyArray(int* arr, int size) {
+    for (int i = 0; i < size; ++i) {
+        arr[i] += 1; // Zwiększamy każdy element tablicy o 1
+    }
+}
+
+int main() {
+    int numbers[] = {1, 2, 3, 4, 5}; // Tablica liczb
+    int size = sizeof(numbers) / sizeof(numbers[0]); // Obliczenie liczby elementów w tablicy
+
+    std::cout << "Przed wywołaniem funkcji: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << numbers[i] << " ";
+    }
+    std::cout << std::endl;
+
+    modifyArray(numbers, size); // Przekazujemy tablicę do funkcji
+
+    std::cout << "Po wywołaniu funkcji: ";
+    for (int i = 0; i < size; ++i) {
+        std::cout << numbers[i] << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+
+```
+
