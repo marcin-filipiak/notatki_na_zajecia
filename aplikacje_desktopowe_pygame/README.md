@@ -22,9 +22,9 @@ Pygame to biblioteka w Pythonie przeznaczona do tworzenia gier 2D i aplikacji mu
 3. ![Obsługa myszy](zdarzenia_myszy.md)
 
 ## Animacje i ruch obiektów
-1. Aktualizacja pozycji obiektów w pętli gry
-2. Prędkość i kierunek ruchu
-3. Prosta kolizja między obiektami
+1. ![Aktualizacja pozycji obiektów w pętli gry](pozycja_obiektow.md)
+2. ![Prędkość i kierunek ruchu](predkosc_kierunek.md)
+3. ![Prosta kolizja między obiektami](kolizje.md)
 
 ## Dźwięki i muzyka
 1. Wczytywanie i odtwarzanie dźwięków
