@@ -1,161 +1,168 @@
-### Odtwarzanie dźwięku w Pygame
-
-W Pygame odtwarzanie dźwięku jest realizowane za pomocą modułu `pygame.mixer`. Moduł ten obsługuje pliki dźwiękowe w formatach takich jak WAV, MP3, OGG, a także wiele innych. Umożliwia odtwarzanie krótkich efektów dźwiękowych, jak i dłuższych utworów muzycznych.
+Oto poprawiona wersja notatki, która zawiera przykłady działające w pętli głównej programu oraz uruchamiające okno aplikacji:
 
 ---
 
-#### **1. Inicjalizacja modułu dźwiękowego**
+### Odtwarzanie dźwięku w Pygame
 
-Aby rozpocząć pracę z dźwiękiem, należy zainicjalizować moduł `pygame.mixer`. Zazwyczaj wystarczy wywołać `pygame.mixer.init()`. Alternatywnie, można użyć `pygame.init()`, które zainicjalizuje wszystkie moduły, w tym dźwiękowy.
+W Pygame odtwarzanie dźwięku jest realizowane za pomocą modułu `pygame.mixer`. Umożliwia on obsługę krótkich efektów dźwiękowych oraz dłuższych utworów muzycznych, które mogą być odtwarzane w tle gry. Poniżej przedstawiono kroki i przykłady implementacji.
+
+---
+
+#### **1. Inicjalizacja modułu dźwiękowego i tworzenie okna**
+
+Aby rozpocząć pracę z dźwiękiem i aplikacją graficzną, należy zainicjalizować moduł `pygame.mixer` oraz warto stworzyć okno aplikacji (by aplikacja nie zamknęła się nim dźwięk zostanie odtworzony).
 
 ```python
 import pygame
 
-pygame.init()  # Inicjalizuje wszystkie moduły, w tym dźwiękowe
+pygame.init()  # Inicjalizacja wszystkich modułów, w tym dźwiękowego
+
+# Tworzenie okna aplikacji
+screen = pygame.display.set_mode((800, 600))  # Wymiary okna: 800x600 pikseli
+pygame.display.set_caption("Pygame: Odtwarzanie dźwięku")  # Tytuł okna
 ```
 
 ---
 
 #### **2. Ładowanie i odtwarzanie dźwięków**
 
-##### **a) Efekty dźwiękowe**
-Do obsługi krótkich efektów dźwiękowych, takich jak wybuchy, kroki czy uderzenia, używamy klasy `pygame.mixer.Sound`.
+##### **Efekty dźwiękowe**
+Do odtwarzania krótkich efektów dźwiękowych, takich jak kroki czy wybuchy, używamy klasy `pygame.mixer.Sound`.
 
 **Przykład:**
 ```python
 import pygame
 
 pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Efekty dźwiękowe")
 
 # Ładowanie efektu dźwiękowego
 sound = pygame.mixer.Sound("effect.wav")
 
-# Odtwarzanie efektu
-sound.play()
+# Pętla główna
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        if event.type == pygame.KEYDOWN:  # Odtwarzanie dźwięku po naciśnięciu klawisza
+            sound.play()
+
+    screen.fill((50, 50, 50))  # Tło aplikacji
+    pygame.display.flip()  # Odświeżanie ekranu
+
+pygame.quit()
 ```
 
-**Metody klasy `Sound`:**
-- `play()` – odtwarza dźwięk.
-- `stop()` – zatrzymuje odtwarzanie dźwięku.
-- `set_volume(volume)` – ustawia głośność dźwięku w zakresie od 0.0 do 1.0.
-- `fadeout(milliseconds)` – stopniowo wycisza dźwięk w zadanym czasie.
+---
 
-##### **b) Muzyka w tle**
-Do odtwarzania muzyki (np. w tle gry) używamy funkcji `pygame.mixer.music`.
+##### **Muzyka w tle**
+Dłuższe utwory muzyczne mogą być odtwarzane w tle aplikacji za pomocą funkcji `pygame.mixer.music`.
 
 **Przykład:**
 ```python
 import pygame
 
 pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Muzyka w tle")
 
-# Ładowanie i odtwarzanie muzyki w tle
+# Ładowanie i odtwarzanie muzyki
 pygame.mixer.music.load("background.mp3")
 pygame.mixer.music.play(-1)  # Odtwarzanie w pętli (-1 oznacza nieskończone powtórzenia)
-```
 
-**Metody muzyki:**
-- `load(filename)` – ładuje plik muzyczny.
-- `play(loops=0, start=0.0)` – odtwarza muzykę. Opcjonalne argumenty:
-  - `loops` – liczba powtórzeń (0 oznacza brak powtórzeń).
-  - `start` – czas rozpoczęcia odtwarzania (w sekundach).
-- `stop()` – zatrzymuje muzykę.
-- `pause()` – pauzuje odtwarzanie.
-- `unpause()` – wznawia odtwarzanie.
-- `set_volume(volume)` – ustawia głośność w zakresie od 0.0 do 1.0.
-- `fadeout(milliseconds)` – stopniowo wycisza muzykę.
+# Pętla główna
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    screen.fill((30, 30, 30))  # Tło aplikacji
+    pygame.display.flip()
+
+pygame.quit()
+```
 
 ---
 
-#### **3. Obsługa głośności**
+#### **3. Ustawianie głośności i wyciszanie dźwięków**
 
-Dźwięki i muzyka w Pygame mają niezależne ustawienia głośności. Możesz dostosować głośność za pomocą metod `set_volume()`.
+Dźwięki i muzyka w Pygame mają niezależne ustawienia głośności, które można dostosować za pomocą metody `set_volume()`.
 
-**Przykład ustawienia głośności:**
+**Przykład:**
 ```python
 import pygame
 
 pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Ustawianie głośności")
 
-# Ustawienie głośności efektu dźwiękowego
+# Ładowanie efektu i muzyki
 sound = pygame.mixer.Sound("effect.wav")
-sound.set_volume(0.5)  # Głośność na 50%
-sound.play()
-
-# Ustawienie głośności muzyki
 pygame.mixer.music.load("background.mp3")
-pygame.mixer.music.set_volume(0.3)  # Głośność na 30%
-pygame.mixer.music.play()
+
+pygame.mixer.music.set_volume(0.5)  # Ustawienie głośności muzyki na 50%
+sound.set_volume(0.8)  # Ustawienie głośności efektu na 80%
+pygame.mixer.music.play(-1)
+
+# Pętla główna
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        if event.type == pygame.KEYDOWN:  # Odtwarzanie dźwięku po naciśnięciu klawisza
+            sound.play()
+
+    screen.fill((20, 20, 20))  # Tło aplikacji
+    pygame.display.flip()
+
+pygame.quit()
 ```
 
 ---
 
-#### **4. Stopniowe wyciszanie dźwięków**
+#### **4. Stopniowe wyciszanie muzyki**
 
-Wyciszanie dźwięków lub muzyki w czasie pozwala na bardziej płynne przejścia.
+Muzykę można stopniowo wyciszać, co jest przydatne np. podczas przejść między scenami.
 
 **Przykład:**
 ```python
 import pygame
 
 pygame.init()
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("Wyciszanie muzyki")
 
 pygame.mixer.music.load("background.mp3")
 pygame.mixer.music.play()
 
-# Wyciszenie muzyki po 5 sekundach
-pygame.time.delay(5000)
-pygame.mixer.music.fadeout(3000)  # Wyciszenie w 3 sekundy
-```
+# Pętla główna
+running = True
+fade_started = False  # Flaga informująca o rozpoczęciu wyciszania
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        if event.type == pygame.KEYDOWN and not fade_started:
+            pygame.mixer.music.fadeout(3000)  # Wyciszenie w ciągu 3 sekund
+            fade_started = True
 
----
+    screen.fill((10, 10, 10))  # Tło aplikacji
+    pygame.display.flip()
 
-#### **5. Obsługa wielu kanałów**
-
-Pygame umożliwia odtwarzanie wielu efektów dźwiękowych jednocześnie. Każdy dźwięk jest odtwarzany na niezależnym kanale. Domyślnie dostępnych jest 8 kanałów, ale można zmienić tę wartość za pomocą `pygame.mixer.set_num_channels()`.
-
-**Przykład:**
-```python
-import pygame
-
-pygame.init()
-
-pygame.mixer.set_num_channels(16)  # Ustawienie 16 kanałów
-
-sound1 = pygame.mixer.Sound("effect1.wav")
-sound2 = pygame.mixer.Sound("effect2.wav")
-
-sound1.play()
-sound2.play()
-```
-
----
-
-#### **6. Obsługa błędów**
-
-Jeśli plik dźwiękowy nie istnieje lub jest w nieobsługiwanym formacie, Pygame wygeneruje błąd. Warto obsłużyć wyjątki podczas ładowania plików.
-
-**Przykład:**
-```python
-import pygame
-
-pygame.init()
-
-try:
-    pygame.mixer.music.load("missing_file.mp3")
-    pygame.mixer.music.play()
-except pygame.error as e:
-    print(f"Błąd ładowania dźwięku: {e}")
+pygame.quit()
 ```
 
 ---
 
 #### **Podsumowanie**
 
-Pygame umożliwia łatwą i wydajną obsługę dźwięku w grach. Najważniejsze funkcje:
-- **Efekty dźwiękowe:** używaj klasy `pygame.mixer.Sound`.
-- **Muzyka w tle:** używaj funkcji `pygame.mixer.music`.
-- **Głośność:** dostosuj za pomocą `set_volume()`.
-- **Wyciszanie:** użyj `fadeout()`.
+W Pygame można odtwarzać muzykę i efekty dźwiękowe w tle aplikacji. Najważniejsze funkcje:
+- **Efekty dźwiękowe:** `pygame.mixer.Sound` z metodami `play()` i `set_volume()`.
+- **Muzyka w tle:** `pygame.mixer.music` z metodami `play()`, `set_volume()`, `fadeout()`.
+- **Obsługa błędów:** warto sprawdzać, czy pliki dźwiękowe istnieją i są obsługiwane przez Pygame.
 
-Moduł `pygame.mixer` zapewnia wystarczające możliwości do realizacji większości potrzeb związanych z dźwiękiem w grach. W bardziej zaawansowanych projektach można rozważyć użycie bibliotek takich jak `pydub` czy `sounddevice`.
+Używanie dźwięku w grach pozwala wzbogacić rozgrywkę o immersyjne efekty i podkreślić atmosferę.
