@@ -186,8 +186,3 @@ while running:
 pygame.quit()
 ```
 
----
-
-### Podsumowanie
-
-Wczytywanie i manipulowanie obrazami w Pygame jest prostym procesem, który pozwala na dynamiczne tworzenie grafiki w grach. Dzięki funkcjom skalowania i obracania obrazów, a także obsłudze kanału alpha, możemy tworzyć zaawansowane efekty wizualne, które sprawią, że nasza gra stanie się bardziej atrakcyjna wizualnie.
