@@ -179,9 +179,3 @@ while running:
 
 pygame.quit()
 ```
-
----
-
-### Podsumowanie
-
-Pygame oferuje funkcje do rysowania wielu podstawowych figur i linii, co pozwala na szybkie tworzenie grafiki w grach. Dzięki możliwości rysowania linii, prostokątów, okręgów, elips i wielokątów, możemy łatwo tworzyć interfejsy użytkownika, animacje i elementy wizualne w naszych projektach.
