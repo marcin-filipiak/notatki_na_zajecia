@@ -1,6 +1,6 @@
 ### Wczytywanie i wyświetlanie obrazów w Pygame
 
-Pygame umożliwia łatwe wczytywanie i wyświetlanie obrazów w różnych formatach graficznych (np. PNG, JPEG). Dzięki temu możemy wzbogacić naszą grę o grafiki, takie jak tła, postacie czy elementy interfejsu.
+Pygame umożliwia wczytywanie i wyświetlanie obrazów w różnych formatach graficznych (np. PNG, JPEG). Dzięki temu możemy wzbogacić naszą grę o grafiki, takie jak tła, postacie czy elementy interfejsu.
 
 ---
 
