@@ -1,4 +1,4 @@
-# Spis treści do nauki Pygame na Linux Debian
+# Spis treści do nauki Pygame
 
 Pygame to biblioteka w Pythonie przeznaczona do tworzenia gier 2D i aplikacji multimedialnych. Jest oparta na bibliotece SDL, co pozwala jej działać na różnych systemach operacyjnych, takich jak Linux, Windows czy macOS. Umożliwia obsługę grafiki, dźwięków, zdarzeń użytkownika oraz animacji, oferując gotowe narzędzia przydatne w pracy z multimediami.
 
@@ -27,14 +27,11 @@ Pygame to biblioteka w Pythonie przeznaczona do tworzenia gier 2D i aplikacji mu
 3. ![Prosta kolizja między obiektami](kolizje.md)
 
 ## Dźwięki i muzyka
-1. Wczytywanie i odtwarzanie dźwięków
-2. Kontrola głośności
-3. Tworzenie prostych efektów dźwiękowych
+1. ![Wczytywanie i odtwarzanie dźwięków](odtwarzanie_dzwieku.md)
 
 ## Teksty i czcionki
-1. Wczytywanie czcionek
-2. Wyświetlanie tekstu na ekranie
-3. Formatowanie tekstu
+1. ![Wczytanie czcionki i wyświetlanie tekstu na ekranie](czcionka_tekst.md)
+2. ![Formatowanie tekstu](formatowanie_tekstu.md)
 
 ## Praca z plikami
 1. Wczytywanie danych z plików tekstowych
