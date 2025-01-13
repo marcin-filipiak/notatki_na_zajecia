@@ -4,16 +4,15 @@ Pygame to biblioteka w Pythonie przeznaczona do tworzenia gier 2D i aplikacji mu
 
 
 ## Wprowadzenie do Pygame
-1. Instalacja Pygame na Debianie
-2. Struktura podstawowego programu w Pygame
+1. ![Instalacja Pygame na Debianie](instalacja.md)
+2. ![Struktura podstawowego programu w Pygame](struktura.md)
 
 ## Tworzenie okna aplikacji
-1. Inicjalizacja Pygame i tworzenie okna
-2. Ustawianie rozmiaru okna i tytułu
-3. Obsługa pętli gry
+1. ![Inicjalizacja Pygame i tworzenie okna](inicjalizacja_okna.md)
+2. ![Obsługa pętli gry](petla_gry.md)
 
 ## Rysowanie na ekranie
-1. Kolory w Pygame
+1. ![Kolory w Pygame](kolory.md)
 2. Rysowanie prostokątów, okręgów i linii
 3. Wczytywanie i wyświetlanie obrazów
 
