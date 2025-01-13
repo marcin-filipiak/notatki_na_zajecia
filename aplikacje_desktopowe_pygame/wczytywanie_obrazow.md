@@ -14,11 +14,11 @@ import pygame
 
 pygame.init()
 
-# Wczytywanie obrazu
-image = pygame.image.load('image.png')
-
 # Tworzenie okna
 screen = pygame.display.set_mode((800, 600))
+
+# Wczytywanie obrazu
+image = pygame.image.load('image.png')
 
 # Pętla gry
 running = True
@@ -49,11 +49,11 @@ import pygame
 
 pygame.init()
 
-# Wczytywanie obrazu z przezroczystością
-image = pygame.image.load('image_with_alpha.png').convert_alpha()
-
 # Tworzenie okna
 screen = pygame.display.set_mode((800, 600))
+
+# Wczytywanie obrazu z przezroczystością
+image = pygame.image.load('pinup_face.png').convert_alpha()
 
 # Pętla gry
 running = True
@@ -84,14 +84,14 @@ import pygame
 
 pygame.init()
 
+# Tworzenie okna
+screen = pygame.display.set_mode((800, 600))
+
 # Wczytywanie obrazu
 image = pygame.image.load('image.png')
 
 # Skalowanie obrazu
 scaled_image = pygame.transform.scale(image, (400, 300))  # Zmiana rozmiaru na 400x300
-
-# Tworzenie okna
-screen = pygame.display.set_mode((800, 600))
 
 # Pętla gry
 running = True
@@ -122,14 +122,14 @@ import pygame
 
 pygame.init()
 
+# Tworzenie okna
+screen = pygame.display.set_mode((800, 600))
+
 # Wczytywanie obrazu
 image = pygame.image.load('image.png')
 
 # Obracanie obrazu o 45 stopni
 rotated_image = pygame.transform.rotate(image, 45)
-
-# Tworzenie okna
-screen = pygame.display.set_mode((800, 600))
 
 # Pętla gry
 running = True
@@ -158,6 +158,10 @@ import pygame
 
 pygame.init()
 
+
+# Tworzenie okna
+screen = pygame.display.set_mode((800, 600))
+
 # Wczytywanie obrazu
 image = pygame.image.load('image.png')
 
@@ -166,9 +170,6 @@ rotated_image = pygame.transform.rotate(image, 45)
 
 # Uzyskiwanie prostokąta obrazka po obrocie
 rotated_rect = rotated_image.get_rect(center=(400, 300))
-
-# Tworzenie okna
-screen = pygame.display.set_mode((800, 600))
 
 # Pętla gry
 running = True
