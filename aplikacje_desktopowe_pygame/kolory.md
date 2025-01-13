@@ -36,7 +36,7 @@ Pygame obsługuje również przezroczystość przy użyciu kanału alfa (A). Kan
 - **Przezroczysty czerwony:** `(255, 0, 0, 128)` – 50% przezroczystości.
 
 #### **4. Tworzenie kolorów**
-Można także tworzyć kolory poprzez manipulowanie wartościami RGB i definiowanie nowych kolorów w programie. Pygame pozwala również na łatwą konwersję wartości RGB na różne formaty.
+Można także tworzyć kolory poprzez manipulowanie wartościami RGB i definiowanie nowych kolorów w programie. Pygame pozwala również na konwersję wartości RGB na różne formaty.
 
 **Przykład:**
 ```python
