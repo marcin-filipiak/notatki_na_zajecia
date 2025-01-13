@@ -19,7 +19,7 @@ running = True
 
 # Pozycja obiektu
 x, y = 400, 300
-velocity = 5  # Prędkość początkowa
+velocity = 1  # Prędkość początkowa
 clock = pygame.time.Clock()
 
 while running:
@@ -66,7 +66,7 @@ running = True
 
 # Pozycja obiektu
 x, y = 400, 300
-velocity = 5  # Prędkość
+velocity = 1  # Prędkość
 clock = pygame.time.Clock()
 
 while running:
@@ -112,7 +112,7 @@ running = True
 
 # Pozycja obiektu
 x, y = 400, 300
-velocity = 5
+velocity = 1
 clock = pygame.time.Clock()
 
 while running:
@@ -159,7 +159,7 @@ running = True
 
 # Pozycja obiektu
 x, y = 400, 300
-velocity = 5
+velocity = 1
 angle = 0  # Kąt w kierunku ruchu
 speed_x = velocity * math.cos(math.radians(angle))
 speed_y = velocity * math.sin(math.radians(angle))
