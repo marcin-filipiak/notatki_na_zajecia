@@ -17,9 +17,9 @@ Pygame to biblioteka w Pythonie przeznaczona do tworzenia gier 2D i aplikacji mu
 3. ![Wczytywanie i wyświetlanie obrazów](wczytywanie_obrazow.md)
 
 ## Obsługa zdarzeń
-1. Wprowadzenie do systemu zdarzeń w Pygame
-2. Obsługa klawiatury
-3. Obsługa myszy
+1. ![Wprowadzenie do systemu zdarzeń w Pygame](zdarzenia.md)
+2. ![Obsługa klawiatury](zdarzenia_klawiatury.md)
+3. ![Obsługa myszy](zdarzenia_myszy.md)
 
 ## Animacje i ruch obiektów
 1. Aktualizacja pozycji obiektów w pętli gry
