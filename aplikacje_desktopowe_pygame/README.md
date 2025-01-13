@@ -13,8 +13,8 @@ Pygame to biblioteka w Pythonie przeznaczona do tworzenia gier 2D i aplikacji mu
 
 ## Rysowanie na ekranie
 1. ![Kolory w Pygame](kolory.md)
-2. Rysowanie prostokątów, okręgów i linii
-3. Wczytywanie i wyświetlanie obrazów
+2. ![Rysowanie prostokątów, okręgów i linii](rysowanie_figur.md)
+3. ![Wczytywanie i wyświetlanie obrazów](wczytywanie_ograzow.md)
 
 ## Obsługa zdarzeń
 1. Wprowadzenie do systemu zdarzeń w Pygame
