@@ -4,6 +4,7 @@ pygame.init()
 
 # Tworzenie okna
 screen = pygame.display.set_mode((800, 600))
+screen.fill((255, 255, 255))  # Tło aplikacji
 
 # Wczytywanie obrazu z przezroczystością
 image = pygame.image.load('pinup_face.png').convert_alpha()
