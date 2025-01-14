@@ -22,7 +22,7 @@ struct NazwaStruktury {
 - **`TypDanych`**: Typ danych przypisany do pola w strukturze, może to być dowolny typ (np. `int`, `float`, `char`, inna struktura, wskaźnik itp.).
 - **`pole1, pole2, pole3`**: Nazwy pól struktury, które będą przechowywać dane.
 
-#### Przykład: Struktura `Samochód`
+#### Przykład: Struktura `Samochod`
 
 ```cpp
 #include <iostream>
