@@ -28,7 +28,7 @@ struct NazwaStruktury {
 #include <iostream>
 using namespace std;
 
-struct Samochód {
+struct Samochod {
     string marka;
     int rokProdukcji;
     float cena;
@@ -36,17 +36,17 @@ struct Samochód {
 
 int main() {
     // Tworzenie obiektu struktury
-    Samochód samochód1;
+    Samochod samochod1;
     
     // Przypisanie wartości do pól struktury
-    samochód1.marka = "Toyota";
-    samochód1.rokProdukcji = 2020;
-    samochód1.cena = 75000.50;
+    samochod1.marka = "Toyota";
+    samochod1.rokProdukcji = 2020;
+    samochod1.cena = 75000.50;
 
     // Wyświetlanie wartości
-    cout << "Marka: " << samochód1.marka << endl;
-    cout << "Rok produkcji: " << samochód1.rokProdukcji << endl;
-    cout << "Cena: " << samochód1.cena << " PLN" << endl;
+    cout << "Marka: " << samochod1.marka << endl;
+    cout << "Rok produkcji: " << samochod1.rokProdukcji << endl;
+    cout << "Cena: " << samochod1.cena << " PLN" << endl;
 
     return 0;
 }
@@ -60,8 +60,8 @@ Cena: 75000.5 PLN
 ```
 
 **Wyjaśnienie:**
-- Struktura `Samochód` zawiera trzy pola: `marka`, `rokProdukcji`, `cena`.
-- W funkcji `main` tworzymy obiekt `samochód1` typu `Samochód` i przypisujemy wartości do jego pól.
+- Struktura `Samochod` zawiera trzy pola: `marka`, `rokProdukcji`, `cena`.
+- W funkcji `main` tworzymy obiekt `samochod1` typu `Samochod` i przypisujemy wartości do jego pól.
 - Następnie wypisujemy te wartości na ekranie.
 
 #### Tworzenie wskaźników na struktury
@@ -72,7 +72,7 @@ Możemy również tworzyć wskaźniki na struktury, aby pracować z nimi bardzie
 #include <iostream>
 using namespace std;
 
-struct Samochód {
+struct Samochod {
     string marka;
     int rokProdukcji;
     float cena;
@@ -80,10 +80,10 @@ struct Samochód {
 
 int main() {
     // Tworzenie obiektu struktury
-    Samochód samochód1 = {"Toyota", 2020, 75000.50};
+    Samochód samochod1 = {"Toyota", 2020, 75000.50};
     
     // Tworzenie wskaźnika na strukturę
-    Samochód* wsk = &samochód1;
+    Samochod* wsk = &samochod1;
 
     // Dostęp do pól struktury za pomocą wskaźnika
     cout << "Marka: " << wsk->marka << endl;
@@ -102,7 +102,7 @@ Cena: 75000.5 PLN
 ```
 
 **Wyjaśnienie:**
-- `wsk` to wskaźnik na strukturę `Samochód`, który przechowuje adres obiektu `samochód1`.
+- `wsk` to wskaźnik na strukturę `Samochod`, który przechowuje adres obiektu `samochod1`.
 - Aby uzyskać dostęp do pól struktury przez wskaźnik, używamy operatora `->` zamiast `.`.
 
 #### Zastosowanie struktur w C++
