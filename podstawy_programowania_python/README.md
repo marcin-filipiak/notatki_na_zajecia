@@ -7,17 +7,17 @@
 - ![Importowanie modułów](moduly.md)  
 - ![Stałe i zmienne](stale_zmienne.md)  
 
+#### Więcej niż zmienna  
+- Listy i krotki  
+- Słowniki i zbiory  
+
 #### Warunki  
 - ![Instrukcja warunkowa `if`](if.md)  
 - ![Operatory logiczne i porównania](operatory_logiczne.md)
 
 #### Pętle  
-- Pętla `for`  
-- Pętla `while`  
-
-#### Więcej niż zmienna  
-- Listy i krotki  
-- Słowniki i zbiory  
+- ![Pętla `for`](for.md)  
+- ![Pętla `while`](while.md)  
 
 #### Inne  
 - Praca z czasem (moduł `time`)  
