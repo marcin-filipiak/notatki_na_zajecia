@@ -5,7 +5,9 @@
 
 #### Podstawy  
 - ![Importowanie modułów](moduly.md)  
-- ![Stałe i zmienne](stale_zmienne.md)  
+- ![Stałe i zmienne](stale_zmienne.md)
+- ![Wyświetlanie na ekranie](wyswietlanie.md)
+- ![Wczytywanie danych z klawiatury](zklawiatury.md)
 
 #### Więcej niż zmienna  
 - ![Listy](listy.md)
