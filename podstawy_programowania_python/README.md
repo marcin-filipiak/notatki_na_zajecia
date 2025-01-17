@@ -1,7 +1,7 @@
 ### Podstawy programowania w Python  
 
 #### Uruchamianie programów  
-- Uruchamianie skryptów w Pythonie  
+- ![uruchomienie.md](Uruchamianie skryptów w Pythonie)
 
 #### Podstawy  
 - Importowanie modułów  
