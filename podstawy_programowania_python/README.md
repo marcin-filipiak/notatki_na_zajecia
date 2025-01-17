@@ -8,8 +8,10 @@
 - ![Stałe i zmienne](stale_zmienne.md)  
 
 #### Więcej niż zmienna  
-- Listy i krotki  
-- Słowniki i zbiory  
+- ![Listy](listy.md)
+- ![Krotki](krotki.md)
+- ![Słowniki](slowniki.md)
+- ![Zbiory](zbiory.md)
 
 #### Warunki  
 - ![Instrukcja warunkowa `if`](if.md)  
