@@ -4,8 +4,8 @@
 - ![Uruchamianie skryptów w Pythonie](uruchomienie.md)
 
 #### Podstawy  
-- Importowanie modułów  
-- Stałe i zmienne  
+- ![Importowanie modułów](moduly.md)  
+- ![Stałe i zmienne](stale_zmienne.md)  
 
 #### Zmienne  
 - Zmienna i typy danych  
