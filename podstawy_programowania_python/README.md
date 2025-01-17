@@ -7,13 +7,9 @@
 - ![Importowanie modułów](moduly.md)  
 - ![Stałe i zmienne](stale_zmienne.md)  
 
-#### Zmienne  
-- Zmienna i typy danych  
-- Operacje na zmiennych  
-
 #### Warunki  
-- Instrukcja warunkowa `if`  
-- Operatory logiczne i porównania  
+- ![Instrukcja warunkowa `if`](if.md)  
+- ![Operatory logiczne i porównania](operatory_logiczne.md)
 
 #### Pętle  
 - Pętla `for`  
