@@ -122,7 +122,3 @@ GET /users/list
 - System powinien umożliwiać łatwą rozbudowę o kolejne moduły.
 - Dokumentacja API powinna być dostępna w formacie OpenAPI.
 
----
-
-Taka specyfikacja zawiera wszystkie kluczowe informacje, których potrzebują programiści do rozpoczęcia pracy.
-
