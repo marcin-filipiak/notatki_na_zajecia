@@ -1,4 +1,4 @@
-Kryteria oceniania specyfikacji funkcjonalnej
+# Kryteria oceniania specyfikacji funkcjonalnej
 
 Ndst (1):
 
