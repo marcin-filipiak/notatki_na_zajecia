@@ -5,10 +5,20 @@
 ## Inicjacja projektu
 
 - ![Kroki w inicjacji projektu](inicjacja_projektu.md)
-- ![Dokument wizji projektu](wizja_projektu.md) TODO
+
+Powstają dokumenty:
+- ![Wizja projektu](wizja_projektu.md) TODO
 - ![Wstępny plan projektu](wstepny_plan_projektu.md) TODO
 
 ## Planowanie projektu
+
+- ![Kroki w planowaniu projektu](planowanie_projektu.md)
+
+Powstają dokumenty:
+- ![Harmonogram projektu](harmonogram_projektu.md) TODO
+- ![Plan zasobów](plan_zasobow.md) TODO
+- ![Dokument technologii i narzędzi](technologie_i_narzedzia.md) TODO
+- ![Plan zarządzania ryzykiem](plan_zarzadzania_ryzykiem.md) TODO
 
 ## Projektowanie systemu
 
