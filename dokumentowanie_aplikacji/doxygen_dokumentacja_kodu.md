@@ -84,3 +84,73 @@ Doxygen obsługuje wiele znaczników ułatwiających dokumentowanie kodu:
 - `@todo` – oznaczenie miejsc wymagających dalszej pracy.
 
 
+----
+
+### Przykładowy kod z tagami Doxygen
+
+```cpp
+/**
+ * @file example.cpp
+ * @brief Przykładowy kod dokumentowany za pomocą Doxygen.
+ * @author Jan Kowalski
+ * @version 1.0
+ * @date 2024-02-03
+ * 
+ * @note Ten plik zawiera przykładową implementację klasy i funkcji.
+ * @warning To tylko przykład, kod nie jest przeznaczony do produkcji.
+ * @todo Dodać obsługę wyjątków.
+ */
+
+#include <iostream>
+
+/**
+ * @class Rectangle
+ * @brief Klasa reprezentująca prostokąt.
+ */
+class Rectangle {
+private:
+    int width;  ///< Szerokość prostokąta
+    int height; ///< Wysokość prostokąta
+
+public:
+    /**
+     * @brief Konstruktor ustawiający szerokość i wysokość.
+     * @param w Szerokość prostokąta.
+     * @param h Wysokość prostokąta.
+     */
+    Rectangle(int w, int h);
+
+    /**
+     * @brief Oblicza pole powierzchni prostokąta.
+     * @return Pole powierzchni prostokąta.
+     */
+    int area() const;
+
+    /**
+     * @brief Wypisuje szczegóły prostokąta.
+     */
+    void print() const;
+};
+
+Rectangle::Rectangle(int w, int h) : width(w), height(h) {}
+
+int Rectangle::area() const {
+    return width * height;
+}
+
+void Rectangle::print() const {
+    std::cout << "Rectangle: " << width << " x " << height << ", Area: " << area() << std::endl;
+}
+
+/**
+ * @brief Funkcja główna programu.
+ * @return Zwraca 0 w przypadku sukcesu.
+ */
+int main() {
+    Rectangle rect(10, 5);
+    rect.print();
+    return 0;
+}
+
+```
+
