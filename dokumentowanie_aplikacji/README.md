@@ -4,6 +4,10 @@
 
 ## Inicjacja projektu
 
+- ![Kroki w inicjacji projektu](inicjacja_projektu.md)
+- ![Dokument wizji projektu](wizja_projektu.md) TODO
+- ![Wstępny plan projektu](wstepny_plan_projektu.md) TODO
+
 ## Planowanie projektu
 
 ## Projektowanie systemu
@@ -18,3 +22,7 @@
 
 Więcej informacji znajdziesz w notatkach z przedmiotu ![testowanie aplikacji](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/testowanie_aplikacji)
 Na zajęciach używamy ![Student Machine](https://github.com/marcin-filipiak/cpp_studentmachine) z zainstalowanym oprogramowaniem do przeprowadzania testów i synchronizacji z GitHub.
+
+## Wdrożenie i utrzymanie
+
+- Instrukcja obsługi
