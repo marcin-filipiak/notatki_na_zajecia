@@ -8,7 +8,7 @@
 
 ## Projektowanie systemu
 
-- ![Specyfikacja funkcjonalna](specyfikacja_funkcjonalna.md)  ![zasady oceniania](specyfikacja_funkcjonalna_ocenianie.md)
+- ![Specyfikacja funkcjonalna](specyfikacja_funkcjonalna.md) oraz  ![zasady oceniania](specyfikacja_funkcjonalna_ocenianie.md) wykonanego ćwiczenia.
 - ![Markdown](markdown.md) - język do dokumentacji np. na GitHub
 
 ## Implementacja (programowanie)
