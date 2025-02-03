@@ -1,4 +1,4 @@
-**Cykl życia projektu informatycznego**
+# Cykl życia projektu informatycznego
 
 Cykl życia projektu informatycznego obejmuje kolejne etapy realizacji projektu, od jego powstania aż do zakończenia. Każdy z tych etapów jest kluczowy dla powodzenia przedsięwzięcia i wpływa na jakość końcowego produktu.
 
