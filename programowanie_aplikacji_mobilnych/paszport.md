@@ -4,6 +4,8 @@ Czas: 80 minut
 
 ### Opis aplikacji desktopowej
 
+<img src="paszport.jpg">
+
 Na obrazie 1 przedstawiono ideę aplikacji desktopowej. W zależności od użytego środowiska programistycznego wygląd może nieznacznie się różnić.
 
 #### Opis wyglądu aplikacji
