@@ -1,4 +1,5 @@
-INF.04-01-21.06-SG  Czas: 80minut
+INF.04-01-21.06-SG  
+Czas: 80minut
 
 # Opis działania aplikacji mobilnej
 
