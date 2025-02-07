@@ -25,6 +25,8 @@ Repozytorium zawiera wybrane notatki z zajęć "Aplikacje Internetowe".
 * ![PHP Sesje](php_session.md)
 * ![PHP znaki specjalne](php_specialchars.md)
 * ![PHP praca z ciągami znaków](php_tekst.md) - operacje na tekście
+* ![PHP tworzenie klasy i obiektu](php_klasa_obiekt.md) - tworzenie klas, obiektów i dziedziczenie
+
 
 ## HTML z PHP i praca z bazą danych oraz plikami
 * ![HTML PHP formularz dodający rekord do bazy danych](html_form_php_add.md) - podstawowy przykład, dodawanie rekordu do bazy danych za pomocą PHP i formularza HTML
