@@ -6,6 +6,9 @@ Czas: 80minut
 
 ## Opis wyglądu aplikacji
 
+<img src="obraz-1a-INF-04-01-21-06-SG.png">
+Obraz 1a
+
 - **Napis** „Rejestruj konto”.
 - **Napis** „Podaj e-mail:”, a pod nim pole edycyjne z podpowiedzią o treści „email”.
 - **Napis** „Podaj hasło:”, a pod nim pole edycyjne do wprowadzenia hasła, realizuje ukrywanie hasła.
