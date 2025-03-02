@@ -7,8 +7,8 @@
 - ![Kroki w inicjacji projektu](inicjacja_projektu.md)
 
 Powstają dokumenty:
-- ![Wizja projektu](wizja_projektu.md) TODO
-- ![Wstępny plan projektu](wstepny_plan_projektu.md) TODO
+- ![Wizja projektu](wizja_projektu.md)
+- ![Wstępny plan projektu](wstepny_plan_projektu.md)
 
 ## Planowanie projektu
 
