@@ -53,3 +53,5 @@ Na obrazie 1 przedstawiono ideę aplikacji desktopowej. W zależności od użyte
 ### Dodatkowe wymagania
 - Aplikacja powinna być napisana **czytelnie**, zgodnie z zasadami **czystego formatowania kodu**.
 - **Nazwy zmiennych i funkcji** powinny być **znaczące** i jednoznaczne.
+
+Pliki jpg są w ![paszporty.zip](paszporty.zip)
