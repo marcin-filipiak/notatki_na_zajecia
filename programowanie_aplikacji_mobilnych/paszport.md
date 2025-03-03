@@ -43,8 +43,8 @@ Na obrazie 1 przedstawiono ideę aplikacji desktopowej. W zależności od użyte
 ##### Po wybraniu przycisku **„OK”**
 - **Jeśli wszystkie pola edycyjne są wypełnione:**  
   Wyświetlany komunikat:  
-  **„<imie> <nazwisko> kolor oczu <kolor>”**  
-  *(gdzie wartości w nawiasach <> pobierane są z kontrolek)*
+  ** [imie] [nazwisko] kolor oczu [kolor]**  
+  *(gdzie wartości w nawiasach [] pobierane są z kontrolek)*
 - **Jeśli brakuje imienia lub nazwiska:**  
   Wyświetlany komunikat: **„Wprowadź dane”**
 
