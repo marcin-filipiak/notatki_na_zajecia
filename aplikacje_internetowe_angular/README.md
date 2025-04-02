@@ -1,3 +1,5 @@
-Wstęp
-Struktura projektu
-Tworzenie komponentu
+
+* ![wstęp](wstep.md)
+* ![Struktura projektu](struktura_projektu.md)
+* ![Tworzenie komponentu](tworzenie_komponentu.md)
+* ![Routing](routing.md)
