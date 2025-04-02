@@ -29,7 +29,12 @@ Angular to platforma i framework do budowy dynamicznych aplikacji internetowych 
 - Aplikacje mobilne i desktopowe (z użyciem Ionic lub Electron).
 
 **5. Instalacja Angulara:**
-Aby rozpocząć pracę z Angular, należy mieć zainstalowane **Node.js** oraz **npm**. Następnie można zainstalować Angular CLI:
+Aby rozpocząć pracę z Angular, należy mieć zainstalowane **Node.js** oraz **npm**. 
+```sh
+apt install nodejs npm
+```
+
+Następnie można zainstalować Angular CLI:
 ```sh
 npm install -g @angular/cli
 ```
