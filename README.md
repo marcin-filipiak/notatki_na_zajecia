@@ -1,6 +1,35 @@
-# Notatki na zajęcia
+# Spis treści notatek i projektów
 
-Znajdziesz tutaj wybrane notatki z zajęć które prowadzę.
+Znajdziesz tutaj notatki z prowadzonych przeze mnie zajęć.
+
+## 📚 Algorytmy i struktury danych
+- [algorytmy_struktury_danych](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/algorytmy_struktury_danych)
+
+## 🖥️ Aplikacje desktopowe
+- [aplikacje_desktopowe_gtk](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/aplikacje_desktopowe_gtk)
+- [aplikacje_desktopowe_pygame](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/aplikacje_desktopowe_pygame)
+
+## 🌐 Aplikacje internetowe
+- [aplikacje_internetowe](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/aplikacje_internetowe)
+- [aplikacje_internetowe_angular](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/aplikacje_internetowe_angular)
+
+## 📱 Programowanie aplikacji mobilnych
+- [programowanie_aplikacji_mobilnych](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/programowanie_aplikacji_mobilnych)
+
+## 🧪 Testowanie aplikacji
+- [testowanie_aplikacji](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/testowanie_aplikacji)
+
+## 📝 Dokumentowanie aplikacji
+- [dokumentowanie_aplikacji](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/dokumentowanie_aplikacji)
+
+## 🧑‍🎓 Egzaminy zawodowe
+- [egzaminy_zawodowe](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/egzaminy_zawodowe)
+
+## 👨‍💻 Podstawy programowania
+- [podstawy_programowania_cpp](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/podstawy_programowania_cpp)
+- [podstawy_programowania_js](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/podstawy_programowania_js)
+- [podstawy_programowania_python](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/podstawy_programowania_python)
+
 
 # Linki
 
