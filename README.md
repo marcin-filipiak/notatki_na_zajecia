@@ -28,7 +28,7 @@ Znajdziesz tutaj notatki z prowadzonych przeze mnie zajęć.
 - [algorytmy_struktury_danych](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/algorytmy_struktury_danych)
 
 ## 🖥️ Programowanie urządzeń mechatronicznych
-- [sterowniki PLC](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/sterowniki_plc)
+- [sterowniki PLC](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/sterowniki_PLC)
 
 ## 🧑‍🎓 Egzaminy zawodowe
 - [egzaminy_zawodowe](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/egzaminy_zawodowe)
