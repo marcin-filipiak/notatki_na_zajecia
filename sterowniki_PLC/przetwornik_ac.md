@@ -81,6 +81,8 @@ To najprostsza koncepcja, dobrze nadająca się do zrozumienia działania:
 4. **Komparatory** – każdy porównuje napięcie wejściowe z jednym z napięć z dzielnika.
 5. **Układ logiczny (dekoder priorytetowy)** – zamienia wyniki komparatorów na kod binarny.
 
+---
+
 #### 8. Przykład – Flash ADC 3-bitowy (0–5 V):
 
 * Dzielnik rezystorowy tworzy progi co 0,625 V (5 V / 8 poziomów).
