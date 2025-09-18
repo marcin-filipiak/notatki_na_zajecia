@@ -24,7 +24,7 @@
 - ![Pętla `while`](while.md)  
 
 #### Inne  
-- Praca z czasem (moduł `time`)  
+- ![Praca z czasem (moduł `time`)](time.md)  
 - Reszta z dzielenia (`%`)  
 - Liczby pseudolosowe (moduł `random`)  
 
