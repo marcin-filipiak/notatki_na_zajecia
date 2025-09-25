@@ -1,4 +1,11 @@
 
+![zakres materiału](zakres_materialu.md)
+
+
+![pierwsze ćwiczenia](pierwsze_ćwiczenia.md)
+
+---
+
 ![podstawy LAD](podstawyLAD.md)
 
 ![cykl programu](cykl_programu.md)
