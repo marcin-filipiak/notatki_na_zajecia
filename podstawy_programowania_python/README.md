@@ -25,8 +25,8 @@
 
 #### Inne  
 - ![Praca z czasem (moduł `time`)](time.md)  
-- Reszta z dzielenia (`%`)  
-- Liczby pseudolosowe (moduł `random`)  
+- ![Reszta z dzielenia (`%`)](reszta_dzielenia.md)  
+- ![Liczby pseudolosowe (moduł `random`)](random.md)  
 
 #### Programowanie obiektowe  
 - Klasa, obiekt, metoda i atrybut  
