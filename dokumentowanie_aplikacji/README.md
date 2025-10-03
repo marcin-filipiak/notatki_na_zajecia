@@ -27,6 +27,7 @@ Powstają dokumenty:
 
 ## Implementacja (programowanie)
 - ![Doxygen dokumentacja kodu](doxygen_dokumentacja_kodu.md) - automatyzacja dokumentacji na podstawie tagów Doxygen w kodzie
+- ![Repozytorium Git](git.md) 
 
 ## Testowanie
 
