@@ -33,6 +33,9 @@ Znajdziesz tutaj notatki z prowadzonych przeze mnie zajęć.
 ## 🧑‍🎓 Egzaminy zawodowe
 - [egzaminy_zawodowe](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/egzaminy_zawodowe)
 
+## Informatyka
+- [informatyka](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/informatyka)
+
 # Linki
 
 Może zainteresują Cię również inne podobne repozytoria:
