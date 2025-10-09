@@ -22,3 +22,6 @@ Widżety:
 * ![DravingArea](cpp_gtk_dravingarea.md) - rysowanie niestandardowej grafiki
 * ![Dialog](cpp_gtk_dialog.md) - okno dialogowe
 * ![AboutDialog](cpp_gtk_aboutdialog.md) - okno about
+
+Inne:
+* ![AppIndicator](cpp_gtk_appindicator.md) - ikona aplikacji na panelu systemowym
