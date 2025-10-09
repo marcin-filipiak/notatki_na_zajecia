@@ -2,9 +2,16 @@
 
 #### Czym jest GTK+?
 
-GTK+ (GIMP Toolkit) to zestaw narzędzi do tworzenia graficznych interfejsów użytkownika (GUI) w języku C, ale również wykorzystywany w aplikacjach pisanych w C++. Został stworzony w 1997 roku przez Petera Mattisa i Spencera Kimballa na potrzeby edytora graficznego GIMP. GTK+ stał się fundamentem wielu aplikacji, szczególnie w systemach Linux, a jednym z najbardziej znanych środowisk graficznych korzystających z GTK+ jest GNOME.
+GTK+ to zestaw narzędzi do tworzenia graficznych interfejsów użytkownika (GUI) w języku C, ale może być również wykorzystywany w aplikacjach pisanych w C++. Został stworzony w 1997 roku przez Petera Mattisa i Spencera Kimballa na potrzeby edytora graficznego GIMP. GTK+ stał się fundamentem wielu aplikacji, szczególnie w systemach Linux, a jednym z najbardziej znanych środowisk graficznych korzystających z GTK+ jest GNOME.
 
-GTK+ jest częścią ekosystemu wolnego oprogramowania i jest dostępny na licencji LGPL (Lesser General Public License), co oznacza, że może być używany zarówno w projektach open-source, jak i komercyjnych. Obecnie funkcjonuje jako **GTK 4**, ale starsze wersje, takie jak GTK+ 2 czy GTK+ 3, wciąż są wykorzystywane.
+GTK+ jest częścią ekosystemu wolnego oprogramowania i jest dostępny na licencji LGPL (Lesser General Public License), co oznacza, że może być używany zarówno w projektach open-source, jak i komercyjnych.
+
+Obecnie biblioteka funkcjonuje jako GTK 4, natomiast starsze wersje, takie jak GTK+ 2 czy GTK+ 3, wciąż są szeroko wykorzystywane.
+
+Uwagi językowe i historyczne:
+GTK+ jest napisana w języku C, korzysta z własnego systemu obiektowego opartego na GObject.
+Dla programistów C++ dostępne jest obiektowe API gtkmm, które pozwala pisać aplikacje w stylu C++.
+W dokumentacji i współczesnych materiałach nazwa „GTK” zastępuje dawną „GTK+”, ale pakiety systemowe dla wersji 3 i 4 wciąż używają w pkg-config nazw takich jak gtk+-3.0.
 
 #### Gdzie jest stosowany?
 
