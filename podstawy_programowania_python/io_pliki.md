@@ -1,4 +1,4 @@
-Notatka: **Odczyt i zapis do plików w Pythonie**
+# Odczyt i zapis do plików w Pythonie
 
 ---
 
