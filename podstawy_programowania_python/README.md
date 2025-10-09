@@ -26,7 +26,10 @@
 #### Inne  
 - ![Praca z czasem (moduł `time`)](time.md)  
 - ![Reszta z dzielenia (`%`)](reszta_dzielenia.md)  
-- ![Liczby pseudolosowe (moduł `random`)](random.md)  
+- ![Liczby pseudolosowe (moduł `random`)](random.md)
+
+#### Zapis i odczyt danych
+- ![Obsługa plików](io_pliki.md)
 
 #### Programowanie obiektowe  
 - Klasa, obiekt, metoda i atrybut  
