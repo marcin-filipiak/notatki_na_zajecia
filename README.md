@@ -1,6 +1,6 @@
 # Spis treści notatek i projektów
 
-Znajdziesz tutaj notatki z prowadzonych przeze mnie zajęć.
+Znajdziesz tutaj notatki które opracowałem na zajęcia które prowadzę.
 
 ## 👨‍💻 Podstawy programowania
 - [podstawy_programowania_cpp](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/podstawy_programowania_cpp)
