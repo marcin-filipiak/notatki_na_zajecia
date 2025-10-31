@@ -32,5 +32,5 @@
 - ![Obsługa plików](io_pliki.md)
 
 #### Programowanie obiektowe  
-- Klasa, obiekt, metoda i atrybut  
-- Dziedziczenie i polimorfizm  
+- ![Klasa, obiekt, metoda i atrybut](klasa_obiekt.md)
+- ![Dziedziczenie i polimorfizm](dziedziczenie_polimorfizm.md)
