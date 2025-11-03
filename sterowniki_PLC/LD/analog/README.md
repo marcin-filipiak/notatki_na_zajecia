@@ -1,0 +1,1 @@
+odczyt wejścia analogowego
