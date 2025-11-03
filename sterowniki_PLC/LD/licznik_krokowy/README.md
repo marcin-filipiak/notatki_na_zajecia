@@ -1,0 +1,1 @@
+licznik krokowy
