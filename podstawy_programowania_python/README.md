@@ -27,6 +27,7 @@
 - ![Praca z czasem (moduł `time`)](time.md)  
 - ![Reszta z dzielenia (`%`)](reszta_dzielenia.md)  
 - ![Liczby pseudolosowe (moduł `random`)](random.md)
+- ![Obsługa błędów](bledy.md)
 
 #### Zapis i odczyt danych
 - ![Obsługa plików](io_pliki.md)
