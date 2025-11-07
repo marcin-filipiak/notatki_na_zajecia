@@ -80,4 +80,4 @@ Wszystko ma być zawarte w jednym pliku `index.php`.
 * Edytor kodu (np. Visual Studio Code, Geany)
 * Przeglądarka internetowa
 * phpMyAdmin / terminal MySQL
-* Dokumentacja PHP, HTML, CSS, JavaScript (offline)
+* Dokumentacja PHP, HTML, CSS, JavaScript
