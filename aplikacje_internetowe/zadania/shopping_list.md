@@ -73,11 +73,3 @@ Stwórz prostą aplikację webową w PHP, która pozwala użytkownikowi dodawać
 * JS: po kliknięciu na wiersz wiersz zmienia kolor tła (`background-color`) → tylko zmiana wizualna, **bez zmian w bazie**.
 * Walidacja JS: pola nie mogą być puste, ilość > 0.
 * Walidacja PHP: to samo sprawdzenie po stronie serwera.
-
----
-
-To zadanie jest jasne, wymaga użycia JS w innym celu niż walidacja, ale jest proste do wykonania w 30 minut.
-
-Mogę teraz zrobić **gotowy przykład działającego `shopping.php`**, który uczniowie mogliby przetestować.
-
-Chcesz, żebym go przygotował?
