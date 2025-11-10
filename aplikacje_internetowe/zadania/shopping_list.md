@@ -73,3 +73,16 @@ Stwórz prostą aplikację webową w PHP, która pozwala użytkownikowi dodawać
 * JS: po kliknięciu na wiersz wiersz zmienia kolor tła (`background-color`) → tylko zmiana wizualna, **bez zmian w bazie**.
 * Walidacja JS: pola nie mogą być puste, ilość > 0.
 * Walidacja PHP: to samo sprawdzenie po stronie serwera.
+
+---
+
+### 5. Ocena
+
+| Procent zdobytych punktów | Ocena |
+| ------------------------- | ----- |
+| 0–49%                     | 1     |
+| 50–64%                    | 2     |
+| 65–79%                    | 3     |
+| 80–89%                    | 4     |
+| 90–100%                   | 5     |
+
