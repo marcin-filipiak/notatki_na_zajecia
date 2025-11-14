@@ -28,7 +28,8 @@ Wybrane notatki z przedmiotu "Podstawy Programowania" (C / C++)
 
 ### Więcej niż zmienna  
 * ![Tablice i macierze](tablice.md) - tworzenie, przeglądanie i przekazywanie do funkcji
-* ![Struktura](struktura.md) 
+* ![Struktura](struktura.md)
+* ![Pliki](pliki.md) 
 
 ### Inne
 * ![Pobieranie czasu Unix](epoch_time.md) - pobranie epoch time
