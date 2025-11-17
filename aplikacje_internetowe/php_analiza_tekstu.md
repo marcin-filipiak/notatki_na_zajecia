@@ -148,3 +148,72 @@ Wynik:
 ```
 Array ( [ala] => 2 [ma] => 2 [kota] => 1 [a] => 1 [kot] => 1 [ale] => 1 )
 ```
+---
+
+## Przykłady
+
+### Analiza wystąpień słów w tekście
+
+Poniżej masz prosty, czytelny przykład w czystym PHP, który liczy wystąpienia słów w podanym tekście. Działa dla polskich liter i ignoruje wielkość znaków.
+
+```php
+<?php
+$text = "Ala ma kota, a kot ma Ale. Ale Ala woli psa!";
+
+// normalizacja
+$text = mb_strtolower($text);
+
+// usunięcie znaków interpunkcyjnych
+$text = preg_replace('/[^\p{L}\p{N}\s]/u', ' ', $text);
+
+// rozbicie na słowa
+$words = preg_split('/\s+/', $text, -1, PREG_SPLIT_NO_EMPTY);
+
+// liczenie
+$stats = array_count_values($words);
+
+foreach ($stats as $word => $count) {
+    echo $word . ": " . $count . "\n";
+}
+```
+
+* `mb_strtolower` – normalizacja wielkości liter.
+* `preg_replace` z klasą `\p{L}` usuwa interpunkcję, ale zostawia polskie znaki.
+* `preg_split` dzieli tekst na słowa.
+* `array_count_values` liczy ile razy każde słowo wystąpiło.
+
+Jeśli chcesz, mogę pokazać wersję zapisującą wynik do pliku JSON lub sortującą słowa po liczbie wystąpień.
+
+### Wyszukiwanie adresów url
+
+Do znajdowania hiperłączy w tekście w PHP najlepiej użyć wyrażeń regularnych z funkcją `preg_match_all`. Poniżej masz przykład i krótkie omówienie.
+
+```php
+<?php
+$text = "Sprawdź stronę https://example.com i http://test.pl. Możesz też użyć www.example.org lub mail@example.com.";
+
+$pattern = '/\b(?:https?:\/\/|www\.)\S+\b/i';
+
+preg_match_all($pattern, $text, $matches);
+
+print_r($matches[0]);
+```
+
+**Wynik:**
+
+```
+Array
+(
+    [0] => https://example.com
+    [1] => http://test.pl
+    [2] => www.example.org
+)
+```
+
+* `preg_match_all($pattern, $text, $matches)` – wyszukuje wszystkie fragmenty tekstu pasujące do wzorca.
+* `\b` – granica słowa, żeby linki były całymi słowami.
+* `(?:https?:\/\/|www\.)` – pasuje do „http://”, „https://” lub „[www.”](http://www.”)
+* `\S+` – dopasowuje wszystkie znaki, które **nie są spacją**.
+* `i` – ignoruje wielkość liter.
+
+
