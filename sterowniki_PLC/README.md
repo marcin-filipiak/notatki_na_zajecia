@@ -15,3 +15,9 @@
 ![przetwornik AC teoria](przetwornik_ac_teoria.md) ![przetwornik AC LAD](przetwornik_ac_lad.md)
 
 ![licznik krokowy](step_counter.md)
+
+---
+
+![metoda SFC](metoda_sfc.md)
+![układ nawrotny silnika](uklad_nawrotny.md)
+![elementy_hydraulika](elementy_hydraulika.md)
