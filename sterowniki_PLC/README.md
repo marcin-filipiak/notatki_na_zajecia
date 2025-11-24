@@ -19,5 +19,7 @@
 ---
 
 ![metoda SFC](metoda_sfc.md)
+
 ![układ nawrotny silnika](uklad_nawrotny.md)
+
 ![elementy_hydraulika](elementy_hydraulika.md)
