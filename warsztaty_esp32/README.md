@@ -8,13 +8,14 @@ Zajęcia mają charakter praktycznych warsztatów. Uczniowie samodzielnie podł�
 z wyświetlaczem OLED, jak i z komunikacją WiFi, co pozwala im poznawać różne sposoby prezentowania danych oraz tworzenia prostych rozwiązań sieciowych.
 
 W trakcie cyklu zajęć uczniowie mają okazję:
-    • uczyć się programowania w środowisku Arduino IDE,
-    • poznawać zasady działania czujników wykorzystywanych w robotyce i automatyce,
-    • tworzyć własne układy reagujące na otoczenie,
-    • obserwować, jak urządzenia komunikują się przez sieć,
-    • realizować indywidualne pomysły z wykorzystaniem dostępnych modułów.
+* uczyć się programowania w środowisku Arduino IDE,
+* poznawać zasady działania czujników wykorzystywanych w robotyce i automatyce,
+* tworzyć własne układy reagujące na otoczenie,
+* obserwować, jak urządzenia komunikują się przez sieć,
+* realizować indywidualne pomysły z wykorzystaniem dostępnych modułów.
 
 Dzięki połączeniu elektroniki, programowania i rozwiązań IoT uczestnicy zdobywają praktyczne umiejętności, które są coraz częściej wykorzystywane w nowoczesnych technologiach. 
 Zajęcia rozwijają kreatywność, samodzielność i zdolność projektowania działających urządzeń elektronicznych.
 
 
+<img src="plakat_warsztaty_esp32.png">
