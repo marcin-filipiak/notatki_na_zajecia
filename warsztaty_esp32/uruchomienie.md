@@ -5,11 +5,6 @@
 
 > **Wybierz: `Tools → Board → ESP32 Arduino → WEMOS LOLIN32`**
 
-**Dlaczego?**  
-- Płytka **WEMOS LOLIN32** ma OLED podłączony do **GPIO 5 (SDA)** i **GPIO 4 (SCL)** – **to samo co HW-724**.  
-- Arduino IDE automatycznie ustawi I2C na te piny – nie trzeba modyfikować kodu.
-
-
 ---
 
 ### ✅ Krok 2: Zainstaluj biblioteki (raz)
@@ -23,49 +18,43 @@
 
 ```cpp
 // --- BIBLIOTEKI ---
-#include <Wire.h>                // Komunikacja I2C (do OLED)
-#include <Adafruit_GFX.h>        // Bazowa biblioteka graficzna Adafruit
-#include <Adafruit_SSD1306.h>    // Sterownik dla OLED SSD1306
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
-// --- KONFIGURACJA WYŚWIETLACZA ---
-#define SCREEN_WIDTH 128   // Szerokość ekranu w pikselach
-#define SCREEN_HEIGHT 64   // Wysokość ekranu w pikselach
-#define OLED_ADDR 0x3C     // Standardowy adres I2C dla OLED SSD1306
+// --- KONFIGURACJA OLED ---
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_ADDR    0x3C
 
-// Tworzymy obiekt "display" – automatycznie używa I2C (SDA/SCL zależne od wybranej płytki)
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1); 
-// -1 = brak pinu RESET (OLED na HW-724 nie ma osobnego pinu reset)
+// 🔑 RĘCZNE USTAWIENIE PINÓW I2C (dla HW-724!)
+#define OLED_SDA     5   // SDA → GPIO 5
+#define OLED_SCL     4   // SCL → GPIO 4
+
+// Tworzymy obiekt wyświetlacza (RESET = -1, bo nie używany)
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
 // --- INICJALIZACJA ---
 void setup() {
-  // Uruchamiamy komunikację szeregową (do debugowania – opcjonalne)
   Serial.begin(115200);
 
-  // Inicjalizacja OLED
-  // SSD1306_SWITCHCAPVCC = ekran używa wewnętrznego zasilania (zwykle tak)
+  // ⚠️ KLUCZOWA LINIA: inicjalizacja I2C z WŁAŚCIWYMI pinami
+  Wire.begin(OLED_SDA, OLED_SCL);
+
   if (!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
-    Serial.println("Blad: nie mozna polaczyc z OLED!");
-    for (;;); // Zawieś program – bez OLED dalsza praca nie ma sensu
+    Serial.println("Blad: OLED nie odpowiada!");
+    for (;;); // Zawieś program
   }
 
-  // Czyszczenie bufora ekranu
   display.clearDisplay();
-
-  // Ustawienia tekstu
-  display.setTextSize(1);             // Skala tekstu (1 = 8x6 pikseli)
-  display.setTextColor(SSD1306_WHITE); // Kolor (biały – OLED monochromatyczny)
-  display.setCursor(0, 0);            // Pozycja kursora: x=0, y=0 (lewy górny róg)
-
-  // Tekst do wyświetlenia
-  display.println("Czesc, HW-724!");
-
-  // ⚠️ WAŻNE: bez tej linii nic się NIE POJAWI na ekranie!
-  display.display();
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0, 0);
+  display.println("HW-724 DZIALA!");
+  display.display(); // ⚠️ Bez tego – brak obrazu!
 }
 
-// --- GŁÓWNA PĘTLA ---
 void loop() {
-  // Nic nie robimy – ekran już wyświetla tekst
-  // Możesz tu dodać aktualizację danych, czujniki itp.
+  // Pusta pętla – ekran już działa
 }
 ```
