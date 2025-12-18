@@ -17,5 +17,13 @@ W trakcie cyklu zajęć uczniowie mają okazję:
 Dzięki połączeniu elektroniki, programowania i rozwiązań IoT uczestnicy zdobywają praktyczne umiejętności, które są coraz częściej wykorzystywane w nowoczesnych technologiach. 
 Zajęcia rozwijają kreatywność, samodzielność i zdolność projektowania działających urządzeń elektronicznych.
 
+## Spis treści
 
-<img src="plakat_warsztaty_esp32.png">
+  * ![KY-012](KY-012/Readme.md) - generowanie dźwięku dźwięku
+  * ![KY-015](KY-015/Readme.md) - odczyt temperatury i wilgotności
+  * ![KY-016](KY-016/Readme.md) - RGB LED ze wspólną katodą
+  * ![KY-019](KY-019/Readme.md) - Sterowanie przekaźnikiem
+  * ![KY-037](KY-037/Readme.md) - pomiar głośności dźwięku
+
+
+<img src="plakat_warsztaty_esp32.png" width="50%">
