@@ -23,10 +23,7 @@
 |---------------|--------------|-------|
 | **KY-012 GND** | `GND`        |       |
 | **KY-012 I/O** | `GPIO 13`    | Sygnał PWM – **nie może być pinem 20, 24+ na ESP32** |
-| **OLED VCC**   | `3.3V`       |       |
-| **OLED GND**   | `GND`        |       |
-| **OLED SDA**   | `GPIO 5`     | Linia danych I2C |
-| **OLED SCL**   | `GPIO 4`     | Linia zegara I2C |
+
 
 > ✅ ESP32 obsługuje funkcję `tone()` na pinach: **0–19, 21–23** – **GPIO13 jest poprawny**.
 
@@ -38,64 +35,40 @@ W projekcie mamy **dwa pliki**:
 - `main.ino` – główny program (poniżej)
 - `sensor_kit.cpp` – nasz własny moduł z klasą `KY012` (oraz opcjonalnie `KY015`, `KY019`)
 
-Uczniowie dodają plik `sensor_kit.cpp` przez **Sketch → Add File...** w Arduino IDE.
-
 ---
 
 ## 📄 4. Kod z komentarzami – `main.ino`
 
 ```cpp
-// main.ino – KY-012 z możliwością wyboru tonu
+// main.ino – KY-012 Buzzer + OLED
+#include "../sensor_kit.cpp"  // zawiera: KY012, OledHelper
 
-#include <Wire.h>                // obsługa komunikacji I2C (do OLED)
-#include <Adafruit_GFX.h>        // grafika podstawowa (tekst, linie)
-#include <Adafruit_SSD1306.h>    // obsługa OLED SSD1306
-#include "../sensor_kit.cpp"     // nasz moduł z klasą KY012
-
-// --- Ustawienia OLED ---
-#define SCREEN_WIDTH 128    // szerokość ekranu w pikselach
-#define SCREEN_HEIGHT 64    // wysokość ekranu w pikselach
-#define OLED_ADDR 0x3C      // adres I2C wyświetlacza
-#define OLED_SDA 5          // pin SDA → GPIO5
-#define OLED_SCL 4          // pin SCL → GPIO4
-
-// Obiekt OLED
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
-
-// --- Buzzer na GPIO13 ---
+// Buzzer na GPIO13
 KY012 buzzer(13);
 
-// Zmienna do cyklicznego testowania dźwięków
+// Czas ostatniego testu
 unsigned long lastTest = 0;
 
+// Ekran OLED – domyślne piny (SDA=5, SCL=4)
+OledHelper oled;
+
 void setup() {
-  // Inicjalizacja I2C z własnymi pinami (ważne na ESP32!)
-  Wire.begin(OLED_SDA, OLED_SCL);
-
-  // Uruchomienie OLED
-  if (!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
-    for (;;); // Zawieś program – OLED jest niezbędny
+  if (!oled.begin()) {
+    for (;;); // awaria OLED
   }
-
-  // Komunikat startowy
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(SSD1306_WHITE);
-  display.setCursor(0, 0);
-  display.println("KY-012 Tones");
-  display.display();
+  oled.showText("KY-012\nTones");
   delay(1000);
 }
 
 void loop() {
-  // WAŻNE: update() obsługuje automatyczne wyłączanie po czasie
+  // Obsługa automatycznego wyłączania dźwięku
   buzzer.update();
 
-  // Co 3 sekundy: odtwórz inny ton
+  // Co 3 sekundy: inny ton
   if (millis() - lastTest > 3000) {
     static uint8_t step = 0;
     switch (step) {
-      case 0: buzzer.beep(1000, 300); break; // niski ton
+      case 0: buzzer.beep(1000, 300); break; // niski
       case 1: buzzer.beep(2000, 300); break; // średni
       case 2: buzzer.beep(3000, 300); break; // wysoki
       case 3: buzzer.beep(4000, 300); break; // bardzo wysoki
@@ -104,14 +77,13 @@ void loop() {
     lastTest = millis();
   }
 
-  // Wyświetl aktualny stan buzzera na OLED
-  display.clearDisplay();
-  display.setCursor(0, 0);
-  display.print("Buzzer: ");
-  display.println(buzzer.getState()); // "ON " lub "OFF"
-  display.display();
+  // --- Wyświetl stan buzzera – prosto i bez bufora! ---
+  oled.clear();
+  oled.print("Buzzer: ");
+  oled.print(buzzer.getState()); // "ON" lub "OFF"
+  oled.update();
 
-  delay(100); // małe opóźnienie dla stabilności
+  delay(100);
 }
 ```
 
@@ -136,7 +108,6 @@ void loop() {
 | **Nie ma dźwięku** | Buzzer podłączony do złego pinu | Użyj pinu z zakresu 0–19 lub 21–23 |
 | | Zasilanie 3.3V zbyt słabe | Podłącz VCC do **5V** (sygnał I/O nadal z GPIO!) |
 | | Buzzer aktywny (nie pasywny) | Sprawdź, czy po `HIGH` jest ciągły dźwięk – jeśli tak, to inny typ |
-| **OLED nie działa** | Zły adres I2C | Sprawdź, czy adres to `0x3C` (czasem `0x3D`) |
 | **Dźwięk nie wyłącza się** | Brak `buzzer.update()` | Upewnij się, że ta linia jest w `loop()` |
 
 ---
