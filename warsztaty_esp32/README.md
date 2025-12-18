@@ -21,6 +21,7 @@ Zajęcia rozwijają kreatywność, samodzielność i zdolność projektowania dz
 
 Wstęp
   * ![Instalacja](instalacja.md) - instalacja i konfiguracja do pracy Arduino IDE
+  * ![Podstawy programowania](podstawy_programowania.md) - biblioteki, zmienne, warunki, pętle i obiekty
   * ![Uruchomienie](uruchomienie.md) - pierwszy program i napis na ekranie OLED
 
 Moduły
