@@ -6,6 +6,8 @@ Oczywiście! Oto **pełna notatka lekcyjna** dla projektu z **modułem KY-016 (R
 
 ## 🔍 1. Co to jest moduł KY-016?
 
+<img src="KY-016.jpg" width="50%">
+
 **KY-016** to moduł z **diodą RGB o wspólnej katodzie (common cathode)**, czyli:
 
 - Zawiera trzy osobne diody: **czerwoną (R), zieloną (G) i niebieską (B)** w jednej obudowie,
