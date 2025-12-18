@@ -36,4 +36,6 @@ Moduły
 Zadania
   * ![Kwadrat gra](zadania/kwadrat_gra.md) - poruszanie kwadratem po ekranie za pomocą joysticka
 
+---
+
 <img src="plakat_warsztaty_esp32.png" width="50%">
