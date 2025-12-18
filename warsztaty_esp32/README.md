@@ -19,6 +19,11 @@ Zajęcia rozwijają kreatywność, samodzielność i zdolność projektowania dz
 
 ## Spis treści
 
+Wstęp
+  * ![Instalacja](instalacja.md) - instalacja i konfiguracja do pracy Arduino IDE
+  * ![Uruchomienie](uruchomienie.md) - pierwszy program i napis na ekranie OLED
+
+Moduły
   * ![KY-012](KY-012/Readme.md) - generowanie dźwięku dźwięku
   * ![KY-015](KY-015/Readme.md) - odczyt temperatury i wilgotności
   * ![KY-016](KY-016/Readme.md) - RGB LED ze wspólną katodą
