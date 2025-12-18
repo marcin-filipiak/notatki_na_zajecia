@@ -29,7 +29,8 @@ Moduły
   * ![KY-012](KY-012/README.md) - generowanie dźwięku dźwięku
   * ![KY-015](KY-015/README.md) - odczyt temperatury i wilgotności
   * ![KY-016](KY-016/README.md) - RGB LED ze wspólną katodą
-  * ![KY-019](KY-019/README.md) - Sterowanie przekaźnikiem
+  * ![KY-019](KY-019/README.md) - sterowanie przekaźnikiem
+  * ![KY-023](KY-023/README.md) - joystick
   * ![KY-037](KY-037/README.md) - pomiar głośności dźwięku
 
 
