@@ -6,29 +6,212 @@
 
 #include <Arduino.h>
 
+
+//////////////////////// WYŚWIETLACZ //////////////////////////////
+
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+
+class OledHelper {
+private:
+  Adafruit_SSD1306 *display;
+  uint8_t sda, scl;
+  bool ready = false;
+
+  // Pomocnicza: drukuje tekst z \n (bez dodawania nowej linii na końcu!)
+  void printWithNewlines(const char* text) {
+    if (!text) return;
+
+    const char* start = text;
+    while (*start) {
+      const char* end = start;
+      while (*end && *end != '\n') end++;
+
+      // Wyświetl fragment do bufora
+      if (end > start) {
+        char buffer[128];
+        int len = end - start;
+        if (len >= 127) len = 127;
+        strncpy(buffer, start, len);
+        buffer[len] = '\0';
+        display->print(buffer); // drukujemy FRAGMENT
+      }
+
+      // Jeśli był \n, przechodzimy do nowej linii
+      if (*end == '\n') {
+        display->println(); // to przenosi kursor na początek nowej linii
+      }
+
+      start = (*end == '\n') ? end + 1 : end;
+    }
+  }
+
+public:
+  OledHelper() : OledHelper(5, 4) {}
+  OledHelper(uint8_t sdaPin, uint8_t sclPin) {
+    sda = sdaPin;
+    scl = sclPin;
+  }
+
+  bool begin() {
+    Wire.begin(sda, scl);
+    display = new Adafruit_SSD1306(128, 64, &Wire, -1);
+    if (!display->begin(SSD1306_SWITCHCAPVCC, 0x3C)) return false;
+    display->setTextColor(SSD1306_WHITE);
+    ready = true;
+    clear();
+    return true;
+  }
+
+  void clear() {
+    if (ready) {
+        display->clearDisplay();
+        display->setTextColor(SSD1306_WHITE);
+        setCursor(0, 0);
+    }
+  }
+
+  void setCursor(int x, int y) {
+    if (ready) display->setCursor(x, y);
+  }
+
+  void setTextSize(uint8_t size) {
+    if (ready) display->setTextSize(size);
+  }
+
+  
+  
+  // Dla tekstu – obsługuje \n
+  void print(const char* text) {
+    if (!ready) return;
+    if (text && strchr(text, '\n')) {
+      printWithNewlines(text);
+    } else {
+      display->print(text);
+    }
+  }
+
+  // Obsługa Arduino String (ważne dla kompatybilności z metodami zwracającymi String)
+  void print(const String& s) {
+      if (!ready) return;
+      // Konwertujemy String na const char*
+      print(s.c_str()); // → wywołuje naszą wersję z \n!
+    }
+
+  // Dla liczb – normalne drukowanie (bez \n, bo to nie tekst)
+  void print(int n) {
+    if (ready) display->print(n);
+  }
+
+  void print(float f, int decimals = 1) {
+    if (ready) display->print(f, decimals);
+  }
+
+  // --- Grafika (dla showLevel) ---
+  void drawRect(int x, int y, int w, int h) {
+    if (ready) display->drawRect(x, y, w, h, SSD1306_WHITE);
+  }
+
+  void fillRect(int x, int y, int w, int h) {
+    if (ready) display->fillRect(x, y, w, h, SSD1306_WHITE);
+  }
+
+  // --- Gotowe funkcje ---
+  void showLevel(const char* label, int value, int threshold = -1) {
+    if (!ready) return;
+    clear();
+    setTextSize(1);
+    print(label);
+    print(": ");
+    print(value);
+    print("%\n"); // ← \n = nowa linia!
+
+    int bar = constrain(value, 0, 100);
+    bar = map(bar, 0, 100, 0, 120);
+    drawRect(2, 20, 124, 8);
+    fillRect(4, 22, bar, 4);
+
+    if (threshold >= 0 && value >= threshold) {
+      setCursor(0, 40);
+      setTextSize(2);
+      print("ALERT!\n");
+    }
+    update();
+  }
+
+  void update() {
+    if (ready) display->display();
+  }
+
+  // showText – czyszczenie + print + odświeżenie
+  void showText(const char* text) {
+    clear();
+    print(text); // obsługuje \n!
+    update();
+  }
+};
+
+
+//////////////////////// MODUŁY ///////////////////////////////
+
 // ==================================================
-// KY037 – Analogowy czujnik dźwięku (tylko A0)
-// Zwraca głośność w procentach (0–100%)
+// KY037 – Analogowy czujnik dźwięku z detekcją szczytu
+// Zwraca względną głośność w % (0–100) na podstawie odchylenia
 // ==================================================
 class KY037 {
 private:
   uint8_t pin;
+  int baseline = 2048; // domyślna wartość spoczynkowa (połowa 0–4095)
+  unsigned long lastCalibration = 0;
+  const unsigned long CALIBRATION_INTERVAL = 10000; // kalibracja co 10s
+
+  // Kalibracja poziomu spoczynkowego (w ciszy)
+  void calibrate() {
+    if (millis() - lastCalibration > CALIBRATION_INTERVAL) {
+      int sum = 0;
+      for (int i = 0; i < 100; i++) {
+        sum += analogRead(pin);
+        delayMicroseconds(100);
+      }
+      baseline = sum / 100;
+      lastCalibration = millis();
+    }
+  }
 
 public:
   KY037(uint8_t p) : pin(p) {
-    // Pin analogowy – nie ustawiamy pinMode (ESP32: 32-39 to tylko INPUT)
+    // Pomiar początkowy poziomu spoczynkowego
+    int sum = 0;
+    for (int i = 0; i < 100; i++) {
+      sum += analogRead(pin);
+      delayMicroseconds(100);
+    }
+    baseline = sum / 100;
+    lastCalibration = millis();
   }
 
-  // Zwraca poziom dźwięku jako procent (0–100)
-  // Zakłada maks. wartość ADC = 4095 → 100%
+  // Zwraca względną głośność w % (0–100)
   int read() {
-    int raw = analogRead(pin);
-    // Ogranicz do 0–4095, by uniknąć ujemnych wartości
-    raw = max(0, min(raw, 4095));
-    return map(raw, 0, 4095, 0, 100);
+    calibrate(); // okresowa korekta poziomu spoczynkowego
+
+    int peak = 0;
+    // Zbierz próbki przez ~20 ms (typowy czas klaśnięcia)
+    for (int i = 0; i < 200; i++) {
+      int sample = analogRead(pin);
+      int deviation = abs(sample - baseline); // odchylenie od spoczynku
+      if (deviation > peak) peak = deviation;
+      delayMicroseconds(100); // 200 * 100µs = 20 ms
+    }
+
+    // Maksymalne sensowne odchylenie – dopasuj do swojego modułu!
+    const int MAX_DEVIATION = 1500; // eksperymentalna wartość
+
+    // Przeskaluj do 0–100%
+    int percent = map(peak, 0, MAX_DEVIATION, 0, 100);
+    return constrain(percent, 0, 100);
   }
 
-  // Czy dźwięk przekracza próg (w procentach)?
   bool isLoud(int thresholdPercent = 50) {
     return read() > thresholdPercent;
   }
@@ -255,8 +438,5 @@ public:
     return data[0] + data[1] / 10.0;
   }
 };
-
-
-
 
 #endif
