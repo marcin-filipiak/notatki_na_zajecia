@@ -22,9 +22,9 @@
 |------------------|--------------|-------|
 | **KY-023 VCC**   | `3.3V`       | **Nie podłączaj do 5V!** |
 | **KY-023 GND**   | `GND`        |       |
-| **KY-023 VRx**   | `GPIO 36`    | Wejście analogowe (VP) |
-| **KY-023 VRy**   | `GPIO 39`    | Wejście analogowe (VN) |
-| **KY-023 SW**    | `GPIO 14`    | Dowolny pin cyfrowy (z PULLUP) |
+| **KY-023 VRx**   | `GPIO 26`    | Wejście analogowe (VP) |
+| **KY-023 VRy**   | `GPIO 25`    | Wejście analogowe (VN) |
+| **KY-023 SW**    | `GPIO 16`    | Dowolny pin cyfrowy (z PULLUP) |
 
 ---
 
@@ -42,8 +42,8 @@ W projekcie mamy **dwa pliki**:
 // main.ino – KY-023 Joystick + OLED
 #include "../sensor_kit.cpp"  // zawiera: KY023, OledHelper
 
-// Joystick: X=36, Y=39, SW=14
-KY023 joystick(36, 39, 14);
+// Joystick: X=A0 (GPIO26), Y=A1 (GPIO25), SW=GPIO16
+KY023 joystick(26, 25, 16);
 
 // OLED – domyślne piny (SDA=5, SCL=4)
 OledHelper oled;
