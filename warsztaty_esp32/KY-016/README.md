@@ -28,10 +28,6 @@
 | **KY-016 G**  | `GPIO 26`    | Pin z PWM – steruje zielonym |
 | **KY-016 B**  | `GPIO 16`    | Pin z PWM – steruje niebieskim |
 | **KY-016 GND**| `GND`        | **Wspólna katoda – musi być podłączona!** |
-| **OLED VCC**  | `3.3V`       |       |
-| **OLED GND**  | `GND`        |       |
-| **OLED SDA**  | `GPIO 5`     | Linia danych I2C |
-| **OLED SCL**  | `GPIO 4`     | Linia zegara I2C |
 
 > ✅ **GPIO 16, 25, 26** są poprawnymi pinami z **PWM** na ESP32 – idealne do sterowania jasnością LED.
 
@@ -45,9 +41,7 @@
 
 W projekcie mamy **dwa pliki**:
 - `main.ino` – główny program (poniżej)
-- `sensor_kit.cpp` – nasz własny moduł z klasą `KY016` (oraz innymi klasami: `KY015`, `KY019`, `KY012`)
-
-Uczniowie dodają plik `sensor_kit.cpp` przez **Sketch → Add File...** w Arduino IDE.
+- `sensor_kit.cpp` – nasz własny moduł z klasą `KY016`
 
 ---
 
@@ -55,50 +49,30 @@ Uczniowie dodają plik `sensor_kit.cpp` przez **Sketch → Add File...** w Ardui
 
 ```cpp
 // main.ino – KY-016 RGB LED + OLED
+#include "../sensor_kit.cpp"  // zawiera: KY016, OledHelper
 
-#include <Wire.h>                // obsługa komunikacji I2C (do OLED)
-#include <Adafruit_GFX.h>        // grafika podstawowa (tekst, linie)
-#include <Adafruit_SSD1306.h>    // obsługa OLED SSD1306
-#include "../sensor_kit.cpp"     // nasz moduł z klasą KY016
-
-// --- Ustawienia OLED ---
-#define SCREEN_WIDTH 128    // szerokość ekranu w pikselach
-#define SCREEN_HEIGHT 64    // wysokość ekranu w pikselach
-#define OLED_ADDR 0x3C      // adres I2C wyświetlacza
-#define OLED_SDA 5          // pin SDA → GPIO5
-#define OLED_SCL 4          // pin SCL → GPIO4
-
-// Obiekt OLED
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
-
-// --- RGB LED: R=25, G=26, B=16 ---
+// RGB LED: R=25, G=26, B=16
 KY016 rgb(25, 26, 16);
 
-// Zmienna do cyklicznej zmiany koloru
-unsigned long lastChange = 0;
+// Stan koloru do wyświetlenia
 const char* currentColor = "OFF";
 
+// Czas ostatniej zmiany koloru
+unsigned long lastChange = 0;
+
+// Ekran OLED – domyślne piny (SDA=5, SCL=4)
+OledHelper oled;
+
 void setup() {
-  // Inicjalizacja I2C z własnymi pinami (ważne na ESP32!)
-  Wire.begin(OLED_SDA, OLED_SCL);
-
-  // Próba uruchomienia OLED
-  if (!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
-    for (;;); // Zawieś program – OLED jest niezbędny
+  if (!oled.begin()) {
+    for (;;); // awaria OLED
   }
-
-  // Komunikat startowy
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(SSD1306_WHITE);
-  display.setCursor(0, 0);
-  display.println("KY-016 RGB");
-  display.display();
+  oled.showText("KY-016\nRGB");
   delay(1000);
 }
 
 void loop() {
-  // Co 2 sekundy zmieniaj kolor
+  // Zmieniaj kolor co 2 sekundy
   if (millis() - lastChange > 2000) {
     static uint8_t step = 0;
     switch (step) {
@@ -115,14 +89,13 @@ void loop() {
     lastChange = millis();
   }
 
-  // Wyświetl aktualny kolor na OLED
-  display.clearDisplay();
-  display.setCursor(0, 0);
-  display.print("RGB: ");
-  display.println(currentColor);
-  display.display();
+  // Wyświetl aktualny kolor
+  oled.clear();
+  oled.print("RGB: ");
+  oled.print(currentColor);
+  oled.update();
 
-  delay(100); // małe opóźnienie dla stabilności
+  delay(100);
 }
 ```
 
@@ -148,7 +121,6 @@ void loop() {
 | | Błędne piny | Sprawdź: R=25, G=26, B=16 |
 | **Zbyt jasne / przepalone kolory** | Brak rezystorów ograniczających | Dodaj rezystory 220 Ω do R, G, B |
 | **Tylko jeden kolor działa** | Uszkodzona dioda lub zły pin | Przetestuj każdy kolor osobno |
-| **OLED nie działa** | Zły adres I2C | Sprawdź, czy adres to `0x3C` (czasem `0x3D`) |
 
 ---
 
