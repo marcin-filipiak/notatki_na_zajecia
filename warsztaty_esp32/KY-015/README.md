@@ -13,7 +13,7 @@
 
 ---
 
-## 🔌 2. Jak podłączyć DHT11 do ESP32?
+## 🔌 2. Jak podłączyć DHT11 i OLED do ESP32?
 
 | Element       | ESP32        | Uwagi |
 |---------------|--------------|-------|
@@ -37,7 +37,39 @@ W projekcie mamy **dwa pliki**:
 ## 📄 4. Kod z komentarzami – `main.ino`
 
 ```cpp
-TODO
+#include "../sensor_kit.cpp"  // zawiera: KY015, OledHelper
+
+// Czujnik na GPIO15
+KY015 sensor(15);
+
+// Ekran OLED – domyślne piny (SDA=5, SCL=4)
+OledHelper oled;
+
+void setup() {
+  if (!oled.begin()) {
+    for (;;); // awaria OLED
+  }
+
+  // Komunikat startowy
+  oled.showText("KY-015\nOLED");
+  delay(1000);
+}
+
+void loop() {
+  if (sensor.read()) {
+    float t = sensor.temperature();
+    float h = sensor.humidity();
+
+    // Formatujemy tekst z nowymi liniami
+    char buf[64];
+    snprintf(buf, sizeof(buf), "Temp: %.1f C\nWil:  %.1f %%", t, h);
+    oled.showText(buf); // showText = clear() + print() + update()
+  } else {
+    oled.showText("BLAD KY-015!");
+  }
+
+  delay(2000); // DHT11 wymaga przerwy
+}
 ```
 
 ---
@@ -49,7 +81,8 @@ TODO
 | **I2C** | Magistrala szeregowa do komunikacji z OLED (używa SDA i SCL) |
 | **GPIO** | Ogólne piny cyfrowe mikrokontrolera (tutaj: GPIO4, GPIO5, GPIO15) |
 | **Pull-up** | Rezystor łączący sygnał z VCC – zapewnia stabilny stan "1" |
-| **delay(2000)** | Opóźnienie |
+| **Checksum** | Prosta suma kontrolna w DHT11 – sprawdza, czy dane nie zostały zakłócane |
+| **delay(2000)** | Konieczne opóźnienie – DHT11 **nie działa** bez niego! |
 
 ---
 
@@ -59,6 +92,7 @@ TODO
 |--------|------------------|------------|
 | **"BLAD DHT11!"** | Źle podłączony czujnik | Sprawdź VCC, GND, DATA |
 | | Brak rezystora pull-up | Dodaj 4.7kΩ między DATA a VCC |
+| | Za częsty odczyt | Zwiększ `delay` do 2000 ms |
 
 ---
 
