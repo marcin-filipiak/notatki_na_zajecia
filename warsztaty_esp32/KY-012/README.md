@@ -2,6 +2,8 @@
 
 ## 🔍 1. Co to jest moduł KY-012?
 
+<img src="KY-012.jpg" width="50%">
+
 **KY-012** to moduł z **pasywnym buzzerem piezoelektrycznym**, często (ale błędnie) oznaczany jako „aktywny” w tanich zestawach edukacyjnych.
 
 - **Nie ma wewnętrznego generatora** – aby wydawał dźwięk, musi otrzymać **sygnał zmienny (PWM)** o określonej **częstotliwości**.
