@@ -23,6 +23,7 @@ Wstęp
   * ![Instalacja](instalacja.md) - instalacja i konfiguracja do pracy Arduino IDE
   * ![Podstawy programowania](podstawy_programowania.md) - biblioteki, zmienne, warunki, pętle i obiekty
   * ![Uruchomienie](uruchomienie.md) - pierwszy program i napis na ekranie OLED
+  * ![Obsługa OLED](obsługa_oled.md) - metody obsługi OLED
 
 Moduły
   * ![KY-012](KY-012/README.md) - generowanie dźwięku dźwięku
