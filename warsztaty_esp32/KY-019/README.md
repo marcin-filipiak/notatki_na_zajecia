@@ -2,6 +2,8 @@
 
 ## 🔍 1. Co to jest moduł KY-019?
 
+<img src="KY-019.jpg" width="50%">
+
 **KY-019** to **moduł przekaźnika** – element wykonawczy, który pozwala na **włączanie/wyłączanie urządzeń o dużym poborze mocy** (np. lampy, wentylatory, grzałki) za pomocą mikrokontrolera o niskim napięciu (np. ESP32).
 
 - **Napięcie sterujące (IN)**: 3.3V – kompatybilne z ESP32  
