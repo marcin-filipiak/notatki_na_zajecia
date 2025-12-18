@@ -24,11 +24,11 @@ Wstęp
   * ![Uruchomienie](uruchomienie.md) - pierwszy program i napis na ekranie OLED
 
 Moduły
-  * ![KY-012](KY-012/Readme.md) - generowanie dźwięku dźwięku
-  * ![KY-015](KY-015/Readme.md) - odczyt temperatury i wilgotności
-  * ![KY-016](KY-016/Readme.md) - RGB LED ze wspólną katodą
-  * ![KY-019](KY-019/Readme.md) - Sterowanie przekaźnikiem
-  * ![KY-037](KY-037/Readme.md) - pomiar głośności dźwięku
+  * ![KY-012](KY-012/README.md) - generowanie dźwięku dźwięku
+  * ![KY-015](KY-015/README.md) - odczyt temperatury i wilgotności
+  * ![KY-016](KY-016/README.md) - RGB LED ze wspólną katodą
+  * ![KY-019](KY-019/README.md) - Sterowanie przekaźnikiem
+  * ![KY-037](KY-037/README.md) - pomiar głośności dźwięku
 
 
 <img src="plakat_warsztaty_esp32.png" width="50%">
