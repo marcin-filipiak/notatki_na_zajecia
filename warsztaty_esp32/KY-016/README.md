@@ -1,7 +1,3 @@
-Oczywiście! Oto **pełna notatka lekcyjna** dla projektu z **modułem KY-016 (RGB LED)**, zgodna z Twoim ustalonym stylem – przejrzysta, edukacyjna i gotowa do wykorzystania na lekcji w liceum.
-
----
-
 # 📝 **Lekcja: Sterowanie modułem KY-016 – RGB LED z wyświetlaczem OLED**
 
 ## 🔍 1. Co to jest moduł KY-016?
@@ -164,7 +160,6 @@ void loop() {
 4. **Reakcja na temperaturę**: czerwony = gorąco (>28°C), niebieski = zimno (<20°C).
 5. **Sterowanie przyciskiem**: po naciśnięciu – zmień kolor na następny z listy.
 
----
 
 > 💡 **Ciekawostka**:  
 > Diody RGB są podstawą **wszystkich kolorowych ekranów** – telewizorów, telefonów, monitorów.  
