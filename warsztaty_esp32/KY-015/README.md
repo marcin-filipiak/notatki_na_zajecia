@@ -1,4 +1,4 @@
-# 📝 **Lekcja: Odczyt temperatury i wilgotności z modułu KY-015 i wyświetlanie odczytu na OLED**
+# 📝 **Lekcja: Odczyt temperatury i wilgotności z KY-015 i wyświetlanie odczytu na OLED**
 
 ## 🔍 1. Co to jest czujnik DHT11?
 
