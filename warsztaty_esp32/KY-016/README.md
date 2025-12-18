@@ -1,4 +1,4 @@
-# 📝 **Lekcja: Sterowanie modułem KY-016 – RGB LED z wyświetlaczem OLED**
+# 📝 **Lekcja: Sterowanie modułem RGB LED z KY-016 i wyświetlanie stanu na OLED**
 
 ## 🔍 1. Co to jest moduł KY-016?
 
