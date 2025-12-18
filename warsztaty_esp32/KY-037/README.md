@@ -24,10 +24,7 @@
 | **KY-037 VCC** | `3.3V`      | **Nie podłączaj do 5V!** |
 | **KY-037 GND** | `GND`       |       |
 | **KY-037 A0**  | `GPIO 39`   | Pin analogowy |
-| **OLED VCC**   | `3.3V`      |       |
-| **OLED GND**   | `GND`       |       |
-| **OLED SDA**   | `GPIO 5`    | Linia danych I2C |
-| **OLED SCL**   | `GPIO 4`    | Linia zegara I2C |
+
 
 > ✅ **GPIO 39** to pin **tylko do odczytu analogowego** – idealny dla czujników.
 
@@ -44,75 +41,23 @@ W projekcie mamy **dwa pliki**:
 ## 📄 4. Kod z komentarzami – `main.ino`
 
 ```cpp
-// main.ino – KY-037 Czujnik dźwięku + OLED (0–100%)
+// main.ino – KY-037 + OLED
+#include "../sensor_kit.cpp"
 
-#include <Wire.h>                // obsługa komunikacji I2C (do OLED)
-#include <Adafruit_GFX.h>        // grafika podstawowa (tekst, linie)
-#include <Adafruit_SSD1306.h>    // obsługa OLED SSD1306
-#include "../sensor_kit.cpp"     // nasz moduł z klasą KY037
-
-// --- Ustawienia OLED ---
-#define SCREEN_WIDTH 128    // szerokość ekranu w pikselach
-#define SCREEN_HEIGHT 64    // wysokość ekranu w pikselach
-#define OLED_ADDR 0x3C      // adres I2C wyświetlacza
-#define OLED_SDA 5          // pin SDA → GPIO5
-#define OLED_SCL 4          // pin SCL → GPIO4
-
-// Obiekt OLED
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
-
-// --- Czujnik dźwięku na GPIO39 ---
 KY037 sound(39);
-
-// Próg w procentach (dostosuj do otoczenia!)
-const int LOUD_THRESHOLD = 60; // 60% = głośny dźwięk
+const int LOUD_THRESHOLD = 60;
+OledHelper oled;
 
 void setup() {
-  // Inicjalizacja I2C z własnymi pinami (ważne na ESP32!)
-  Wire.begin(OLED_SDA, OLED_SCL);
-
-  // Próba uruchomienia OLED
-  if (!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
-    for (;;); // Zawieś program – OLED jest niezbędny
-  }
-
-  // Komunikat startowy
-  display.clearDisplay();
-  display.setTextSize(1);
-  display.setTextColor(SSD1306_WHITE);
-  display.setCursor(0, 0);
-  display.println("KY-037 Sound");
-  display.display();
+  if (!oled.begin()) for (;;);
+  oled.showText("KY-037\nSound");
   delay(1000);
 }
 
 void loop() {
-  // Odczytaj głośność jako procent (0–100%)
   int percent = sound.read();
-  bool loud = sound.isLoud(LOUD_THRESHOLD);
-
-  // --- Wyświetl na OLED ---
-  display.clearDisplay();
-  display.setCursor(0, 0);
-  display.print("Sound: ");
-  display.print(percent);
-  display.println("%");
-
-  // Pasek wizualizujący głośność (0–100% → 0–120 pikseli)
-  int barWidth = map(percent, 0, 100, 0, 120);
-  display.drawRect(2, 20, 124, 8, SSD1306_WHITE); // ramka
-  display.fillRect(4, 22, barWidth, 4, SSD1306_WHITE); // pasek
-
-  // Komunikat alarmowy
-  if (loud) {
-    display.setCursor(0, 40);
-    display.setTextSize(2);
-    display.setTextColor(SSD1306_WHITE);
-    display.println("LOUD!");
-  }
-
-  display.display();
-  delay(50); // odświeżaj często dla płynnego paska
+  oled.showLevel("Sound", percent, LOUD_THRESHOLD);
+  delay(50);
 }
 ```
 
@@ -138,7 +83,7 @@ void loop() {
 | | Moduł zasilany 5V | Podłącz **VCC do 3.3V** |
 | **Wartości zbyt wysokie w ciszy** | Brak kalibracji | Klasa sama kalibruje się – wystarczy chwila ciszy po uruchomieniu |
 | **Nie reaguje na dźwięk** | Zbyt niskie wzmocnienie | Kręć potencjometrem na module KY-037 (zwykle lewo/prawo) |
-| **OLED nie działa** | Zły adres I2C | Sprawdź, czy adres to `0x3C` (czasem `0x3D`) |
+
 
 ---
 
