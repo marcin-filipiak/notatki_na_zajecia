@@ -37,24 +37,7 @@ W projekcie mamy **dwa pliki**:
 ## 📄 4. Kod z komentarzami – `main.ino`
 
 ```cpp
-// main.ino – KY-037 + OLED
-#include "../sensor_kit.cpp"
-
-KY037 sound(39);
-const int LOUD_THRESHOLD = 60;
-OledHelper oled;
-
-void setup() {
-  if (!oled.begin()) for (;;);
-  oled.showText("KY-037\nSound");
-  delay(1000);
-}
-
-void loop() {
-  int percent = sound.read();
-  oled.showLevel("Sound", percent, LOUD_THRESHOLD);
-  delay(50);
-}
+TODO
 ```
 
 ---
