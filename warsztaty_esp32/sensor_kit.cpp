@@ -156,6 +156,74 @@ public:
 //////////////////////// MODUŁY ///////////////////////////////
 
 // ==================================================
+// KY023 – Joystick analogowy (X, Y, przycisk)
+// Pin VRx → oś X (analogowy)
+// Pin VRy → oś Y (analogowy)
+// Pin SW  → przycisk (cyfrowy, PULLUP)
+// ==================================================
+class KY023 {
+private:
+  uint8_t pinX, pinY, pinSW;
+  const int DEAD_ZONE = 150; // martwa strefa wokół środka (dla 0–1023)
+
+public:
+  KY023(uint8_t x, uint8_t y, uint8_t sw) : pinX(x), pinY(y), pinSW(sw) {
+    pinMode(pinSW, INPUT_PULLUP); // przycisk: zwiera do masy, więc PULLUP
+  }
+
+  // Surowe odczyty (0–1023 lub 0–4095)
+  int readX() { return analogRead(pinX); }
+  int readY() { return analogRead(pinY); }
+
+  // Znormalizowane do -100 ... +100
+  int x() {
+    int raw = analogRead(pinX);
+    // Dla ESP32: pełen zakres to 0–4095, ale wiele joysticków działa w 0–3300
+    // Dla bezpieczeństwa zakładamy 0–4095 → skalujemy do -100..100
+    return map(raw, 0, 4095, -100, 100);
+  }
+
+  int y() {
+    int raw = analogRead(pinY);
+    // Y: na joystickach zwykle "góra" = niskie napięcie → odwracamy!
+    return map(raw, 4095, 0, -100, 100); // odwrócenie osi Y
+  }
+
+  // Czy przycisk jest wciśnięty?
+  bool isPressed() {
+    return digitalRead(pinSW) == LOW; // PULLUP: LOW = wciśnięty
+  }
+
+  // Kierunek jako napis (dla OLED)
+  const char* direction() {
+    int dx = x();
+    int dy = y();
+
+    // Sprawdź najpierw przycisk
+    if (isPressed()) {
+      return "CLICK";
+    }
+
+    // Potem kierunki
+    bool left  = (dx < -30);
+    bool right = (dx >  30);
+    bool up    = (dy >  30); // bo odwróciliśmy Y
+    bool down  = (dy < -30);
+
+    if (up && right) return "UP-RIGHT";
+    if (up && left)  return "UP-LEFT";
+    if (down && right) return "DOWN-RIGHT";
+    if (down && left)  return "DOWN-LEFT";
+    if (up)    return "UP";
+    if (down)  return "DOWN";
+    if (left)  return "LEFT";
+    if (right) return "RIGHT";
+    return "CENTER";
+  }
+};
+
+
+// ==================================================
 // KY037 – Analogowy czujnik dźwięku z detekcją szczytu
 // Zwraca względną głośność w % (0–100) na podstawie odchylenia
 // ==================================================
@@ -257,17 +325,17 @@ public:
 };
 
 // ==================================================
-// KY012 – PASYWNY buzzer (piezoelektryczny)
+// KY006 – PASYWNY buzzer (piezoelektryczny)
 // Wymaga sygnału PWM – pozwala ustawić częstotliwość
 // ==================================================
-class KY012 {
+class KY006 {
 private:
   uint8_t pin;
   bool state;
   unsigned long autoOffTime = 0;
 
 public:
-  KY012(uint8_t p) : pin(p), state(false) {
+  KY006(uint8_t p) : pin(p), state(false) {
     pinMode(pin, OUTPUT);
     noTone(pin); // upewnij się, że jest cicho na starcie
   }
@@ -438,5 +506,8 @@ public:
     return data[0] + data[1] / 10.0;
   }
 };
+
+
+
 
 #endif
