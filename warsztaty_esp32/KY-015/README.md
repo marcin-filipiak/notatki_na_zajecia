@@ -2,6 +2,8 @@
 
 ## 🔍 1. Co to jest czujnik DHT11?
 
+<img src="KY-015.jpg" width="50%">
+
 **DHT11** to **niedrogi, cyfrowy czujnik** temperatury i wilgotności, często używany w projektach edukacyjnych i IoT.
 
 - **Zakres temperatury**: 0°C do 50°C (dokładność ±2°C)  
