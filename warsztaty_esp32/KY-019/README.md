@@ -23,10 +23,7 @@
 | **KY-019 VCC** | `3.3V` lub `5V` | Jeśli przekaźnik nie działa na 3.3V → użyj 5V |
 | **KY-019 GND** | `GND`        |       |
 | **KY-019 IN**  | `GPIO 13`    | Sygnał sterujący (3.3V logic!) |
-| **OLED VCC**   | `3.3V`       |       |
-| **OLED GND**   | `GND`        |       |
-| **OLED SDA**   | `GPIO 5`     | Linia danych I2C |
-| **OLED SCL**   | `GPIO 4`     | Linia zegara I2C |
+
 
 > ✅ Większość modułów KY-019 ma **diodę sygnalizacyjną** – świeci, gdy przekaźnik jest załączony.
 
@@ -38,74 +35,48 @@ W projekcie mamy **dwa pliki**:
 - `main.ino` – główny program (poniżej)
 - `sensor_kit.cpp` – nasz własny moduł z klasą `KY019`
 
-
-
 ---
 
 ## 📄 4. Kod z komentarzami – `main.ino`
 
 ```cpp
-// main.ino – KY-019 + OLED
 
-#include <Wire.h>                // obsługa komunikacji I2C (do OLED)
-#include <Adafruit_GFX.h>        // grafika podstawowa (tekst, linie)
-#include <Adafruit_SSD1306.h>    // obsługa konkretnie OLED SSD1306
-#include "../sensor_kit.cpp"     // nasz własny moduł KY019
+#include "../sensor_kit.cpp"  // zawiera: KY019, OledHelper
 
-// --- Ustawienia wyświetlacza OLED ---
-#define SCREEN_WIDTH 128    // szerokość ekranu w pikselach
-#define SCREEN_HEIGHT 64    // wysokość ekranu w pikselach
-#define OLED_ADDR 0x3C      // adres I2C wyświetlacza (sprawdź, jeśli nie działa!)
-#define OLED_SDA 5          // pin SDA → GPIO5 na ESP32
-#define OLED_SCL 4          // pin SCL → GPIO4 na ESP32
+// Przekaźnik na GPIO13
+KY019 relay(13);
 
-// Tworzymy obiekt "display", który obsługuje OLED
-// -1 oznacza, że nie używamy pinu RESET
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
-
-// --- Inicjalizacja przekaźnika KY-019 na pinie 13 ---
-KY019 relay(13);  // GPIO13 → sygnał sterujący
-
-// Zmienne do automatycznego testowania
+// Czas ostatniego przełączenia
 unsigned long lastToggle = 0;
 
+// Ekran OLED – domyślne piny (SDA=5, SCL=4)
+OledHelper oled;
+
 void setup() {
-  // Inicjalizujemy magistralę I2C z WŁAŚCIWYMI pinami (ważne na ESP32!)
-  Wire.begin(OLED_SDA, OLED_SCL);
-
-  // Próba uruchomienia OLED
-  if (!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
-    for (;;); // Zawieś program – nie ma sensu działać bez ekranu
+  if (!oled.begin()) {
+    for (;;); // awaria OLED
   }
-
-  // Pierwszy komunikat na ekranie
-  display.clearDisplay();         // wyczyść ekran
-  display.setTextSize(1);         // rozmiar tekstu (1 = mały)
-  display.setTextColor(SSD1306_WHITE); // kolor biały (OLED ma tylko czarno-biały)
-  display.setCursor(0, 0);        // ustaw kursor na początek
-  display.println("KY-019 + OLED"); // tekst
-  display.display();              // WYŚWIETL – bez tego NIC się nie pokaże!
-  delay(1000);                    // pokaż komunikat przez 1 sekundę
+  oled.showText("KY-019\nOLED");
+  delay(1000);
 }
 
 void loop() {
-  // WAŻNE: update() obsługuje automatyczne wyłączanie po czasie
+  // Obsługa automatycznego wyłączania przekaźnika
   relay.update();
 
-  // Co 5 sekund włącz przekaźnik na 2 sekundy (do testu działania)
+  // Co 5 sekund włącz na 2 sekundy
   if (millis() - lastToggle > 5000) {
-    relay.on(2000); // włącz na 2000 ms
+    relay.on(2000);
     lastToggle = millis();
   }
 
-  // --- Wyświetlenie stanu przekaźnika na OLED ---
-  display.clearDisplay();         // wyczyść ekran przed nowym tekstem
-  display.setCursor(0, 0);        // początek tekstu
-  display.print("Relay: ");
-  display.println(relay.getState()); // "ON " lub "OFF"
-  display.display();              // pokaż tekst na ekranie!
+  // --- Wyświetl stan przekaźnika – BEZ bufora! ---
+  oled.clear();
+  oled.print("Relay: ");
+  oled.print(relay.getState()); // zwraca "ON " lub "OFF"
+  oled.update();
 
-  delay(100); // niewielkie opóźnienie – zapobiega migotaniu OLED
+  delay(100);
 }
 ```
 
@@ -129,8 +100,6 @@ void loop() {
 |--------|------------------|------------|
 | **Przekaźnik nie klika** | Zasilanie 3.3V zbyt słabe | Podłącz **VCC do 5V**, **IN nadal do GPIO13 (3.3V!)** |
 | | Błędny pin | Sprawdź, czy `KY019 relay(13);` i fizyczne podłączenie |
-| **OLED nie działa** | Zły adres I2C | Sprawdź, czy adres to `0x3C` (czasem bywa `0x3D`) |
-| | Brak `relay.update()` | Bez tej linii **nie działa tryb czasowy**! |
 | **Stan "ON" nie znika** | Nie wywołano `update()` często | Upewnij się, że `relay.update()` jest w `loop()` |
 
 ---
