@@ -2,6 +2,8 @@
 
 ## 🔍 1. Co to jest moduł KY-037?
 
+<img src="KY-037.jpg" width="50%">
+
 **KY-037** to **analogowy czujnik dźwięku** oparty na **mikrofonie elektretowym** ze wzmacniaczem. Służy do wykrywania **intensywności dźwięku (głośności)** w otoczeniu.
 
 - **Typ wyjścia**: tylko **analogowe (A0)** – nie ma cyfrowego D0 (w przeciwieństwie do KY-038),
