@@ -9,8 +9,6 @@
 - **Interfejs**: cyfrowy, **1-pinowy** (protokół własny firmy Aosong)  
 - **Częstotliwość odczytu**: max. **raz na 2 sekundy** (nie można czytać szybciej!)
 
-> ❗ Uwaga: nie mylić z **KY-015** – to inny, analogowy moduł, który **nie daje cyfrowych danych**!
-
 ---
 
 ## 🔌 2. Jak podłączyć DHT11 i OLED do ESP32?
@@ -33,31 +31,23 @@
 
 W projekcie mamy **dwa pliki**:
 - `main.ino` – główny program (poniżej)
-- `sensor_kit.cpp` – nasz własny moduł z klasą `DHT11modul` (uczniowie go **dodają przez "Add File..."**)
-
-Nie używamy zewnętrznych bibliotek DHT – wszystko jest napisane **od podstaw**, by uczniowie zrozumieli, jak działa komunikacja z czujnikiem.
+- `sensor_kit.cpp` – nasz własny moduł z klasą `KY015`
 
 ---
 
 ## 📄 4. Kod z komentarzami – `main.ino`
 
 ```cpp
-// ==================================================
-// Projekt: Pomiar temperatury i wilgotności z DHT11
-// Wyświetlanie wyników na ekranie OLED SSD1306
-// Platforma: ESP32
-// ==================================================
-
 // --- Wymagane biblioteki z Arduino IDE ---
 #include <Wire.h>                // obsługa komunikacji I2C (do OLED)
 #include <Adafruit_GFX.h>        // grafika podstawowa (tekst, linie)
 #include <Adafruit_SSD1306.h>    // obsługa konkretnie OLED SSD1306
-#include "sensor_kit.cpp"        // nasz własny moduł DHT11 (klasa DHT11modul)
+#include "../sensor_kit.cpp"     // nasz własny moduł KY-015 (klasa KY015)
 
 // --- Ustawienia wyświetlacza OLED ---
 #define SCREEN_WIDTH 128    // szerokość ekranu w pikselach
 #define SCREEN_HEIGHT 64    // wysokość ekranu w pikselach
-#define OLED_ADDR 0x3C      // adres I2C wyświetlacza (sprawdź multimetrem, jeśli nie działa!)
+#define OLED_ADDR 0x3C      // adres I2C wyświetlacza
 #define OLED_SDA 5          // pin SDA → GPIO5 na ESP32
 #define OLED_SCL 4          // pin SCL → GPIO4 na ESP32
 
@@ -65,20 +55,17 @@ Nie używamy zewnętrznych bibliotek DHT – wszystko jest napisane **od podstaw
 // -1 oznacza, że nie używamy pinu RESET
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
-// --- Inicjalizacja czujnika DHT11 na pinie 15 ---
-DHT11modul czujnik(15);  // GPIO15 → sygnał z DHT11
+// --- Inicjalizacja modułu KY-015 na pinie 15 ---
+KY015 sensor(15);  // GPIO15 → sygnał z czujnika
 
 // ==================================================
 void setup() {
-  // Uruchamiamy komunikację szeregową (do debugu w Serial Monitor)
-  Serial.begin(115200);
 
   // Inicjalizujemy magistralę I2C z WŁAŚCIWYMI pinami (ważne na ESP32!)
   Wire.begin(OLED_SDA, OLED_SCL);
 
   // Próba uruchomienia OLED
   if (!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
-    Serial.println("BLAD: OLED nie odpowiada!");
     for (;;); // Zawieś program – nie ma sensu działać bez ekranu
   }
 
@@ -87,45 +74,41 @@ void setup() {
   display.setTextSize(1);         // rozmiar tekstu (1 = mały)
   display.setTextColor(SSD1306_WHITE); // kolor biały (OLED ma tylko czarno-biały)
   display.setCursor(0, 0);        // ustaw kursor na początek
-  display.println("DHT11 + OLED"); // tekst
+  display.println("KY-015 + OLED"); // tekst
   display.display();              // WYŚWIETL – bez tego NIC się nie pokaże!
   delay(1000);                    // pokaż komunikat przez 1 sekundę
 }
 
 // ==================================================
 void loop() {
-  // Próba odczytu danych z czujnika
-  if (czujnik.odczytaj()) {
+  // Próba odczytu danych z modułu KY-015
+  if (sensor.read()) {
     // Odczyt się powiódł – pobieramy wartości
-    float t = czujnik.temperatura(); // np. 23.0
-    float h = czujnik.wilgotnosc();  // np. 45.0
+    float t = sensor.temperature(); // np. 23.0
+    float h = sensor.humidity();    // np. 45.0
 
     // --- Wyświetlenie na OLED ---
     display.clearDisplay();          // wyczyść ekran przed nowym tekstem
     display.setCursor(0, 0);         // początek tekstu
     display.print("Temp: ");
     display.print(t, 1);             // 1 cyfra po przecinku
-    display.println(" *C");
+    display.println(" C");
 
-    display.print("Wilg: ");
+    display.print("Wil:  ");
     display.print(h, 1);
     display.println(" %");
 
     display.display();               // pokaż tekst na ekranie!
 
-    // --- Wypisanie do Serial Monitor (dla nauczyciela/debugu) ---
-    Serial.print("Temperatura: "); Serial.print(t, 1); Serial.println(" *C");
-    Serial.print("Wilgotnosc: ");  Serial.print(h, 1); Serial.println(" %");
   } 
   else {
     // Błąd odczytu – np. źle podłączony czujnik
     display.clearDisplay();
-    display.println("BLAD DHT11!");
+    display.println("BLAD KY-015!");
     display.display();
-    Serial.println("Blad odczytu DHT11!");
   }
 
-  // DHT11 NIE MOŻE być odczytywany częściej niż raz na 2 sekundy!
+  // Moduł DHT11 (w KY-015) NIE MOŻE być odczytywany częściej niż raz na 2 sekundy!
   delay(2000);
 }
 ```
@@ -159,10 +142,4 @@ void loop() {
 ## 🎯 7. Zadania dla uczniów (rozszerzenie)
 
 1. Zmień pin DHT11 na inny (np. GPIO 32) – co trzeba zmienić?
-2. Dodaj wyświetlanie daty/godziny (symulowanej) na OLED.
-3. Zrób alarm: jeśli temperatura > 30°C, wyświetl "GORĄCO!".
-4. Porównaj odczyty z termometrem pokojowym – czy DHT11 jest dokładny?
-
----
-
-Powodzenia na lekcji! Ten projekt doskonale wprowadza w tematy: **czujniki, komunikacja cyfrowa, obsługa wyświetlaczy i debugowanie**.
+2. Zrób alarm: jeśli temperatura > 30°C, wyświetl "GORĄCO!".
