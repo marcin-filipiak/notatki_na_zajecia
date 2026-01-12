@@ -32,6 +32,8 @@
 
 ## 💻 3. Struktura projektu
 
+https://app.arduino.cc/sketches/ff5e3992-ac57-475f-aaca-a3f332fbd4d1?view-mode=preview
+
 W projekcie mamy **dwa pliki**:
 - `main.ino` – główny program (poniżej)
 - `sensor_kit.cpp` – nasz własny moduł z klasą  **`KY037`**
