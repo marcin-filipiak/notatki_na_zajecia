@@ -20,21 +20,22 @@ Zajęcia rozwijają kreatywność, samodzielność i zdolność projektowania dz
 ## Spis treści
 
 ### Wstęp
-  * ![Instalacja](instalacja.md) - instalacja i konfiguracja do pracy Arduino IDE
-  * ![Podstawy programowania](podstawy_programowania.md) - biblioteki, zmienne, warunki, pętle i obiekty
-  * ![Uruchomienie](uruchomienie.md) - pierwszy program i napis na ekranie OLED
-  * ![Obsługa OLED](obsługa_oled.md) - metody obsługi OLED
+  * [Instalacja](instalacja.md) - instalacja i konfiguracja do pracy Arduino IDE
+  * [Środowisko online](arduino_ide_online.md) - Arduino IDE Online
+  * [Podstawy programowania](podstawy_programowania.md) - biblioteki, zmienne, warunki, pętle i obiekty
+  * [Uruchomienie](uruchomienie.md) - pierwszy program i napis na ekranie OLED
+  * [Obsługa OLED](obsługa_oled.md) - metody obsługi OLED
 
 ### Moduły
-  * ![KY-006](KY-006/README.md) - generowanie dźwięku
-  * ![KY-015](KY-015/README.md) - odczyt temperatury i wilgotności
-  * ![KY-016](KY-016/README.md) - RGB LED ze wspólną katodą
-  * ![KY-019](KY-019/README.md) - sterowanie przekaźnikiem
-  * ![KY-023](KY-023/README.md) - joystick
-  * ![KY-037](KY-037/README.md) - pomiar głośności dźwięku
+  * [KY-006](KY-006/README.md) - generowanie dźwięku
+  * [KY-015](KY-015/README.md) - odczyt temperatury i wilgotności
+  * [KY-016](KY-016/README.md) - RGB LED ze wspólną katodą
+  * [KY-019](KY-019/README.md) - sterowanie przekaźnikiem
+  * [KY-023](KY-023/README.md) - joystick
+  * [KY-037](KY-037/README.md) - pomiar głośności dźwięku
 
 ### Zadania
-  * ![Kwadrat gra](zadania/kwadrat_gra.md) - poruszanie kwadratem po ekranie za pomocą joysticka
+  * [Kwadrat gra](zadania/kwadrat_gra.md) - poruszanie kwadratem po ekranie za pomocą joysticka
 
 ---
 
