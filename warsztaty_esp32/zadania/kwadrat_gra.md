@@ -8,6 +8,8 @@ Kwadrat ma być **wypełniony** by był dobrze widoczny.
 
 ## 📄 Gotowy kod – `main.ino`
 
+https://app.arduino.cc/sketches/d8edd30c-9ecb-414f-b1f5-844ef9db128d?view-mode=preview
+
 ```cpp
 // main.ino – Sterowanie kwadratem przez joystick KY-023
 #include "../sensor_kit.cpp"
