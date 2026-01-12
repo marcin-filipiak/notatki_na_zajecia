@@ -41,10 +41,10 @@ W projekcie mamy **dwa pliki**:
 
 ```cpp
 // main.ino – KY-006 Buzzer + OLED
-#include "../sensor_kit.cpp"  // zawiera: KY012, OledHelper
+#include "../sensor_kit.cpp"  // zawiera: KY006, OledHelper
 
 // Buzzer na GPIO13
-KY012 buzzer(13);
+KY006 buzzer(13);
 
 // Czas ostatniego testu
 unsigned long lastTest = 0;
