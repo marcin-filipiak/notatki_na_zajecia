@@ -70,6 +70,12 @@ ST   %Q0.3
 
 ### 3. Timer
 
+Na zakładce "tools" w "software objects->timers" ustaw parametry timera %TM0 
+np. type: TON, 
+timer base: 1 ms,
+preset: 1000.
+(włączenie po 1 sekundzie)
+
 ```
 blk %tm0
     ld %i0.0
