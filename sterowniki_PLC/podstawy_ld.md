@@ -86,6 +86,29 @@ blk %tm0
 end_blk
 ```
 
+Opis działania krok po kroku:
+
+    blk %tm0
+    Rozpoczyna definicję bloku funkcyjnego typu timer (oznaczonego jako %tm0). %tm0 to instancja timera — np. typu TON (Timer ON Delay).
+    
+    ld %i0.0
+    Ładuje (ang. load) stan wejścia cyfrowego %i0.0 (czyli przycisku) na stos logiczny. Jeśli przycisk jest wciśnięty → wartość TRUE (1), w przeciwnym razie FALSE (0).
+    
+    in
+    Przekazuje załadowaną wartość (%i0.0) do wejścia "IN" timera %tm0. To wejście aktywuje timer — jeśli IN = 1, timer zaczyna odliczać.
+    
+    out_blk
+    Kończy przekazywanie danych do bloku i uruchamia jego działanie. Timer %tm0 teraz działa zgodnie ze swoim typem (prawdopodobnie TON) i ustawionym czasem opóźnienia (który nie jest widoczny w tym fragmencie, ale zwykle ustawiany osobno, np. PT := T#5s).
+    
+    ld q
+    Ładuje wartość wyjścia timera — czyli sygnał Q (dostępny po zakończeniu odliczania). Gdy upłynie ustawiony czas i wejście IN nadal jest aktywne (=1), to Q przyjmuje wartość 1.
+    
+    st %q0.0
+    Zapisuje (ang. store) wartość Q na wyjście cyfrowe %q0.0 — czyli włącza lampkę po upływie czasu.
+    
+    end_blk
+    Kończy definicję bloku timera.
+
 **Opis:**
 
 * Naciśnięcie przycisku na i0.0 powoduje włączenie po określonym czasie lampki na q0.0
