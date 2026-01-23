@@ -28,6 +28,7 @@
 - ![Reszta z dzielenia (`%`)](reszta_dzielenia.md)  
 - ![Liczby pseudolosowe (moduł `random`)](random.md)
 - ![Obsługa błędów](bledy.md)
+- [Parametry](parametry.md)
 
 #### Zapis i odczyt danych
 - ![Obsługa plików](io_pliki.md)
