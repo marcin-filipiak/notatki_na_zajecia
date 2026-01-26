@@ -14,7 +14,9 @@
 
 [flagi markery zmienne](flagi_markery_zmienne.md)
 
-[przetwornik AC teoria](przetwornik_ac_teoria.md) ![przetwornik AC LAD](przetwornik_ac_lad.md)
+[przetwornik AC teoria](przetwornik_ac_teoria.md) 
+
+[przetwornik AC LAD](przetwornik_ac_lad.md)
 
 [licznik krokowy](step_counter.md)
 
