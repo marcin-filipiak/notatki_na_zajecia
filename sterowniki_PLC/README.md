@@ -4,6 +4,8 @@
 
 [pierwsze ćwiczenia](pierwsze_ćwiczenia.md)
 
+[drugie ćwiczenia](drugie_ćwiczenia.md)
+
 ---
 
 [podstawy LAD](podstawyLAD.md)
