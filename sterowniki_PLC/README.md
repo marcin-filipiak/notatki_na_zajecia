@@ -29,3 +29,7 @@
 [układ nawrotny silnika](uklad_nawrotny.md)
 
 [elementy_hydraulika](elementy_hydraulika.md)
+
+---
+
+[Dokumentacja Schneider Electric EcoStruxure](EcoStruxure Machine Expert - Basic, Generic Functions Library Guide.pdf)
