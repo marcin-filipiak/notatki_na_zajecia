@@ -32,4 +32,4 @@
 
 ---
 
-[Dokumentacja Schneider Electric EcoStruxure](EcoStruxure Machine Expert - Basic, Generic Functions Library Guide.pdf)
+<a href="EcoStruxure Machine Expert - Basic, Generic Functions Library Guide.pdf">Dokumentacja Schneider Electric EcoStruxure</a>
