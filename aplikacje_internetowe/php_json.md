@@ -248,3 +248,7 @@ foreach ($data as $t) {
     echo $t . "<br>";
 }
 ```
+
+# Ćwiczenia
+
+[Plik z danymi JSON](dane.json)
