@@ -34,7 +34,7 @@ Repozytorium zawiera wybrane notatki z zajęć "Aplikacje Internetowe".
 * [HTML PHP wyświetlanie danych z bazy danych](html_php_showdb.md) - wyświetlenie na stronie danych pobranych poleceniem SELECT
 * [HTML PHP operacje CRUD](html_php_form_add_edit_delete.md) - dodanie, wyświetlenie, edycja i usuwanie z bazy danych za pomocą PHP i formularza HTML ![sprawdzian](pytania_crud.md)
 * [HTML PHP przesyłanie pliku](html_php_form_file.md) - przesłanie formularzem pliku na serwer
-* [JSON](php_json.md) 
+* [JSON](php_json.md) - omówienie formatu JSON i jego obsługa w PHP
 
 ## HTML z JavaScript
 * [HTML JavaScript Wstęp](html_js_wstep.md) - wstęp do JavaScript
