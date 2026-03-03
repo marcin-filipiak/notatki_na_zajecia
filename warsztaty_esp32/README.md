@@ -17,6 +17,8 @@ W trakcie cyklu zajęć uczniowie mają okazję:
 Dzięki połączeniu elektroniki, programowania i rozwiązań IoT uczestnicy zdobywają praktyczne umiejętności, które są coraz częściej wykorzystywane w nowoczesnych technologiach. 
 Zajęcia rozwijają kreatywność, samodzielność i zdolność projektowania działających urządzeń elektronicznych.
 
+Szablon z przykładowym kodem https://app.arduino.cc/sketches/a11ec84c-cbf3-4d6f-98d0-20c64dd8a3ab?view-mode=preview
+
 ## Spis treści
 
 ### Wstęp
