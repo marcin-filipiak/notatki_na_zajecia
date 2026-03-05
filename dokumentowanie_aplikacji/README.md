@@ -15,8 +15,8 @@ Powstają dokumenty:
 - ![Kroki w planowaniu projektu](planowanie_projektu.md)
 
 Powstają dokumenty:
-- ![Harmonogram projektu](harmonogram_projektu.md) TODO
-- ![Plan zasobów](plan_zasobow.md) TODO
+- ![Harmonogram projektu](harmonogram_projektu.md)
+- ![Plan zasobów](plan_zasobow.md)
 - ![Dokument technologii i narzędzi](technologie_i_narzedzia.md) TODO
 - ![Plan zarządzania ryzykiem](plan_zarzadzania_ryzykiem.md) TODO
 
