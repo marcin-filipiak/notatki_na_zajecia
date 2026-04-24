@@ -40,5 +40,8 @@ Repozytorium zawiera wybrane notatki z zajęć "Aplikacje Internetowe".
 ## HTML z JavaScript
 * [HTML JavaScript Wstęp](html_js_wstep.md) - wstęp do JavaScript
 
+## Aplikacje
+* [Wordpress](wordpress.md) - instalacja, konfiguracja i zarządzanie
+
 ## EGZAMIN ZAWODOWY
 * ![inf03-2022-styczen-egzamin-zawodowy-praktyczny.pdf](inf03-2022-styczen-egzamin-zawodowy-praktyczny.pdf)
