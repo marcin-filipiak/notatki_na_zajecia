@@ -14,6 +14,7 @@ Znajdziesz tutaj notatki które opracowałem na prowadzone przeze mnie zajęcia.
 ## 🌐 Aplikacje internetowe
 - [aplikacje_internetowe](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/aplikacje_internetowe)
 - [aplikacje_internetowe_angular](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/aplikacje_internetowe_angular)
+- [aplikacje_internetowe_bootstrap](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/aplikacje_internetowe_bootstrap)
 - [aplikacje_internetowe_nodejs](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/aplikacje_internetowe_nodejs)
 
 ## 📱 Programowanie aplikacji mobilnych
@@ -31,6 +32,7 @@ Znajdziesz tutaj notatki które opracowałem na prowadzone przeze mnie zajęcia.
 ## 🖥️ Programowanie urządzeń mechatronicznych
 - [sterowniki PLC](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/sterowniki_PLC)
 - [warsztaty ESP32](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/warsztaty_esp32)
+- [sterowniki PLC schneider](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/sterowniki_PLC_schneider)
 
 ## 🧑‍🎓 Egzaminy zawodowe
 - [egzaminy_zawodowe](https://github.com/marcin-filipiak/notatki_na_zajecia/tree/main/egzaminy_zawodowe)
