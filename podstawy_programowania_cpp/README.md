@@ -26,8 +26,8 @@ Wybrane notatki z przedmiotu "Podstawy Programowania" (C / C++)
 * [Pętla while](while.md) 
 * [Pętla do while](dowhile.md)
 
-### Funkcje
-* [Funkcje](funkcje.md) - tworzenie własnych funkcji
+### Funkcja
+* [Funkcja](funkcja.md) - tworzenie własnych funkcji
 
 ### Więcej niż zmienna  
 * [Tablice i macierze](tablice.md) - tworzenie, przeglądanie i przekazywanie do funkcji
