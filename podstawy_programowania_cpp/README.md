@@ -9,42 +9,45 @@ Wybrane notatki z przedmiotu "Podstawy Programowania" (C / C++)
 ## Podstawy
 
 ### Słów kilka nim powstanie program 
-* ![Dyrektywa include](include.md) - podłączanie bibliotek i własnych plików nagłówkowych
-* ![Dyrektywa define](define.md)
-* ![Czym jest namespace std](std.md) - przestrzenie nazw
+* [Dyrektywa include](include.md) - podłączanie bibliotek i własnych plików nagłówkowych
+* [Dyrektywa define](define.md)
+* [Czym jest namespace std](std.md) - przestrzenie nazw
 
 ### Zmienne 
-* ![Zmienna i typy zmiennych](zmienna.md)
-* ![Wskaźniki](wskazniki.md) 
+* [Zmienna i typy zmiennych](zmienna.md)
+* [Wskaźniki](wskazniki.md) 
 
 ### Warunki 
-* ![Instrukcja warunkowa if](if.md)
-* ![Algebra Boolea w kontekście instrukcji warunkowych](algebra_boolea.md) 
+* [Instrukcja warunkowa if](if.md)
+* [Algebra Boolea w kontekście instrukcji warunkowych](algebra_boolea.md) 
 
 ### Pętle
-* ![Pętla for](for.md)
-* ![Pętla while](while.md) 
-* ![Pętla do while](dowhile.md)
+* [Pętla for](for.md)
+* [Pętla while](while.md) 
+* [Pętla do while](dowhile.md)
+
+### Funkcje
+* [Funkcje](funkcje.md) - tworzenie własnych funkcji
 
 ### Więcej niż zmienna  
-* ![Tablice i macierze](tablice.md) - tworzenie, przeglądanie i przekazywanie do funkcji
-* ![Struktura](struktura.md)
-* ![Pliki](pliki.md) 
+* [Tablice i macierze](tablice.md) - tworzenie, przeglądanie i przekazywanie do funkcji
+* [Struktura](struktura.md)
+* [Pliki](pliki.md)
 
 ### Inne
-* ![Pobieranie czasu Unix](epoch_time.md) - pobranie epoch time
-* ![Reszta z dzielenia](reszta_dzielenia.md)
-* ![Liczby pseudolosowe](liczby_pseudolosowe.md) - jak uzyskać liczby pseudolosowe
+* [Pobieranie czasu Unix](epoch_time.md) - pobranie epoch time
+* [Reszta z dzielenia](reszta_dzielenia.md)
+* [Liczby pseudolosowe](liczby_pseudolosowe.md) - jak uzyskać liczby pseudolosowe
 
 
 ## Programowanie obiektowe
 
-* ![Obiekt](obiekt.md) - klasa, obiekt, metoda i pole
-* ![Dziedziczenie](obiekt_dziedziczenie.md) - dziedziczenie klasy po innej klasie
+* [Obiekt](obiekt.md) - klasa, obiekt, metoda i pole
+* [Dziedziczenie](obiekt_dziedziczenie.md) - dziedziczenie klasy po innej klasie
 
 ## Bardziej zaawansowane tematy ;-)
 
-* ![Wektor](wektor.md) - zamiast tablicy może wektor?
-* ![Template](template.md) - różne typy danych dla klas i funkcji
+* [Wektor](wektor.md) - zamiast tablicy może wektor?
+* [Template](template.md) - różne typy danych dla klas i funkcji
 
 
