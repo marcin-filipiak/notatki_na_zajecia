@@ -1,4 +1,4 @@
-# Funkcje w C++
+# Funkcja w C++
 
 Funkcja to wydzielony fragment programu, który wykonuje określone zadanie.
 Funkcję możemy wywołać wielokrotnie w różnych miejscach programu.
